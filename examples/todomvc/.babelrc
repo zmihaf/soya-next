@@ -1,0 +1,12 @@
+{
+  "presets": [
+    "next/babel"
+  ],
+  "plugins": [
+    [
+      "css-modules-transform", {
+        "extractCss": "./static/css/bundle.css"
+      }
+    ]
+  ]
+}
