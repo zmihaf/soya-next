@@ -24,8 +24,11 @@ npm install --save soya-next
 ```
 
 ## Examples
-- Custom Routes ([source](https://github.com/traveloka/soya/examples/custom-routes))
-- TodoMVC ([source](https://github.com/traveloka/soya/examples/todomvc))
+- Custom Routes ([source](./examples/custom-routes))
+- TodoMVC ([source](./examples/todomvc))
+
+## Contributing
+Please see our [CONTIRBUTING.md](./CONTRIBUTING.md)
 
 ## License
 MIT
