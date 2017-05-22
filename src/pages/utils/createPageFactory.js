@@ -2,7 +2,7 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import SoyaProvider from '../../components/SoyaProvider';
-import withCookies from '../../cookies/withCookies';
+import { withCookies } from '../../cookies';
 import withLocale from '../../i18n/withLocale';
 import withStore from '../../redux/withStore';
 import { PAGE } from '../../constants/type';
@@ -28,7 +28,7 @@ export default (configureStore) => (...connectArgs) => (Page, reducers) => {
   }
 
   return compose(
-    withCookies,
+    withCookies(PAGE),
     withLocale(PAGE),
     withStore(configureStore, reducers),
   )(Soya);
