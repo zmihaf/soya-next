@@ -3,11 +3,15 @@ const next = require('next');
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const { createRouter } = require('soya-next');
+const routerOptions = {
+  defaultLocale: 'id-id',
+  siteLocales: ['id-id'],
+};
 
 app.prepare()
   .then(() => {
     const server = express();
-    server.use(createRouter(app));
+    server.use(createRouter(app, routerOptions));
     server.listen(3000, (err) => {
       if (err) throw err;
       console.log('> Ready on http://localhost:3000')

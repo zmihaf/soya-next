@@ -1,22 +1,16 @@
-const defaultOptions = {
-  defaultLocale: 'id-id',
-  siteLocales: ['id-id'],
-};
-
 export default ({
-  defaultLocale = defaultOptions.defaultLocale,
-  siteLocales = defaultOptions.siteLocales,
-} = defaultOptions) => (req, res, next) => {
+  defaultLocale,
+  siteLocales,
+} = {}) => (req, res, next) => {
   if (typeof defaultLocale !== 'string') {
-    throw new Error(`Expected defaultLocale to be a string.`);
+    throw new Error(`Expected defaultLocale to be a locale string.`);
   }
   if (typeof siteLocales !== 'object' || siteLocales.constructor !== Array) {
-    throw new Error(`Expected siteLocales to be an array.`);
+    throw new Error(`Expected siteLocales to be an array of locale string.`);
   }
   let [ language, country ] = defaultLocale.split('-');
   const [ url ] = req.url.substr(1).split('?');
   const [ localeSegment ] = url.split('/');
-  let locale = defaultLocale;
   if (localeSegment) {
     const [ languageSegment, countrySegment ] = localeSegment.split('-');
     language = languageSegment || language;
@@ -24,11 +18,11 @@ export default ({
     const newLocale = [ language, country ].join('-');
     if (siteLocales.indexOf(newLocale) !== -1) {
       req.url = '/' + url.substr(localeSegment.length + 1);
-      locale = newLocale;
     }
   }
-  req.country = country;
-  req.language = language;
-  req.locale = locale;
+  req.locale = {
+    country,
+    language,
+  };
   next();
 };
