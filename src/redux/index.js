@@ -1,5 +1,5 @@
 import storeEnhancer from './storeEnhancer';
-import withReducers from './withReducers';
+import applyReducers from './applyReducers';
 import withStore from './withStore';
 
-export { storeEnhancer, withReducers, withStore };
+export { storeEnhancer, applyReducers, withStore };
