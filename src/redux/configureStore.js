@@ -5,7 +5,7 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import enhancer from './storeEnhancer';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 
 export default (preloadedState, preloadedReducers) => createStore(
   preloadedReducers ? combineReducers(preloadedReducers) : () => ({}),
