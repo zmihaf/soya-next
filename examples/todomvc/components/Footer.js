@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import classnames from 'classnames'
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
-import styles from './Footer.css';
 
 const FILTER_TITLES = {
   [SHOW_ALL]: 'All',
@@ -56,7 +55,7 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <footer className={styles.footer}>
+      <footer className="footer">
         {this.renderTodoCount()}
         <ul className="filters">
           {[ SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED ].map(filter =>
