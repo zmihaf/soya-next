@@ -12,9 +12,13 @@ export default (app, {
   redirects = defaultOptions.redirects,
   defaultLocale,
   siteLocales,
+  compression,
 } = defaultOptions) => {
   const router = Router();
   const handle = app.getRequestHandler();
+  if (process.env.NODE_ENV === 'production') {
+    router.use(require('compression')(compression));
+  }
   router.use(cookieMiddleware());
   router.use(createLocaleMiddleware({ defaultLocale, siteLocales }));
   redirects.forEach(({ from, to, method = 'get', type = 301 }) => {
