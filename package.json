@@ -1,16 +1,12 @@
 {
   "name": "soya-next",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A set of utility functions for React applications built on top of Next.js.",
   "main": "lib/index.js",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/traveloka/soya-next.git"
-  },
-  "scripts": {
-    "build": "babel src -d lib",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "yarn build -- -w"
   },
   "keywords": [
     "next.js",
@@ -18,8 +14,15 @@
     "soya",
     "soya-next"
   ],
-  "author": "",
-  "license": "MIT",
+  "files": [
+    "lib",
+    "babel.js"
+  ],
+  "scripts": {
+    "build": "babel src -d lib",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "yarn build -- -w"
+  },
   "dependencies": {
     "compression": "^1.6.2",
     "css-loader": "^0.28.4",
@@ -34,6 +37,7 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.5",
+    "styled-modules": "^0.0.1",
     "universal-cookie-express": "^2.0.5",
     "url-loader": "^0.5.8"
   },
