@@ -12,12 +12,14 @@ export default ({
   const [ url ] = req.url.substr(1).split('?');
   const [ localeSegment ] = url.split('/');
   if (localeSegment) {
-    const [ languageSegment, countrySegment ] = localeSegment.split('-');
-    language = languageSegment || language;
-    country = countrySegment || country;
-    const newLocale = [ language, country ].join('-');
-    if (siteLocales.indexOf(newLocale) !== -1) {
-      req.url = '/' + url.substr(localeSegment.length + 1);
+    const [ languageSegment = language, countrySegment = country ] = localeSegment.split('-');
+    if (siteLocales.indexOf(`${language}-${country}`) !== -1) {
+      language = languageSegment;
+      country = countrySegment;
+      const newLocale = [ language, country ].join('-');
+      if (siteLocales.indexOf(newLocale) !== -1) {
+        req.url = '/' + url.substr(localeSegment.length + 1);
+      }
     }
   }
   req.locale = {
