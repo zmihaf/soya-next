@@ -1,0 +1,14 @@
+{
+  "name": "css-modules-with-scss",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "next dev"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "next": "^2.4.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
+}

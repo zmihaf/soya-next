@@ -1,0 +1,6 @@
+@import '../colors.scss';
+
+.root {
+  composes: font from '../font.module.scss';
+  color: $text-color;
+}

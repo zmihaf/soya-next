@@ -25,6 +25,7 @@ npm install --save soya-next
 
 ## Examples
 - CSS Modules ([source](./examples/css-modules))
+- CSS Modules with SCSS ([source](./examples/css-modules-with-scss))
 - Custom Routes ([source](./examples/custom-routes))
 - TodoMVC ([source](./examples/todomvc))
 
