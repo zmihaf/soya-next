@@ -21,7 +21,7 @@ export default (configureStore) => (...connectArgs) => (Page, reducers) => {
           locale={locale}
           store={store}
         >
-          <ConnectedPage {...props} />
+          <ConnectedPage {...this.props} />
         </SoyaProvider>
       );
     }
