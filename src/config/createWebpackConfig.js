@@ -1,9 +1,13 @@
 import { join } from 'path';
 
 export default function(config, { dev }) {
-  let localIdentName = null;
+  let localIdentName, imageName;
   if (dev) {
     localIdentName = '[name]__[local]--[hash:base64:5]';
+    imageName = '[name]';
+  } else {
+    localIdentName = null;
+    imageName = '[name]-[hash]';
   }
 
   config.module.rules.push(
@@ -67,7 +71,7 @@ export default function(config, { dev }) {
       loader: 'url-loader',
       options: {
         limit: 10000,
-        name: `dist/static/[path][name].[ext]`,
+        name: `dist/static/[path]${imageName}.[ext]`,
         publicPath: (url) => `${this.assetPrefix}/_soya/${url.replace('dist/static/', '')}`,
       },
     },
