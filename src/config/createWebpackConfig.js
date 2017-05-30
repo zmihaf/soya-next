@@ -1,4 +1,11 @@
+import { join } from 'path';
+
 export default function(config, { dev }) {
+  let localIdentName = null;
+  if (dev) {
+    localIdentName = '[name]__[local]--[hash:base64:5]';
+  }
+
   config.module.rules.push(
     {
       test: [
@@ -11,11 +18,48 @@ export default function(config, { dev }) {
       },
     },
     {
+      test: /\.module\.css$/,
+      use: [
+        'babel-loader',
+        'styled-modules/loader',
+        {
+          loader: 'css-loader',
+          options: {
+            localIdentName,
+            modules: true,
+            sourceMap: dev,
+            importLoaders: 1,
+          },
+        },
+        'postcss-loader',
+      ],
+    },
+    {
+      test: /\.module\.s(a|c)ss$/,
+      use: [
+        'babel-loader',
+        'styled-modules/loader',
+        {
+          loader: 'css-loader',
+          options: {
+            localIdentName,
+            modules: true,
+            sourceMap: dev,
+            importLoaders: 2,
+          },
+        },
+        'postcss-loader',
+        'sass-loader',
+      ],
+    },
+    {
       test: /\.css$/,
+      exclude: /\.module\.css$/,
       use: ['babel-loader', 'raw-loader', 'postcss-loader'],
     },
     {
       test: /\.s(a|c)ss$/,
+      exclude: /\.module\.s(a|c)ss$/,
       use: ['babel-loader', 'raw-loader', 'postcss-loader', 'sass-loader'],
     },
     {

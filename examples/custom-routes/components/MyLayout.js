@@ -1,5 +1,6 @@
 import Header from './Header'
 import logo from './logo.png';
+import styles from './MyLayout.module.css';
 
 const layoutStyle = {
   margin: 20,
@@ -11,7 +12,10 @@ const Layout = (props) => (
   <div style={layoutStyle}>
     <img src={logo} />
     <Header />
-    {props.children}
+    <div className={styles.content}>
+      {props.children}
+    </div>
+    <style modules>{styles}</style>
   </div>
 )
 

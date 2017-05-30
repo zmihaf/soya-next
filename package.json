@@ -12,11 +12,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "yarn build -- -w"
   },
-  "keywords": [],
+  "keywords": [
+    "next.js",
+    "react",
+    "soya",
+    "soya-next"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "compression": "^1.6.2",
+    "css-loader": "^0.28.4",
     "file-loader": "^0.11.1",
     "postcss-loader": "^2.0.5",
     "prop-types": "^15.5.10",
