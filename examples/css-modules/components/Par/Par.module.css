@@ -1,0 +1,4 @@
+.root {
+  composes: font from '../font.module.css';
+  color: #484c55;
+}
