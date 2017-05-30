@@ -1,19 +1,15 @@
 {
   "name": "custom-routes",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
   "main": "server.js",
+  "scripts": {
+    "start": "node ."
+  },
   "dependencies": {
     "express": "^4.15.3",
     "next": "^2.4.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT"
+  }
 }

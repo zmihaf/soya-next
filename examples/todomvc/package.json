@@ -1,15 +1,11 @@
 {
   "name": "todomvc",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
   "main": "server.js",
   "scripts": {
-    "start": "node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.5",
     "express": "^4.15.3",

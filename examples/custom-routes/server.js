@@ -4,11 +4,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const { createRouter } = require('soya-next');
 const routes = require('./routes');
-const routerOptions = {
-  routes,
-  defaultLocale: 'id-id',
-  siteLocales: ['id-id'],
-};
+const routerOptions = { routes };
 
 app.prepare()
   .then(() => {

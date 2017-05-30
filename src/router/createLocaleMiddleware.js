@@ -5,7 +5,7 @@ export default ({
   if (typeof defaultLocale !== 'string') {
     throw new Error(`Expected defaultLocale to be a locale string.`);
   }
-  if (typeof siteLocales !== 'object' || siteLocales.constructor !== Array) {
+  if (typeof siteLocales !== 'object' || siteLocales.constructor !== Array || siteLocales.length === 0) {
     throw new Error(`Expected siteLocales to be an array of locale string.`);
   }
   let [ language, country ] = defaultLocale.split('-');

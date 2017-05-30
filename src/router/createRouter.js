@@ -21,7 +21,9 @@ export default (app, {
     router.use(require('compression')(compression));
   }
   router.use(cookieMiddleware());
-  router.use(createLocaleMiddleware({ defaultLocale, siteLocales }));
+  if (defaultLocale && siteLocales) {
+    router.use(createLocaleMiddleware({ defaultLocale, siteLocales }));
+  }
   redirects.forEach(({ from, to, method = 'get', type = 301 }) => {
     router[method](from, (req, res) => res.redirect(type, to));
   });
