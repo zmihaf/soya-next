@@ -1,4 +1,6 @@
 # Soya Next
+[![npm version](https://img.shields.io/npm/v/soya-next.svg?style=flat-square)](https://www.npmjs.com/package/soya-next)
+
 Soya Next is a set of utility functions for React applications built on top of Next.js.
 
 ## Prerequisites
