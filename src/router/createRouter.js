@@ -1,3 +1,4 @@
+import { join } from 'path';
 import cookieMiddleware from 'universal-cookie-express';
 import createLocaleMiddleware from './createLocaleMiddleware';
 import Router from 'express/lib/router';
@@ -29,6 +30,10 @@ export default (app, {
     router[method](path, (req, res) => {
       app.render(req, res, page, Object.assign({}, req.query, req.params));
     });
+  });
+  router.get('/_soya/:path(*)', async (req, res) => {
+    const p = join(app.dir, app.dist, 'dist', 'static', req.params.path);
+    await app.serveStatic(req, res, p);
   });
   router.get('*', (req, res) => handle(req, res));
   return router;
