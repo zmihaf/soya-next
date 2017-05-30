@@ -10,13 +10,9 @@ export default (Component) => {
       locale: localeShape,
     };
 
-    constructor(props, context) {
-      super(props, context);
-      this.locale = props.locale || context.locale;
-    }
-
     render() {
-      return <Component {...this.props} locale={this.locale} />
+      const locale = this.props.locale || this.context.locale;
+      return <Component {...this.props} locale={locale} />
     }
   }
 

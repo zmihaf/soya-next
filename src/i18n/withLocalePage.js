@@ -16,6 +16,15 @@ export default (Page) => {
         locale = ctx.req.locale;
       } else {
         locale = window.locale;
+        if (ctx.query.locale) {
+          const [ language, country ] = ctx.query.locale.split('-');
+          if (locale.language !== language || locale.country !== country) {
+            locale = {
+              language,
+              country,
+            };
+          }
+        }
       }
       const props = Page.getInitialProps && await Page.getInitialProps({ ...ctx, locale });
       return {
