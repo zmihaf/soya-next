@@ -30,6 +30,7 @@ npm install --save soya-next
 - CSS Modules with SCSS ([source](./examples/css-modules-with-scss))
 - Custom Routes ([source](./examples/custom-routes))
 - I18n ([source](./examples/i18n))
+- I18n with Redux ([source](./examples/i18n-with-redux))
 - TodoMVC ([source](./examples/todomvc))
 
 ## Contributing

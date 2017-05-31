@@ -1,0 +1,20 @@
+{
+  "en": {
+    "language": "English",
+    "menuHome": "Home",
+    "menuAboutUs": "About Us",
+    "titleHome": "Internationalization Example",
+    "contentHome": "This is how internationalization example works in soya-next",
+    "titleAboutUs": "About Us",
+    "contentAboutUs": "This is the page about internationalization example"
+  },
+  "id": {
+    "language": "Bahasa Indonesia",
+    "menuHome": "Beranda",
+    "menuAboutUs": "Tentang Kami",
+    "titleHome": "Contoh Internasionalisasi",
+    "contentHome": "Ini contoh internasionalisasi bekerja dalam soya-next",
+    "titleAboutUs": "Tentang Kami",
+    "contentAboutUs": "Ini adalah halaman tentang contoh internasionalisasi"
+  }
+}
