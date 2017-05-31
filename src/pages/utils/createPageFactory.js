@@ -14,14 +14,16 @@ export default (configureStore) => (...connectArgs) => (Page, reducers) => {
     static getInitialProps = Page.getInitialProps;
 
     render() {
-      const { cookies, locale, store, ...props } = this.props;
+      const { store, ...props } = this.props;
       return (
         <SoyaProvider
-          cookies={cookies}
-          locale={locale}
+          cookies={this.props.cookies}
+          locale={this.props.locale}
+          defaultLocale={this.props.defaultLocale}
+          siteLocales={this.props.siteLocales}
           store={store}
         >
-          <ConnectedPage {...this.props} />
+          <ConnectedPage {...props} />
         </SoyaProvider>
       );
     }

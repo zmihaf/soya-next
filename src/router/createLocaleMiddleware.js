@@ -14,14 +14,16 @@ export default ({
   if (localeSegment) {
     const [ languageSegment = language, countrySegment = country ] = localeSegment.split('-');
     if (siteLocales.indexOf(`${language}-${country}`) !== -1) {
-      language = languageSegment;
       country = countrySegment;
+      language = languageSegment;
       const newLocale = [ language, country ].join('-');
       if (siteLocales.indexOf(newLocale) !== -1) {
         req.url = '/' + url.substr(localeSegment.length + 1);
       }
     }
   }
+  req.defaultLocale = defaultLocale;
+  req.siteLocales = siteLocales;
   req.locale = {
     country,
     language,

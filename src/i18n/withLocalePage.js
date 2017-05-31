@@ -11,10 +11,14 @@ export default (Page) => {
     };
 
     static async getInitialProps(ctx) {
-      let locale;
+      let defaultLocale, siteLocales, locale;
       if (ctx.req) {
+        defaultLocale = ctx.req.defaultLocale;
+        siteLocales = ctx.req.siteLocales;
         locale = ctx.req.locale;
       } else {
+        defaultLocale = window.defaultLocale;
+        siteLocales = window.siteLocales;
         locale = window.locale;
         if (ctx.query.locale) {
           const [ language, country ] = ctx.query.locale.split('-');
@@ -26,14 +30,23 @@ export default (Page) => {
           }
         }
       }
-      const props = Page.getInitialProps && await Page.getInitialProps({ ...ctx, locale });
+      const props = Page.getInitialProps && await Page.getInitialProps({
+        ...ctx,
+        defaultLocale,
+        siteLocales,
+        locale,
+      });
       return {
         ...props,
+        defaultLocale,
+        siteLocales,
         locale,
       };
     }
 
     componentDidMount() {
+      window.defaultLocale = this.props.defaultLocale;
+      window.siteLocales = this.props.siteLocales;
       window.locale = this.props.locale;
     }
 
