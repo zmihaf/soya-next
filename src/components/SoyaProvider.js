@@ -9,14 +9,14 @@ class SoyaProvider extends React.Component {
   static propTypes = {
     store: storeShape.isRequired,
     cookies: PropTypes.instanceOf(Cookies).isRequired,
-    defaultLocale: PropTypes.string.isRequired,
-    siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    defaultLocale: PropTypes.string,
+    siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired),
     locale: localeShape,
   };
 
   static childContextTypes = {
-    defaultLocale: PropTypes.string.isRequired,
-    siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    defaultLocale: PropTypes.string,
+    siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired),
     locale: localeShape,
     url: urlShape,
   };

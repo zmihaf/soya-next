@@ -8,8 +8,8 @@ export default (Component) => {
     static displayName = getDisplayName('WithLocale', Component);
 
     static contextTypes = {
-      defaultLocale: PropTypes.string.isRequired,
-      siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+      defaultLocale: PropTypes.string,
+      siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired),
       locale: localeShape,
     };
 
