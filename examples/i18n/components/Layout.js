@@ -1,21 +1,10 @@
 import { createComponent, LocaleLink } from 'soya-next';
+import LanguagePicker from './LanguagePicker';
 import data from '../data/i18n.json';
 
 const Layout = ({ children, locale, siteLocales }) => (
   <div>
-    <div style={{ textAlign: 'right' }}>
-      {siteLocales.map((locale) => {
-        const [ language, country ] = locale.split('-');
-        return (
-          <LocaleLink
-            key={locale}
-            locale={{ language, country }}
-          >
-            <a style={{ marginLeft: 5 }}>{data[language].language}</a>
-          </LocaleLink>
-        );
-      })}
-    </div>
+    <LanguagePicker />
     <hr />
     <div>
       <LocaleLink href='/'>
@@ -27,6 +16,8 @@ const Layout = ({ children, locale, siteLocales }) => (
       </LocaleLink>
     </div>
     {children}
+    <hr />
+    <LanguagePicker />
   </div>
 );
 
