@@ -13,7 +13,7 @@ export default ({
   const [ localeSegment ] = url.split('/');
   if (localeSegment) {
     const [ languageSegment = language, countrySegment = country ] = localeSegment.split('-');
-    if (siteLocales.indexOf(`${language}-${country}`) !== -1) {
+    if (siteLocales.indexOf(`${languageSegment}-${countrySegment}`) !== -1) {
       country = countrySegment;
       language = languageSegment;
       const newLocale = [ language, country ].join('-');
