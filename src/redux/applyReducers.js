@@ -3,10 +3,10 @@ import { storeShape } from 'react-redux/lib/utils/PropTypes';
 import getDisplayName from '../utils/getDisplayName';
 
 export default (reducers) => (Component) => {
-  if (reducers === undefined) return Component;
+  if (typeof reducers === 'undefined') return Component;
 
-  class SoyaComponent extends React.Component {
-    static displayName = getDisplayName('WithReducers', Component);
+  class ApplyReducers extends React.Component {
+    static displayName = getDisplayName('ApplyReducers', Component);
 
     static contextTypes = {
       store: storeShape.isRequired,
@@ -16,7 +16,7 @@ export default (reducers) => (Component) => {
       super(props, context);
       this.store = props.store || context.store;
       if (!this.store.soya) {
-        throw new Error('withReducers must be used with Soya\'s redux enhancer');
+        throw new Error('applyReducers must be used with Soya\'s redux enhancer');
       }
       this.store.replaceReducer(reducers);
     }
@@ -25,5 +25,5 @@ export default (reducers) => (Component) => {
       return <Component {...this.props} />;
     }
   }
-  return SoyaComponent;
+  return ApplyReducers;
 };

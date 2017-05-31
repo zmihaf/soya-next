@@ -6,32 +6,6 @@ export default (preloadedReducers) => (createStore) => (reducer, preloadedState,
   const soyaReducers = { ...preloadedReducers };
   const queries = {};
 
-  /**
-   * createLoadAction() {
-   *   return {
-   *     type: 'xx',
-   *     soya: {
-   *       id: 'xx',
-   *       load: function() { return new Promise()},
-   *       skipCache: true
-   *     }
-   *   };
-   * }
-   *
-   *
-   *
-   * {
-   *   type: "xx",
-   *
-   *   soya: {
-   *     id: '',
-   *     cacheTtl: '',
-   *     load: function() {}
-   *   }
-   *
-   *
-   */
-
   return {
     ...store,
     dispatch: ({ soya, ...action }) => {

@@ -10,7 +10,7 @@ import { PAGE } from '../../constants/types';
 export default (configureStore) => (...connectArgs) => (Page, reducers) => {
   const ConnectedPage = connect(...connectArgs)(Page);
 
-  class Soya extends React.Component {
+  class SoyaPage extends React.Component {
     static getInitialProps = Page.getInitialProps;
 
     render() {
@@ -34,5 +34,5 @@ export default (configureStore) => (...connectArgs) => (Page, reducers) => {
     withCookies(PAGE),
     withLocale(PAGE),
     withStore(configureStore, reducers),
-  )(Soya);
+  )(SoyaPage);
 };
