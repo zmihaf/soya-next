@@ -1,3 +1,7 @@
 import createLocaleMiddleware from './createLocaleMiddleware';
+import withUrl from './withUrl';
 
-export { createLocaleMiddleware };
+export {
+  createLocaleMiddleware,
+  withUrl,
+};
