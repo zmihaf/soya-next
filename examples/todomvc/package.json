@@ -13,7 +13,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "redux": "^3.6.0",
-    "soya-next": "^0.0.2",
+    "soya-next": "^0.0.3",
     "todomvc-app-css": "^2.1.0"
   }
 }
