@@ -59,12 +59,37 @@ export default function(config, { dev }) {
     {
       test: /\.css$/,
       exclude: /\.module\.css$/,
-      use: ['babel-loader', 'raw-loader', 'postcss-loader'],
+      use: [
+        'babel-loader',
+        'styled-modules/loader',
+        {
+          loader: 'css-loader',
+          options: {
+            localIdentName,
+            sourceMap: dev,
+            importLoaders: 1,
+          },
+        },
+        'postcss-loader',
+      ],
     },
     {
       test: /\.s(a|c)ss$/,
       exclude: /\.module\.s(a|c)ss$/,
-      use: ['babel-loader', 'raw-loader', 'postcss-loader', 'sass-loader'],
+      use: [
+        'babel-loader',
+        'styled-modules/loader',
+        {
+          loader: 'css-loader',
+          options: {
+            localIdentName,
+            sourceMap: dev,
+            importLoaders: 2,
+          },
+        },
+        'postcss-loader',
+        'sass-loader',
+      ],
     },
     {
       test: /\.(bmp|gif|jpe?g|png)$/,

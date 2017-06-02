@@ -8,7 +8,6 @@ const App = () => (
     <Par>This is how CSS Modules works in soya-next.</Par>
     <Title>CSS Modules Example</Title>
     <Par>This is how CSS Modules works in soya-next.</Par>
-    <style modules>{styles}</style>
   </div>
 );
 

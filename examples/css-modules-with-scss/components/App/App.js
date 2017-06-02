@@ -9,7 +9,6 @@ const App = () => (
     <hr />
     <Title>CSS Modules with SCSS Example 2</Title>
     <Par>This is how CSS Modules with SCSS 2 works in soya-next.</Par>
-    <style modules>{styles}</style>
   </div>
 );
 
