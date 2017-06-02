@@ -4093,9 +4093,9 @@ styled-jsx@1.0.3:
     string-hash "1.1.1"
     stylis "3.0.10"
 
-styled-modules@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/styled-modules/-/styled-modules-0.1.0.tgz#d3556f32d50a1dac9bd7319d2dbc62461c0e114f"
+styled-modules@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/styled-modules/-/styled-modules-0.1.1.tgz#7dc547b9cb76fa2ea5a0b886d9add88175b128e2"
   dependencies:
     babel-plugin-syntax-jsx "^6.18.0"
     babel-types "^6.24.1"
