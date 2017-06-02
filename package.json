@@ -45,7 +45,7 @@
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "next": "^2.4.0"
+    "next": "2.4.1"
   },
   "peerDependencies": {
     "express": "^4.15.3",
