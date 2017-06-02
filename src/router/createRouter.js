@@ -17,13 +17,17 @@ export default (app, {
 } = defaultOptions) => {
   const router = Router();
   const handle = app.getRequestHandler();
-  if (process.env.NODE_ENV === 'production') {
+  if (!app.dev) {
     router.use(require('compression')(compression));
   }
   router.use(cookieMiddleware());
   if (defaultLocale && siteLocales) {
     router.use(createLocaleMiddleware({ defaultLocale, siteLocales }));
   }
+  router.get('/_soya/:path(*)', async (req, res) => {
+    const p = join(app.dir, app.dist, 'dist', 'static', req.params.path);
+    await app.serveStatic(req, res, p);
+  });
   redirects.forEach(({ from, to, method = 'get', type = 301 }) => {
     router[method](from, (req, res) => res.redirect(type, to));
   });
@@ -32,10 +36,6 @@ export default (app, {
     router[method](path, (req, res) => {
       app.render(req, res, page, Object.assign({}, req.query, req.params));
     });
-  });
-  router.get('/_soya/:path(*)', async (req, res) => {
-    const p = join(app.dir, app.dist, 'dist', 'static', req.params.path);
-    await app.serveStatic(req, res, p);
   });
   router.get('*', (req, res) => handle(req, res));
   return router;
