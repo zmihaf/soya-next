@@ -1,7 +1,14 @@
 {
+  "env": {
+    "development": {
+      "ignore": [
+        "**/*.test.js"
+      ]
+    }
+  },
   "presets": [
     "next/babel",
-    "es2015",
     "stage-2"
-  ]
+  ],
+  "plugins": ["transform-es2015-modules-commonjs"]
 }

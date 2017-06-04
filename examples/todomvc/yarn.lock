@@ -3528,6 +3528,13 @@ react-redux@^5.0.5:
     loose-envify "^1.1.0"
     prop-types "^15.5.10"
 
+react-test-renderer@^15.5.4:
+  version "15.5.4"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.5.4.tgz#d4ebb23f613d685ea8f5390109c2d20fbf7c83bc"
+  dependencies:
+    fbjs "^0.8.9"
+    object-assign "^4.1.0"
+
 react@^15.0.0, react@^15.5.4:
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/react/-/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"
@@ -3937,9 +3944,9 @@ sourcemapped-stacktrace@^1.1.6:
   dependencies:
     source-map "0.5.6"
 
-soya-next@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/soya-next/-/soya-next-0.0.2.tgz#43f73450b1b38b08263564fde3d75a61762b6473"
+soya-next@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/soya-next/-/soya-next-0.0.3.tgz#6da34317b895f19bc026fc5b4151014230ae85d5"
   dependencies:
     compression "^1.6.2"
     css-loader "^0.28.4"
@@ -3954,7 +3961,7 @@ soya-next@^0.0.2:
     redux-devtools-extension "^2.13.2"
     redux-thunk "^2.2.0"
     sass-loader "^6.0.5"
-    styled-modules "^0.1.0"
+    styled-modules "^0.1.1"
     universal-cookie-express "^2.0.5"
     url-loader "^0.5.8"
 
@@ -4103,9 +4110,9 @@ styled-jsx@1.0.3:
     string-hash "1.1.1"
     stylis "3.0.10"
 
-styled-modules@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/styled-modules/-/styled-modules-0.1.0.tgz#d3556f32d50a1dac9bd7319d2dbc62461c0e114f"
+styled-modules@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/styled-modules/-/styled-modules-0.1.1.tgz#7dc547b9cb76fa2ea5a0b886d9add88175b128e2"
   dependencies:
     babel-plugin-syntax-jsx "^6.18.0"
     babel-types "^6.24.1"
