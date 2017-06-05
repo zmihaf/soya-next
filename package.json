@@ -55,5 +55,8 @@
     "express": "^4.15.3",
     "next": "^2.4.0"
   },
-  "postcss": {}
+  "postcss": {},
+  "jest": {
+    "testPathIgnorePatterns": ["/examples/"]
+  }
 }
