@@ -16,7 +16,10 @@
   ],
   "files": [
     "lib",
-    "babel.js"
+    "babel.js",
+    "i18n.js",
+    "redux.js",
+    "router.js"
   ],
   "scripts": {
     "build": "babel src -d lib",

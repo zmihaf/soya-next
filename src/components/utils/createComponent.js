@@ -1,13 +1,12 @@
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withCookies } from '../../cookies';
+import { withCookies } from 'react-cookie';
 import applyReducers from '../../redux/applyReducers';
-import { withLocale } from '../../i18n';
-import { COMPONENT } from '../../constants/types';
+import withLocale from '../../i18n/withLocaleComponent';
 
 export default (...connectArgs) => (Component, reducers) => compose(
-  withCookies(COMPONENT),
-  withLocale(COMPONENT),
+  withCookies,
+  withLocale,
   applyReducers(reducers),
   connect(...connectArgs),
 )(Component);

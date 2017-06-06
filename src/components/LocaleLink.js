@@ -1,10 +1,10 @@
-import { format, resolve } from 'url';
 import React from 'react';
-import { compose } from 'redux';
 import Link from 'next/link';
-import { localeShape, COMPONENT } from '../constants/types';
-import { withLocale } from '../i18n';
-import { withUrl } from '../router';
+import { compose } from 'redux';
+import { format, resolve } from 'url';
+import withLocale from '../i18n/withLocaleComponent';
+import withUrl from '../router/withUrl';
+import { localeShape } from '../constants/PropTypes';
 
 class LocaleLink extends React.Component {
   static propTypes = {
@@ -54,6 +54,6 @@ class LocaleLink extends React.Component {
 }
 
 export default compose(
-  withLocale(COMPONENT),
+  withLocale,
   withUrl,
 )(LocaleLink);

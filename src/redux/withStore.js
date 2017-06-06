@@ -4,10 +4,10 @@ import getDisplayName from '../utils/getDisplayName';
 export default (configureStore, preloadedReducers) => (Page) => {
   const configureStoreIfNeeded = (preloadedState) => {
     if (typeof window === 'undefined') {
-      return configureStore(preloadedState, preloadedReducers);
+      return configureStore(preloadedReducers, preloadedState);
     }
     if (!window.store) {
-      window.store = configureStore(preloadedState, preloadedReducers);
+      window.store = configureStore(preloadedReducers, preloadedState);
     } else {
       window.store.replaceReducer(preloadedReducers);
     }
@@ -30,6 +30,9 @@ export default (configureStore, preloadedReducers) => (Page) => {
     constructor(props) {
       super(props);
       this.store = props.store.dispatch ? props.store : configureStoreIfNeeded(props.preloadedState);
+      if (!this.store.soya) {
+        throw new Error('withStore must be used with Soya\'s redux enhancer');
+      }
     }
 
     render() {

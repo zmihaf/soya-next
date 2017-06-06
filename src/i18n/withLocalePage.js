@@ -1,6 +1,6 @@
 import React from 'react';
 import getDisplayName from '../utils/getDisplayName';
-import { localeShape } from '../constants/types';
+import { localeShape } from '../constants/PropTypes';
 
 export default (Page) => {
   class WithLocale extends React.Component {
@@ -22,7 +22,7 @@ export default (Page) => {
         locale = window.locale;
         if (ctx.query.locale) {
           const [ language, country ] = ctx.query.locale.split('-');
-          if (locale.language !== language || locale.country !== country) {
+          if (siteLocales.indexOf(`${language}-${country}`) !== -1) {
             locale = {
               language,
               country,

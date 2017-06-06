@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Provider } from 'react-redux';
-import { storeShape } from 'react-redux/lib/utils/PropTypes';
 import { Cookies, CookiesProvider } from 'react-cookie';
-import { localeShape, urlShape } from '../constants/types';
+import { Provider } from 'react-redux';
+import { localeShape, urlShape } from '../constants/PropTypes';
+import { storeShape } from 'react-redux/lib/utils/PropTypes';
 
 class SoyaProvider extends React.Component {
   static propTypes = {
@@ -12,6 +12,7 @@ class SoyaProvider extends React.Component {
     defaultLocale: PropTypes.string,
     siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired),
     locale: localeShape,
+    url: urlShape,
   };
 
   static childContextTypes = {

@@ -2,10 +2,9 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import SoyaProvider from '../../components/SoyaProvider';
-import { withCookies } from '../../cookies';
-import { withLocale } from '../../i18n';
+import withCookies from '../../cookies/withCookiesPage';
+import withLocale from '../../i18n/withLocalePage';
 import withStore from '../../redux/withStore';
-import { PAGE } from '../../constants/types';
 
 export default (configureStore) => (...connectArgs) => (Page, reducers) => {
   const ConnectedPage = connect(...connectArgs)(Page);
@@ -31,8 +30,8 @@ export default (configureStore) => (...connectArgs) => (Page, reducers) => {
   }
 
   return compose(
-    withCookies(PAGE),
-    withLocale(PAGE),
+    withCookies,
+    withLocale,
     withStore(configureStore, reducers),
   )(SoyaPage);
 };

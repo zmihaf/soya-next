@@ -1,6 +1,6 @@
 import React from 'react';
 import getDisplayName from '../utils/getDisplayName';
-import { urlShape } from '../constants/types';
+import { urlShape } from '../constants/PropTypes';
 
 export default (Component) => class extends React.Component {
   static displayName = getDisplayName('WithUrl', Component);
@@ -13,7 +13,7 @@ export default (Component) => class extends React.Component {
     return (
       <Component
         {...this.props}
-        url={this.context.url}
+        url={this.props.url || this.context.url}
       />
     );
   }
