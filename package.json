@@ -38,9 +38,6 @@
     "postcss-loader": "^2.0.5",
     "prop-types": "^15.5.10",
     "raw-loader": "^0.5.1",
-    "react-cookie": "^2.0.7",
-    "react-redux": "^5.0.5",
-    "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.5",
@@ -54,15 +51,20 @@
     "babel-preset-stage-2": "^6.24.1",
     "coveralls": "^2.13.1",
     "jest": "^20.0.4",
-    "next": "2.4.1",
+    "next": "2.4.3",
     "rimraf": "^2.6.1"
   },
   "peerDependencies": {
     "express": "^4.15.3",
-    "next": "^2.4.0"
+    "next": "^2.4.3",
+    "react-cookie": "^2.0.7",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0"
   },
   "postcss": {},
   "jest": {
-    "testPathIgnorePatterns": ["/examples/"]
+    "testPathIgnorePatterns": [
+      "/examples/"
+    ]
   }
 }
