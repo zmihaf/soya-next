@@ -1,1 +1,1 @@
-exports.withLocale = require('./lib/i18n/withLocaleComponent');
+exports.withLocale = require('./lib/i18n/withLocaleComponent').default;

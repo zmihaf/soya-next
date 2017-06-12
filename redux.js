@@ -1,2 +1,2 @@
-exports.applyReducers = require('./lib/redux/applyReducers');
-exports.storeEnhancer = require('./lib/redux/storeEnhancer');
+exports.applyReducers = require('./lib/redux/applyReducers').default;
+exports.storeEnhancer = require('./lib/redux/storeEnhancer').default;
