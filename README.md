@@ -17,9 +17,9 @@ And optionally:
 - [Redux](https://github.com/reactjs/redux) - Predictable state container for JavaScript apps
 
 ## Installation
-Soya Next requires **Express.js**, **React** and **Next.js** to be installed, run the following to install them:
+Soya Next requires **Express.js**, **Next.js**, **React**, **React-Cookie**, **React-Redux**, and **Redux** to be installed, run the following to install them:
 ```
-npm install --save express next.js react react-dom
+npm install --save express next.js react react-cookie react-dom react-redux redux
 ```
 
 To install Soya Next, run the following:
