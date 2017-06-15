@@ -22,7 +22,7 @@ export default function(config, { dev }) {
       },
     },
     {
-      test: /\.module\.css$/,
+      test: /\.mod(ule)?\.css$/,
       use: [
         'babel-loader',
         'styled-modules/loader',
@@ -39,7 +39,7 @@ export default function(config, { dev }) {
       ],
     },
     {
-      test: /\.module\.s(a|c)ss$/,
+      test: /\.mod(ule)?\.s(a|c)ss$/,
       use: [
         'babel-loader',
         'styled-modules/loader',
@@ -58,7 +58,7 @@ export default function(config, { dev }) {
     },
     {
       test: /\.css$/,
-      exclude: /\.module\.css$/,
+      exclude: /\.mod(ule)?\.css$/,
       use: [
         'babel-loader',
         'styled-modules/loader',
@@ -75,7 +75,7 @@ export default function(config, { dev }) {
     },
     {
       test: /\.s(a|c)ss$/,
-      exclude: /\.module\.s(a|c)ss$/,
+      exclude: /\.mod(ule)?\.s(a|c)ss$/,
       use: [
         'babel-loader',
         'styled-modules/loader',
@@ -92,7 +92,7 @@ export default function(config, { dev }) {
       ],
     },
     {
-      test: /\.(bmp|gif|jpe?g|png)$/,
+      test: /\.(bmp|gif|jpe?g|png|ttf|eot|woff2?|svg)$/,
       loader: 'url-loader',
       options: {
         limit: 10000,
