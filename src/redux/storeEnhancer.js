@@ -3,11 +3,11 @@ import { combineReducers } from 'redux';
 export default (preloadedReducers) => (createStore) => (reducer, preloadedState, enhancer) => {
   const store = createStore(reducer, preloadedState, enhancer);
   const replaceReducer = store.replaceReducer;
-  const soyaReducers = { ...preloadedReducers };
+  let soyaReducers = { ...preloadedReducers };
 
   return {
     ...store,
-    replaceReducer: (nextReducers) => {
+    addReducer: (nextReducers) => {
       if (!nextReducers) return;
 
       let nextReducer = nextReducers;
@@ -19,6 +19,19 @@ export default (preloadedReducers) => (createStore) => (reducer, preloadedState,
           }
           soyaReducers[key] = nextReducers[key];
         });
+        nextReducer = combineReducers(soyaReducers);
+      }
+      replaceReducer(nextReducer);
+    },
+    replaceReducer: (nextReducers) => {
+      if (!nextReducers) return;
+
+      let nextReducer = nextReducers;
+      if (typeof nextReducers === 'object') {
+        soyaReducers = {
+          ...preloadedReducers,
+          ...nextReducers,
+        };
         nextReducer = combineReducers(soyaReducers);
       }
       replaceReducer(nextReducer);

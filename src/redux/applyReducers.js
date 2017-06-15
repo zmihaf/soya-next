@@ -18,7 +18,7 @@ export default (reducers) => (Component) => {
       if (!this.store.soya) {
         throw new Error('applyReducers must be used with Soya\'s redux enhancer');
       }
-      this.store.replaceReducer(reducers);
+      this.store.addReducer(reducers);
     }
 
     render() {

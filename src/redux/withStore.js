@@ -9,7 +9,7 @@ export default (configureStore, preloadedReducers) => (Page) => {
     if (!window.store) {
       window.store = configureStore(preloadedReducers, preloadedState, extraArgument);
     } else {
-      window.store.updateReducer(preloadedReducers);
+      window.store.addReducer(preloadedReducers);
     }
     return window.store;
   };
