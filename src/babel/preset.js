@@ -1,3 +1,7 @@
+import { config } from 'dotenv';
+
+const { parsed = {} } = config();
+
 export default {
   presets: [
     require.resolve('next/babel'),
@@ -8,6 +12,13 @@ export default {
       {
         pattern: /\.(css|s(a|c)ss)$/,
       },
+    ],
+    [
+      require.resolve('babel-plugin-transform-define'),
+      Object.keys(parsed).reduce((config, key) => ({
+        ...config,
+        [key]: process.env[key],
+      }), {}),
     ],
   ],
 }
