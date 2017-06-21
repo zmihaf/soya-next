@@ -1,6 +1,4 @@
-import { config } from 'dotenv';
-
-const { parsed = {} } = config();
+const REACT_APP = /^REACT_APP_/i;
 
 export default {
   presets: [
@@ -15,10 +13,12 @@ export default {
     ],
     [
       require.resolve('babel-plugin-transform-define'),
-      Object.keys(parsed).reduce((config, key) => ({
-        ...config,
-        [key]: process.env[key],
-      }), {}),
+      Object.keys(process.env)
+        .filter(key => key === 'NODE_ENV' || REACT_APP.test(key))
+        .reduce((env, key) => ({
+          ...env,
+          [`process.env.${key}`]: process.env[key],
+        }), {}),
     ],
   ],
 }
