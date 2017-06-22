@@ -17,6 +17,7 @@
   "files": [
     "lib",
     "babel.js",
+    "config.js",
     "i18n.js",
     "redux.js",
     "router.js"
