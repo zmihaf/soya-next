@@ -1,4 +1,4 @@
-const REACT_APP = /^REACT_APP_/i;
+import { stringified } from '../config/load';
 
 export default {
   presets: [
@@ -13,12 +13,7 @@ export default {
     ],
     [
       require.resolve('babel-plugin-transform-define'),
-      Object.keys(process.env)
-        .filter(key => key === 'NODE_ENV' || REACT_APP.test(key))
-        .reduce((env, key) => ({
-          ...env,
-          [`process.env.${key}`]: process.env[key],
-        }), {}),
+      stringified,
     ],
   ],
 }
