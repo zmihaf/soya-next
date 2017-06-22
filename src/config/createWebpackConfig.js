@@ -35,7 +35,6 @@ export default function(config, { dev }) {
             importLoaders: 1,
           },
         },
-        'postcss-loader',
       ],
     },
     {
@@ -52,7 +51,6 @@ export default function(config, { dev }) {
             importLoaders: 2,
           },
         },
-        'postcss-loader',
         'sass-loader',
       ],
     },
@@ -70,7 +68,6 @@ export default function(config, { dev }) {
             importLoaders: 1,
           },
         },
-        'postcss-loader',
       ],
     },
     {
@@ -87,7 +84,6 @@ export default function(config, { dev }) {
             importLoaders: 2,
           },
         },
-        'postcss-loader',
         'sass-loader',
       ],
     },
