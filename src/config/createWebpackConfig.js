@@ -1,6 +1,4 @@
-import { join } from 'path';
-
-export default function(config, { dev }) {
+export default function (config, { dev }) {
   let localIdentName, imageName;
   if (dev) {
     localIdentName = '[name]__[local]--[hash:base64:5]';
@@ -93,7 +91,8 @@ export default function(config, { dev }) {
       options: {
         limit: 10000,
         name: `dist/static/[path]${imageName}.[ext]`,
-        publicPath: (url) => `${this.assetPrefix}/_soya/${url.replace('dist/static/', '')}`,
+        // eslint-disable-next-line babel/no-invalid-this
+        publicPath: url => `${this.assetPrefix}/_soya/${url.replace('dist/static/', '')}`,
       },
     },
   );

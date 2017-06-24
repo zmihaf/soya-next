@@ -1,66 +1,79 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import classnames from 'classnames'
-import TodoTextInput from './TodoTextInput'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import TodoTextInput from './TodoTextInput';
 
 export default class TodoItem extends Component {
   static propTypes = {
     todo: PropTypes.object.isRequired,
     editTodo: PropTypes.func.isRequired,
     deleteTodo: PropTypes.func.isRequired,
-    completeTodo: PropTypes.func.isRequired
+    completeTodo: PropTypes.func.isRequired,
   }
 
   state = {
-    editing: false
+    editing: false,
+  }
+
+  handleCompleteTodo = () => {
+    this.props.completeTodo(this.props.todo.id);
+  }
+
+  handleDeleteTodo = () => {
+    this.props.deleteTodo(this.props.todo.id);
   }
 
   handleDoubleClick = () => {
-    this.setState({ editing: true })
+    this.setState({ editing: true });
   }
 
-  handleSave = (id, text) => {
+  handleSave = text => {
+    const id = this.props.todo.id;
     if (text.length === 0) {
-      this.props.deleteTodo(id)
+      this.props.deleteTodo(id);
     } else {
-      this.props.editTodo(id, text)
+      this.props.editTodo(id, text);
     }
-    this.setState({ editing: false })
+    this.setState({ editing: false });
   }
 
   render() {
-    const { todo, completeTodo, deleteTodo } = this.props
+    const { todo } = this.props;
 
-    let element
+    let element;
     if (this.state.editing) {
       element = (
         <TodoTextInput text={todo.text}
                        editing={this.state.editing}
-                       onSave={(text) => this.handleSave(todo.id, text)} />
-      )
+                       onSave={this.handleSave}
+        />
+      );
     } else {
       element = (
-        <div className="view">
-          <input className="toggle"
-                 type="checkbox"
+        <div className='view'>
+          <input className='toggle'
+                 type='checkbox'
                  checked={todo.completed}
-                 onChange={() => completeTodo(todo.id)} />
+                 onChange={this.handleCompleteTodo}
+          />
           <label onDoubleClick={this.handleDoubleClick}>
             {todo.text}
           </label>
-          <button className="destroy"
-                  onClick={() => deleteTodo(todo.id)} />
+          <button className='destroy'
+                  onClick={this.handleDeleteTodo}
+          />
         </div>
-      )
+      );
     }
 
     return (
       <li className={classnames({
         completed: todo.completed,
-        editing: this.state.editing
-      })}>
+        editing: this.state.editing,
+      })}
+      >
         {element}
       </li>
-    )
+    );
   }
 }

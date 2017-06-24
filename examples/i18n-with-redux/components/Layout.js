@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { createComponent, LocaleLink } from 'soya-next';
 import Dictionary from '../components/Dictionary';
 import LanguagePicker from './LanguagePicker';
@@ -24,5 +25,9 @@ const Layout = ({ children }) => (
     <LanguagePicker />
   </div>
 );
+
+Layout.propTypes = {
+  children: PropTypes.node,
+};
 
 export default createComponent()(Layout);

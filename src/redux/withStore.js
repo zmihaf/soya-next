@@ -1,12 +1,15 @@
 import React from 'react';
+import { Cookies } from 'react-cookie';
+import PropTypes from 'prop-types';
+import { storeShape } from 'react-redux/lib/utils/PropTypes';
 import getDisplayName from '../utils/getDisplayName';
 
-export default (configureStore, preloadedReducers) => (Page) => {
+export default (configureStore, preloadedReducers) => Page => {
   const configureStoreIfNeeded = (preloadedState, extraArgument) => {
     if (typeof window === 'undefined') {
       return configureStore(preloadedReducers, preloadedState, extraArgument);
     }
-    if (!window.store) {
+    if (typeof window.store === 'undefined') {
       window.store = configureStore(preloadedReducers, preloadedState, extraArgument);
     } else {
       window.store.addReducer(preloadedReducers);
@@ -16,6 +19,15 @@ export default (configureStore, preloadedReducers) => (Page) => {
 
   class WithStore extends React.Component {
     static displayName = getDisplayName('WithStore', Page);
+
+    static propTypes = {
+      cookies: PropTypes.instanceOf(Cookies).isRequired,
+      preloadedState: PropTypes.object.isRequired,
+      store: PropTypes.oneOfType([
+        PropTypes.object,
+        storeShape,
+      ]).isRequired,
+    };
 
     static async getInitialProps(ctx) {
       const store = configureStoreIfNeeded(undefined, { cookies: ctx.cookies });

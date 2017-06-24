@@ -1,14 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { compose } from 'redux';
 import { format, resolve } from 'url';
 import withLocale from '../i18n/withLocaleComponent';
 import withUrl from '../router/withUrl';
-import { localeShape } from '../constants/PropTypes';
+import { localeShape, urlShape } from '../constants/PropTypes';
 
 class LocaleLink extends React.Component {
   static propTypes = {
-    locale: localeShape,
+    children: PropTypes.element.isRequired,
+    defaultLocale: PropTypes.string.isRequired,
+    locale: localeShape.isRequired,
+    url: urlShape.isRequired,
   };
 
   render() {
@@ -17,12 +21,12 @@ class LocaleLink extends React.Component {
       defaultLocale,
       locale,
       url,
-      ...props,
+      ...props
     } = this.props;
     let { as, href } = props;
     delete props.siteLocales;
 
-    const [ defaultLanguage, defaultCountry ] = defaultLocale.split('-');
+    const [defaultLanguage, defaultCountry] = defaultLocale.split('-');
     const { language, country } = locale;
 
     let localeSegment = '';
@@ -34,12 +38,12 @@ class LocaleLink extends React.Component {
       localeArr.push(country);
     }
     if (localeArr.length !== 0) {
-      localeSegment += '/' + localeArr.join('-');
+      localeSegment += `/${localeArr.join('-')}`;
     }
 
     href = href ? format(href) : '';
     as = as ? format(as) : '';
-    const sep = href.indexOf('?') !== -1 ? '&' : '?';
+    const sep = href.indexOf('?') === -1 ? '?' : '&';
 
     return (
       <Link

@@ -2,17 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import IntlMessageFormat from 'intl-messageformat';
 import { createComponent } from 'soya-next';
+import { localeShape } from 'soya-next/prop-types';
 import dictionary from '../reducers/DictionaryReducer';
 import { generateId } from '../utils/DictionaryUtil';
 import { fetchTranslation } from '../actions/DictionaryAction';
 
 class Dictionary extends React.Component {
   static propTypes = {
-    component: PropTypes.any,
+    component: PropTypes.node,
     renderProp: PropTypes.string,
     entryKey: PropTypes.string.isRequired,
     params: PropTypes.object,
     translation: PropTypes.string,
+    locale: localeShape.isRequired,
+    fetchTranslation: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -39,7 +42,7 @@ class Dictionary extends React.Component {
       component: Component,
       renderProp,
       params,
-      ...props,
+      ...props
     } = this.props;
     let translation = props.translation;
     delete props.entryKey;

@@ -1,7 +1,14 @@
+import PropTypes from 'prop-types';
 import styles from './Par.module.css';
 
-export default (props) => (
+const Par = ({ children }) => (
   <p className={styles.root}>
-    {props.children}
+    {children}
   </p>
 );
+
+Par.propTypes = {
+  children: PropTypes.node,
+};
+
+export default Par;

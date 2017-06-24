@@ -2,14 +2,20 @@ import React from 'react';
 import { storeShape } from 'react-redux/lib/utils/PropTypes';
 import getDisplayName from '../utils/getDisplayName';
 
-export default (reducers) => (Component) => {
-  if (typeof reducers === 'undefined') return Component;
+export default reducers => Component => {
+  if (typeof reducers === 'undefined') {
+    return Component;
+  }
 
   class ApplyReducers extends React.Component {
     static displayName = getDisplayName('ApplyReducers', Component);
 
     static contextTypes = {
       store: storeShape.isRequired,
+    };
+
+    static propTypes = {
+      store: storeShape,
     };
 
     constructor(props, context) {

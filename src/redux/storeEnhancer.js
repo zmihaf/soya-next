@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux';
 
-export default (preloadedReducers) => (createStore) => (reducer, preloadedState, enhancer) => {
+export default preloadedReducers => createStore => (reducer, preloadedState, enhancer) => {
   const store = createStore(reducer, preloadedState, enhancer);
   const replaceReducer = store.replaceReducer;
   let soyaReducers = { ...preloadedReducers };
 
   return {
     ...store,
-    addReducer: (nextReducers) => {
-      if (!nextReducers) return;
+    addReducer: nextReducers => {
+      if (!nextReducers) {
+        return;
+      }
 
       let nextReducer = nextReducers;
       if (typeof nextReducers === 'object') {
@@ -23,8 +25,10 @@ export default (preloadedReducers) => (createStore) => (reducer, preloadedState,
       }
       replaceReducer(nextReducer);
     },
-    replaceReducer: (nextReducers) => {
-      if (!nextReducers) return;
+    replaceReducer: nextReducers => {
+      if (!nextReducers) {
+        return;
+      }
 
       let nextReducer = nextReducers;
       if (typeof nextReducers === 'object') {

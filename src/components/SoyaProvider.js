@@ -13,6 +13,7 @@ class SoyaProvider extends React.Component {
     siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired),
     locale: localeShape,
     url: urlShape,
+    children: PropTypes.element.isRequired,
   };
 
   static childContextTypes = {

@@ -1,10 +1,12 @@
+import PropTypes from 'prop-types';
 import { createComponent, LocaleLink } from 'soya-next';
+import { localeShape } from 'soya-next/prop-types';
 import data from '../data/i18n.json';
 
-const Layout = ({ locale, siteLocales }) => (
+const LanguagePicker = ({ locale, siteLocales }) => (
   <div style={{ textAlign: 'right' }}>
-    {siteLocales.map((siteLocale) => {
-      const [ language, country ] = siteLocale.split('-');
+    {siteLocales.map(siteLocale => {
+      const [language, country] = siteLocale.split('-');
       const style = { marginLeft: 5 };
       if (locale.language === language && locale.country === country) {
         style.color = 'white';
@@ -22,4 +24,9 @@ const Layout = ({ locale, siteLocales }) => (
   </div>
 );
 
-export default createComponent()(Layout);
+LanguagePicker.propTypes = {
+  locale: localeShape.isRequired,
+  siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+};
+
+export default createComponent()(LanguagePicker);

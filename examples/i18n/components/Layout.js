@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { createComponent, LocaleLink } from 'soya-next';
+import { localeShape } from 'soya-next/prop-types';
 import LanguagePicker from './LanguagePicker';
 import data from '../data/i18n.json';
 
@@ -20,5 +22,11 @@ const Layout = ({ children, locale, siteLocales }) => (
     <LanguagePicker />
   </div>
 );
+
+Layout.propTypes = {
+  children: PropTypes.node,
+  locale: localeShape.isRequired,
+  siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+};
 
 export default createComponent()(Layout);

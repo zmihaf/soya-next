@@ -1,12 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import getDisplayName from '../utils/getDisplayName';
 import { localeShape } from '../constants/PropTypes';
 
-export default (Page) => {
+export default Page => {
   class WithLocale extends React.Component {
     static displayName = getDisplayName('WithLocale', Page);
 
     static propTypes = {
+      defaultLocale: PropTypes.string,
+      siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired),
       locale: localeShape,
     };
 
@@ -21,7 +24,7 @@ export default (Page) => {
         siteLocales = window.siteLocales;
         locale = window.locale;
         if (ctx.query.locale) {
-          const [ language, country ] = ctx.query.locale.split('-');
+          const [language, country] = ctx.query.locale.split('-');
           if (siteLocales.indexOf(`${language}-${country}`) !== -1) {
             locale = {
               language,
@@ -51,7 +54,7 @@ export default (Page) => {
     }
 
     render() {
-      return <Page {...this.props} />
+      return <Page {...this.props} />;
     }
   }
   return WithLocale;

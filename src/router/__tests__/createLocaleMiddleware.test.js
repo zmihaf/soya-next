@@ -19,7 +19,7 @@ beforeEach(() => {
     ],
   };
   res = {};
-  next = () => {};
+  next = jest.fn();
 });
 
 it('should fallback to default locale', () => {
