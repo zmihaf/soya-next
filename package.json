@@ -19,6 +19,7 @@
     "babel.js",
     "config.js",
     "i18n.js",
+    "prop-types.js",
     "redux.js",
     "router.js"
   ],
