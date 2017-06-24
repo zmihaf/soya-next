@@ -1,5 +1,3 @@
-const { createWebpackConfig } = require('soya-next');
+const { createNextConfig } = require('soya-next');
 
-module.exports = {
-  webpack: createWebpackConfig,
-};
+module.exports = createNextConfig();
