@@ -1,7 +1,7 @@
 import { join } from 'path';
+import Router from 'express/lib/router';
 import cookieMiddleware from 'universal-cookie-express';
 import createLocaleMiddleware from './createLocaleMiddleware';
-import Router from 'express/lib/router';
 
 const defaultOptions = {
   routes: {},

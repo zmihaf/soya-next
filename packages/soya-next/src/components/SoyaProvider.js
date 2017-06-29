@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Cookies, CookiesProvider } from 'react-cookie';
 import { Provider } from 'react-redux';
-import { localeShape, urlShape } from '../constants/PropTypes';
 import { storeShape } from 'react-redux/lib/utils/PropTypes';
+import { localeShape, urlShape } from '../constants/PropTypes';
 
 class SoyaProvider extends React.Component {
   static propTypes = {

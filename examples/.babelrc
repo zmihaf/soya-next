@@ -6,6 +6,6 @@
     }
   },
   "presets": [
-    "../babel"
+    "../packages/soya-next/babel"
   ]
 }
