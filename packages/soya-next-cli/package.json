@@ -1,0 +1,28 @@
+{
+  "name": "soya-next-cli",
+  "version": "0.1.0",
+  "description": "A CLI to initialize soya-next projects",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "repository": "https://github.com/traveloka/soya-next/tree/master/packages/soya-next-cli",
+  "keywords": [
+    "next.js",
+    "react",
+    "soya",
+    "soya-next",
+    "soya-next-cli"
+  ],
+  "files": [
+    "bin",
+    "lib",
+    "templates"
+  ],
+  "bin": {
+    "soya-next-cli": "./bin/soya-next-cli.js"
+  },
+  "dependencies": {
+    "cross-spawn": "^5.1.0",
+    "fs-extra": "^3.0.1",
+    "yargs": "^8.0.2"
+  }
+}
