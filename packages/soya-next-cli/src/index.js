@@ -55,6 +55,7 @@ if (projectDirectory) {
     version: '1.0.0',
     main: 'server.js',
     scripts: {
+      build: 'next build',
       start: 'node .',
     },
   }, { spaces: 2 });
