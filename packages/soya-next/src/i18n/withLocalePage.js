@@ -14,22 +14,13 @@ export default Page => {
     };
 
     static async getInitialProps(ctx) {
-      let defaultLocale, siteLocales, locale;
-      if (ctx.req) {
-        defaultLocale = ctx.req.defaultLocale;
-        siteLocales = ctx.req.siteLocales;
-        locale = ctx.req.locale;
-      } else {
-        defaultLocale = window.defaultLocale;
-        siteLocales = window.siteLocales;
-        locale = window.locale;
+      const { defaultLocale, siteLocales, locale } = ctx.req || window.__NEXT_DATA__.props;
+      if (!ctx.req) {
         if (ctx.query.locale) {
           const [language, country] = ctx.query.locale.split('-');
           if (siteLocales.indexOf(`${language}-${country}`) !== -1) {
-            locale = {
-              language,
-              country,
-            };
+            locale.language = language;
+            locale.country = country;
           }
         }
       }
@@ -45,12 +36,6 @@ export default Page => {
         siteLocales,
         locale,
       };
-    }
-
-    componentDidMount() {
-      window.defaultLocale = this.props.defaultLocale;
-      window.siteLocales = this.props.siteLocales;
-      window.locale = this.props.locale;
     }
 
     render() {
