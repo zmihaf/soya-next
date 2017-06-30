@@ -28,12 +28,12 @@ export default (app, {
     const p = join(app.dir, app.dist, 'dist', 'static', req.params.path);
     await app.serveStatic(req, res, p);
   });
-  redirects.forEach(({ from, to, method = 'get', type = 301 }) => {
-    router[method](from, (req, res) => res.redirect(type, to));
+  redirects.forEach(({ from, to, method = 'GET', type = 301 }) => {
+    router[method.toLowerCase()](from, (req, res) => res.redirect(type, to));
   });
   Object.keys(routes).forEach(path => {
-    const { method = 'get', page } = routes[path];
-    router[method](path, (req, res) => {
+    const { method = 'GET', page } = routes[path];
+    router[method.toLowerCase()](path, (req, res) => {
       app.render(req, res, page, Object.assign({}, req.query, req.params));
     });
   });
