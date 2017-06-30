@@ -27,6 +27,7 @@
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.1",
     "node-sass": "^4.5.3",
+    "path-to-regexp": "^1.7.0",
     "prop-types": "^15.5.10",
     "raw-loader": "^0.5.1",
     "redux-devtools-extension": "^2.13.2",
@@ -41,6 +42,6 @@
     "next": "^2.4.4",
     "react-cookie": "^2.0.7",
     "react-redux": "^5.0.5",
-    "redux": "^3.7.0"
+    "redux": "^3.7.1"
   }
 }

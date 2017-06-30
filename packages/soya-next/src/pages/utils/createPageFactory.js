@@ -6,6 +6,7 @@ import { storeShape } from 'react-redux/lib/utils/PropTypes';
 import { Cookies } from 'react-cookie';
 import { localeShape, urlShape } from '../../constants/PropTypes';
 import SoyaProvider from '../../components/SoyaProvider';
+import applyRedirect from '../../router/applyRedirect';
 import withCookies from '../../cookies/withCookiesPage';
 import withLocale from '../../i18n/withLocalePage';
 import withStore from '../../redux/withStore';
@@ -43,6 +44,7 @@ export default configureStore => (...connectArgs) => (Page, reducers) => {
   }
 
   return compose(
+    applyRedirect,
     withCookies,
     withLocale,
     withStore(configureStore, reducers),
