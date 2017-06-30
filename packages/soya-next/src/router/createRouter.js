@@ -5,7 +5,7 @@ import createLocaleMiddleware from './createLocaleMiddleware';
 
 const defaultOptions = {
   routes: {},
-  redirects: [],
+  redirects: {},
 };
 
 export default (app, {
@@ -28,8 +28,9 @@ export default (app, {
     const p = join(app.dir, app.dist, 'dist', 'static', req.params.path);
     await app.serveStatic(req, res, p);
   });
-  redirects.forEach(({ from, to, method = 'GET', type = 301 }) => {
-    router[method.toLowerCase()](from, (req, res) => res.redirect(type, to));
+  Object.keys(redirects).forEach(from => {
+    const { method = 'GET', to, status = 301 } = redirects[from];
+    router[method.toLowerCase()](from, (req, res) => res.redirect(status, to));
   });
   Object.keys(routes).forEach(path => {
     const { method = 'GET', page } = routes[path];
