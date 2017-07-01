@@ -8,7 +8,7 @@ import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProductio
 import enhancer from './storeEnhancer';
 import middleware from './middleware';
 
-export default (preloadedReducers, preloadedState, extraArgument) => createStore(
+export default preloadedReducers => (preloadedState, extraArgument) => createStore(
   preloadedReducers ? combineReducers(preloadedReducers) : () => ({}),
   preloadedState,
   composeWithDevTools(

@@ -1,5 +1,5 @@
-import createComponent from './components/utils/createComponent';
-import createPage from './pages/utils/createPage';
+import createComponent from './components/createComponent';
+import createPage from './pages/createPage';
 import createRouter from './router/createRouter';
 import createNextConfig from './config/createNextConfig';
 import LocaleLink from './components/LocaleLink';

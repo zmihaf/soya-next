@@ -4,15 +4,13 @@ import PropTypes from 'prop-types';
 import { storeShape } from 'react-redux/lib/utils/PropTypes';
 import getDisplayName from '../utils/getDisplayName';
 
-export default (configureStore, preloadedReducers) => Page => {
+export default configureStore => Page => {
   const configureStoreIfNeeded = (preloadedState, extraArgument) => {
     if (typeof window === 'undefined') {
-      return configureStore(preloadedReducers, preloadedState, extraArgument);
+      return configureStore(preloadedState, extraArgument);
     }
     if (typeof window.store === 'undefined') {
-      window.store = configureStore(preloadedReducers, preloadedState, extraArgument);
-    } else {
-      window.store.addReducer(preloadedReducers);
+      window.store = configureStore(preloadedState, extraArgument);
     }
     return window.store;
   };
@@ -42,9 +40,6 @@ export default (configureStore, preloadedReducers) => Page => {
     constructor(props) {
       super(props);
       this.store = props.store.dispatch ? props.store : configureStoreIfNeeded(props.preloadedState, { cookies: props.cookies });
-      if (!this.store.soya) {
-        throw new Error('withStore must be used with Soya\'s redux enhancer');
-      }
     }
 
     render() {
