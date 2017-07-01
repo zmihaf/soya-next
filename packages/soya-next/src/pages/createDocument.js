@@ -1,13 +1,13 @@
 import Document from 'next/document';
 import flush from 'styled-modules/server';
 
-class SoyaDocument extends Document {
+export default () => class extends Document {
+  static displayName = 'SoyaDocument';
+
   static getInitialProps({ renderPage }) {
     return {
       ...renderPage(),
       styles: flush(),
     };
   }
-}
-
-export default SoyaDocument;
+};

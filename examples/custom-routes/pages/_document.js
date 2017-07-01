@@ -1,3 +1,3 @@
-import { SoyaDocument } from 'soya-next';
+import { createDocument } from 'soya-next';
 
-export default SoyaDocument;
+export default createDocument();
