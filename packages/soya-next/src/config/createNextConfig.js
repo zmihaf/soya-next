@@ -11,6 +11,13 @@ export default ({ assetPrefix = '', webpack, ...config } = {}) => ({
       imageName = '[name]-[hash]';
     }
 
+    const rule = webpackConfig.module.rules.find(rule => (
+      rule.loader === 'babel-loader' &&
+      rule.test && rule.test.toString() === '/\\.js(\\?[^?]*)?$/'
+    ));
+    if (rule && !rule.options.babelrc) {
+      rule.options.presets.push(require.resolve('../babel/preset'));
+    }
     webpackConfig.module.rules.push(
       {
         test: [
