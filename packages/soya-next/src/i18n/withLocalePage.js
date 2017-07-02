@@ -14,13 +14,18 @@ export default Page => {
     };
 
     static async getInitialProps(ctx) {
-      const { defaultLocale, siteLocales, locale } = ctx.req || window.__NEXT_DATA__.props;
+      const context = (ctx.req || window.__NEXT_DATA__.props);
+      const { defaultLocale, siteLocales } = context;
+      let locale = context.locale;
       if (!ctx.req) {
         if (ctx.query.locale) {
           const [language, country] = ctx.query.locale.split('-');
           if (siteLocales.indexOf(`${language}-${country}`) !== -1) {
-            locale.language = language;
-            locale.country = country;
+            locale = {
+              language,
+              country,
+            };
+            context.locale = locale;
           }
         }
       }
