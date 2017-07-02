@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { createComponent, LocaleLink } from 'soya-next';
+import { createComponent } from 'soya-next';
+import LocaleLink from 'soya-next/link';
 import { localeShape } from 'soya-next/prop-types';
 import Dictionary from '../components/Dictionary';
 

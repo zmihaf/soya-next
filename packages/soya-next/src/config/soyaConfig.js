@@ -1,6 +1,6 @@
 import config from 'config';
 
-const stringify = config => (function recursive(config, stringified, prevKeys) {
+const stringifyConfig = config => (function recursive(config, stringified, prevKeys) {
   return Object.keys(config).reduce((stringified, key) => {
     const allKeys = prevKeys.concat(key);
     const allKey = `soya.config.${allKeys.join('.')}`;
@@ -13,13 +13,13 @@ const stringify = config => (function recursive(config, stringified, prevKeys) {
   }, stringified);
 })(config, {}, []);
 
-export const raw = {
+export const raw = () => ({
   soya: {
     config: Object.keys(config).reduce((newConfig, key) => {
       newConfig[key] = config[key];
       return newConfig;
     }, {}),
   },
-};
+});
 
-export const stringified = stringify(config);
+export const stringify = () => stringifyConfig(config);

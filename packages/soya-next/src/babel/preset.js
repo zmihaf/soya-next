@@ -1,4 +1,4 @@
-import { stringified } from '../config/load';
+import { stringify } from '../config/soyaConfig';
 
 export default {
   presets: [
@@ -13,7 +13,7 @@ export default {
     ],
     [
       require.resolve('babel-plugin-transform-define'),
-      stringified,
+      stringify(),
     ],
   ],
 };

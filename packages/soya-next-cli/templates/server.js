@@ -2,8 +2,8 @@ const express = require('express');
 const next = require('next');
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
-const { createRouter } = require('soya-next');
-const { soya } = require('soya-next/config');
+const { createRouter } = require('soya-next/server/router');
+const { soya } = require('soya-next/server/config');
 
 app.prepare()
   .then(() => {

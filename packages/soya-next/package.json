@@ -13,9 +13,10 @@
   ],
   "files": [
     "lib",
+    "server",
     "babel.js",
-    "config.js",
     "i18n.js",
+    "link.js",
     "prop-types.js",
     "redux.js",
     "router.js"
