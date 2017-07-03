@@ -32,7 +32,8 @@ const dependencies = [
 
 if (projectDirectory) {
   const root = path.resolve(projectDirectory);
-  const name = path.basename(projectDirectory);
+  const name = path.basename(root);
+  const cwd = process.cwd();
 
   console.log(`Creating ${name} in ${root}.`);
   console.log();
@@ -85,7 +86,9 @@ if (projectDirectory) {
   console.log(`Successfully created ${name} in ${root}.`);
   console.log('Run the following commands to start the app:');
   console.log();
-  console.log(`  cd ${name}`);
+  if (cwd !== root) {
+    console.log(`  cd ${name}`);
+  }
   console.log(`  ${cmd} start`);
   console.log();
 } else {
