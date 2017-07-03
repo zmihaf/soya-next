@@ -7,7 +7,7 @@ import { Cookies } from 'react-cookie';
 import { localeShape, urlShape } from '../constants/PropTypes';
 import SoyaProvider from '../components/SoyaProvider';
 import applyRedirect from '../router/applyRedirect';
-import applyReducers from '../redux/applyReducersPage';
+import applyReducers from '../redux/applyReducers';
 import withCookies from '../cookies/withCookiesPage';
 import withLocale from '../i18n/withLocalePage';
 import withStore from '../redux/withStore';
@@ -28,7 +28,7 @@ export default configureStore => (...connectArgs) => (Page, reducers) => {
       url: urlShape.isRequired,
     };
 
-    static getInitialProps = Page.getInitialProps;
+    static getInitialProps = EnhancedPage.getInitialProps;
 
     render() {
       const { store, ...props } = this.props;
