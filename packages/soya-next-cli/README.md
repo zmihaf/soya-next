@@ -15,4 +15,5 @@ soya-next-cli <project-directory>
 > Note: replace \<project-directory\> with your new project name or path to it.
 
 Then, follow the instructions.
+
 That's it! Open http://localhost:3000 in your browser.
