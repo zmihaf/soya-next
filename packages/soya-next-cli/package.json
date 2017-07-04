@@ -1,7 +1,7 @@
 {
   "name": "soya-next-cli",
   "version": "0.1.0",
-  "description": "A CLI to initialize soya-next projects",
+  "description": "A CLI to help bootstrap your soya-next projects quickly.",
   "main": "lib/index.js",
   "license": "MIT",
   "repository": "https://github.com/traveloka/soya-next/tree/master/packages/soya-next-cli",
