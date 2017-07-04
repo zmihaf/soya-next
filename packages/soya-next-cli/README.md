@@ -14,6 +14,10 @@ soya-next-cli <project-directory>
 ```
 > Note: replace \<project-directory\> with your new project name or path to it.
 
-Then, follow the instructions.
+Then, follow the instructions. It should be something like the following:
+```
+cd <project-directory>
+npm start
+```
 
 That's it! Open http://localhost:3000 in your browser.
