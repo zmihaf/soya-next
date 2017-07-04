@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-export default preloadedReducers => createStore => (reducer, preloadedState, enhancer) => {
+export default globalReducers => createStore => (reducer, preloadedState, enhancer) => {
   const store = createStore(reducer, preloadedState, enhancer);
   const replaceReducer = store.replaceReducer;
-  let soyaReducers = { ...preloadedReducers };
+  let soyaReducers = { ...globalReducers };
 
   return {
     ...store,
@@ -33,7 +33,7 @@ export default preloadedReducers => createStore => (reducer, preloadedState, enh
       let nextReducer = nextReducers;
       if (typeof nextReducers === 'object') {
         soyaReducers = {
-          ...preloadedReducers,
+          ...globalReducers,
           ...nextReducers,
         };
         nextReducer = combineReducers(soyaReducers);

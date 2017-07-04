@@ -8,14 +8,14 @@ import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProductio
 import enhancer from './storeEnhancer';
 import middleware from './middleware';
 
-export default preloadedReducers => (preloadedState, extraArgument) => createStore(
-  preloadedReducers ? combineReducers(preloadedReducers) : () => ({}),
+export default globalReducers => (preloadedState, extraArgument) => createStore(
+  globalReducers ? combineReducers(globalReducers) : () => preloadedState,
   preloadedState,
   composeWithDevTools(
     applyMiddleware(
       thunk.withExtraArgument(extraArgument),
       middleware,
     ),
-    enhancer(preloadedReducers),
+    enhancer(globalReducers),
   ),
 );
