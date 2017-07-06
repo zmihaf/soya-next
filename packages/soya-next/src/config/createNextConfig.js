@@ -11,6 +11,12 @@ export default ({ assetPrefix = '', webpack, ...config } = {}) => ({
       imageName = '[name]-[hash]';
     }
 
+    const cssLoaderOptions = {
+      localIdentName,
+      minimize: !dev,
+      sourceMap: dev,
+    };
+
     const rule = webpackConfig.module.rules.find(rule => (
       rule.loader === 'babel-loader' &&
       rule.test && rule.test.toString() === '/\\.js(\\?[^?]*)?$/'
@@ -37,10 +43,8 @@ export default ({ assetPrefix = '', webpack, ...config } = {}) => ({
           {
             loader: 'css-loader',
             options: {
-              localIdentName,
+              ...cssLoaderOptions,
               modules: true,
-              sourceMap: dev,
-              importLoaders: 1,
             },
           },
         ],
@@ -53,10 +57,9 @@ export default ({ assetPrefix = '', webpack, ...config } = {}) => ({
           {
             loader: 'css-loader',
             options: {
-              localIdentName,
+              ...cssLoaderOptions,
               modules: true,
-              sourceMap: dev,
-              importLoaders: 2,
+              importLoaders: 1,
             },
           },
           'sass-loader',
@@ -70,11 +73,7 @@ export default ({ assetPrefix = '', webpack, ...config } = {}) => ({
           'styled-modules/loader',
           {
             loader: 'css-loader',
-            options: {
-              localIdentName,
-              sourceMap: dev,
-              importLoaders: 1,
-            },
+            options: cssLoaderOptions,
           },
         ],
       },
@@ -87,9 +86,8 @@ export default ({ assetPrefix = '', webpack, ...config } = {}) => ({
           {
             loader: 'css-loader',
             options: {
-              localIdentName,
-              sourceMap: dev,
-              importLoaders: 2,
+              ...cssLoaderOptions,
+              importLoaders: 1,
             },
           },
           'sass-loader',
