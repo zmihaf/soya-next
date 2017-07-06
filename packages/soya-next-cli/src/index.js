@@ -22,6 +22,7 @@ const projectDirectory = argv._[0];
 const dependencies = [
   'express',
   'next',
+  'prop-types',
   'react',
   'react-cookie',
   'react-dom',
