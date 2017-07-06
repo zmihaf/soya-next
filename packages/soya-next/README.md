@@ -137,11 +137,51 @@ Register reducers to be loaded dynamically so you won't need to worry about it a
 ##### Returns
 *(Function)*: A higher order React component class.
 
+##### Examples
+```js
+import { bindActionCreators, compose } from 'redux';
+import { applyReducers } from 'soya-next/redux';
+
+const reducers = {
+  todos(state = [], action) {
+    switch (action.type) {
+      case 'ADD_TODO':
+        return state.concat(action.text);
+      default:
+        return state;
+    }
+  },
+};
+
+const mapStateToProps = state => ({
+  todos: state.todos,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  addTodo: (text) => ({
+    type: 'ADD_TODO',
+    text,
+  }),
+}, dispatch);
+
+export default compose(
+  applyReducers(reducers),
+  connect(mapStateToProps, mapDispatchToProps)
+)(Component);
+```
+
 #### `createDocument()`
 Collects and hydrates all CSS Modules which have already been injected into pages by [`styled-modules`](https://github.com/traveloka/styled-modules).
 
 ##### Returns
 *(Document)*: [Custom \<Document /\>](https://github.com/zeit/next.js#custom-document) which performs server side rendering.
+
+##### Examples
+```js
+import { createDocument } from 'soya-next/server/document';
+
+export default createDocument();
+```
 
 #### `createNextConfig([nextConfig])`
 Configures your app to support CSS Modules, SASS, image import, and global app configuration. To customize your own configuration, please read [here](https://github.com/zeit/next.js#custom-configuration).
@@ -155,6 +195,24 @@ Configures your app to support CSS Modules, SASS, image import, and global app c
 
 ##### Returns
 *(Object)*: An enhanced object of next configuration.
+
+##### Examples
+```js
+const { createNextConfig } = require('soya-next/server/next-config');
+
+module.exports = createWebpackConfig(/*
+  {
+    assetPrefix: '', // replace it with your CDN host if you use one
+    distDir: '.next', // replace it to use other build directory name
+    webpack: (config, { dev }) => {
+      // customize your webpack config here
+    },
+    webpackDevMiddleware: (config) => {
+      // customize your webpack dev middleware config here
+    },
+  }
+*/);
+```
 
 #### `createPage([...connectArgs])(Page, [reducers])`
 Configures and connects to Redux store, loads reducers dynamically, handles client side URL redirection, and makes cookie, default locale, locale, site locales, and url available as `Page` props and in the `getInitialProps` lifecycle method.
@@ -173,8 +231,21 @@ It will also make them available to the component hierarchy below, through the f
 ##### Returns
 *(ReactComponent)*: An enhanced Page component class.
 
+##### Examples
+```js
+import { createPage } from 'soya-next'
+
+const Page = () => (
+  <div>This is your page</div>
+);
+
+Page.getInitialProps = (ctx) => {};
+
+export default createPage()(Page);
+```
+
 #### `createRouter(app, [options])`
-Creates locale aware express router with universal cookie and gzip enabled (production only).
+Creates locale aware express router with universal cookie and gzip enabled (production only), also serves static assets which are generated from importing assets directly inside modules.
 
 ##### Arguments
 - `app` *([Next Server](https://github.com/zeit/next.js#custom-server-and-routing))*
@@ -193,14 +264,95 @@ Creates locale aware express router with universal cookie and gzip enabled (prod
 ##### Returns
 *([Express.Router](https://expressjs.com/en/api.html#express.router))*: An object of express router.
 
+##### Examples
+```js
+const express = require('express');
+const next = require('next');
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const { createRouter } = require('soya-next/server/router');
+
+app.prepare()
+  .then(() => {
+    const server = express();
+    server.use(createRouter(app));
+    server.listen(3000, err => {
+      if (err) {
+        throw err;
+      }
+      console.log('> Ready on http://localhost:3000');
+    });
+  })
+  .catch(ex => {
+    console.error(ex.stack);
+    process.exit(1);
+  });
+```
+
 #### `withLocale()`
 Give access to default locale, locale, and site locales.
 
 ##### Returns
 *(Function)*: A higher order React component class that passes `defaultLocale`, `locale`, and `siteLocales` into your component props.
 
+##### Examples
+```js
+import { withLocale } from 'soya-next/i18n';
+
+export default withLocale(({
+  locale,
+  defaultLocale,
+  siteLocales,
+}) => (
+  <div>
+    <div>Current locale is {locale}</div>
+    <div>Default locale is {defaultLocale}</div>
+    <div>Supported site locales are {siteLocales.join(', ')}</div>
+  </div>
+));
+```
+
 #### `<LocaleLink />`
-Locale aware `<Link />` component for routing. See [here](https://github.com/zeit/next.js#with-link) for documentation.
+Locale aware `<Link />` component for routing. See [here](https://github.com/zeit/next.js#with-link) for `<Link />` documentation.
+
+##### Props
+- [`locale`] *(String)*: A locale string, e.g. `id-id`, `en-id`, etc.
+
+##### Examples
+```js
+import LocaleLink from 'soya-next/link';
+
+const languages = {
+  id: 'Bahasa',
+  en: 'English',
+};
+
+const countries = {
+  id: 'Indonesia',
+  sg: 'Singapore',
+};
+
+const LanguagePicker = () => (
+  <div>
+    ['id-id', 'en-id', 'en-sg'].map((siteLocale) => {
+      const [language, country] = siteLocale.split('-')
+      return (
+        <LocaleLink locale={{ language, country }}>
+          <a>{languages[language]} ({countries[country]})</a>
+        </LocaleLink>
+      );
+    });
+  </div>
+);
+
+export default (props) => (
+  <div>
+    <LocaleLink href='/'>Home</LocaleLink />
+    <LocaleLink href='/about'>About</LocaleLink />
+    <LanguagePicker />
+  </div>
+);
+```
 
 ## Examples
 - Authentication ([source](/examples/auth))
