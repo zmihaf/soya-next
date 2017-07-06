@@ -203,6 +203,7 @@ Give access to default locale, locale, and site locales.
 Locale aware `<Link />` component for routing. See [here](https://github.com/zeit/next.js#with-link) for documentation.
 
 ## Examples
+- Authentication ([source](/examples/auth))
 - CSS Modules ([source](/examples/css-modules))
 - CSS Modules with SCSS ([source](/examples/css-modules-with-scss))
 - Custom Routes ([source](/examples/custom-routes))
