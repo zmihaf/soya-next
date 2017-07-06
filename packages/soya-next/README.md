@@ -181,11 +181,11 @@ Creates locale aware express router with universal cookie and gzip enabled (prod
 - [`options`] *(Object)*:
   - [`routes`] *(Object.\<Object\>)*: An object which key is a route path and value is an object with the following properties:
     - `page` *(String)*: Path to page component.
-    - `[method]` *(String)*: [HTTP method](https://expressjs.com/en/api.html#routing-methods), default is `GET`.
+    - [`method`] *(String)*: [HTTP method](https://expressjs.com/en/api.html#routing-methods), default is `GET`.
   - [`redirects`] *(Object.\<Object\>)*: An object which key is a redirection source path and value is an object with the following properties:
     - `to` *(String)*: Redirection target path.
-    - `[method]` *(String)*: [HTTP method](https://expressjs.com/en/api.html#routing-methods), default is `GET`.
-    - `[status]` *(Number)*: HTTP status code for redirection, default is `301`.
+    - [`method`] *(String)*: [HTTP method](https://expressjs.com/en/api.html#routing-methods), default is `GET`.
+    - [`status`] *(Number)*: HTTP status code for redirection, default is `301`.
   - [`compression`] *(Object)*: See [here](https://github.com/expressjs/compression#options) for compression options.
   - [`defaultLocale`] *(String)*: A locale string used as fallback locale, e.g. `id-id`, `en-id`, etc.
   - [`siteLocales`] *(Array.\<String\>)*: An array of locale string supported by your app.
