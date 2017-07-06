@@ -2,8 +2,9 @@
   "name": "css-modules",
   "version": "1.0.0",
   "private": true,
+  "main": "server.js",
   "scripts": {
-    "start": "next dev"
+    "start": "node ."
   },
   "dependencies": {
     "express": "^4.15.3",
