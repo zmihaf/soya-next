@@ -87,8 +87,14 @@ if (projectDirectory) {
   console.log(`Successfully created ${name} in ${root}.`);
   console.log('Run the following commands to start the app:');
   console.log();
-  if (cwd !== root) {
-    console.log(`  cd ${name}`);
+  let target;
+  if (path.isAbsolute(projectDirectory)) {
+    target = root;
+  } else {
+    target = path.relative(cwd, root);
+  }
+  if (target !== '') {
+    console.log(`  cd ${target}`);
   }
   console.log(`  ${cmd} start`);
   console.log();
