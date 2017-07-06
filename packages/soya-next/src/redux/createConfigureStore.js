@@ -9,7 +9,7 @@ import enhancer from './storeEnhancer';
 import middleware from './middleware';
 
 export default globalReducers => (preloadedState, extraArgument) => createStore(
-  globalReducers ? combineReducers(globalReducers) : () => preloadedState,
+  globalReducers ? combineReducers(globalReducers) : () => preloadedState || {},
   preloadedState,
   composeWithDevTools(
     applyMiddleware(
