@@ -27,9 +27,10 @@ And optionally:
 
 - CSS modules already configured. You just need to import CSS with `.mod.css` or `.module.css` suffix from your react component's JS file. You can also use SCSS in CSS module files.
 - Asset as modules already configured. You can import any images, svg and fonts from your JS and CSS files and it will automatically be resolved to a hashed asset URL.
+- Easy application configuration based on environment (see [Node Config](https://github.com/lorenwest/node-config)).
+- Universal cookie access already configured using [React Cookie](https://github.com/reactivestack/cookies/tree/master/packages/react-cookie).
 - Redux already configured (usage is optional). See Redux example for more information.
 - Instead of using `<Link>`, use `<LocaleLink>` (see API for more information). This link component is already locale aware.
-- Easy application configuration based on environment (see [Node Config](https://github.com/lorenwest/node-config)).
 - Custom routing supports locale, and redirection for obsolete pages.
 - Gzip compression always enabled in production.
 - CLI provided for easy setup.
