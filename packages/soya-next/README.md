@@ -3,6 +3,7 @@ Soya Next is a set of utility functions for React applications built on top of N
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
+- [Differences from vanilla Next.js](#differences-from-vanilla-nextjs)
 - [Quick Start Guide](#quick-start-guide)
 - [Documentation](#documentation)
   - [Getting Started](#getting-started)
@@ -25,7 +26,7 @@ And optionally:
 
 ## Differences from vanilla Next.js
 
-- CSS modules already configured. You just need to import CSS with `.mod.css` or `.module.css` suffix from your react component's JS file. You can also use SCSS in CSS module files.
+- CSS modules already configured. You just need to import CSS with `.mod.css` or `.module.css` suffix from your react component's JS file. You can also use SCSS in CSS module files with `.mod.scss` or `.module.scss`.
 - Asset as modules already configured. You can import any images, svg and fonts from your JS and CSS files and it will automatically be resolved to a hashed asset URL.
 - Easy application configuration based on environment (see [Node Config](https://github.com/lorenwest/node-config)).
 - Universal cookie access already configured using [React Cookie](https://github.com/reactivestack/cookies/tree/master/packages/react-cookie).
@@ -359,8 +360,8 @@ const LanguagePicker = () => (
 
 export default (props) => (
   <div>
-    <LocaleLink href='/'>Home</LocaleLink />
-    <LocaleLink href='/about'>About</LocaleLink />
+    <LocaleLink href='/'><a>Home</a></LocaleLink />
+    <LocaleLink href='/about'><a>About</a></LocaleLink />
     <LanguagePicker />
   </div>
 );
