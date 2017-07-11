@@ -23,6 +23,17 @@ And optionally:
 
 - [Redux](https://github.com/reactjs/redux) - Predictable state container for JavaScript apps
 
+## Differences from vanilla Next.js
+
+- CSS modules already configured. You just need to import CSS with `.mod.css` or `.module.css` suffix from your react component's JS file. You can also use SCSS in CSS module files.
+- Asset as modules already configured. You can import any images, svg and fonts from your JS and CSS files and it will automatically be resolved to a hashed asset URL.
+- Redux already configured (usage is optional). See Redux example for more information.
+- Instead of using `<Link>`, use `<LocaleLink>` (see API for more information). This link component is already locale aware.
+- Easy application configuration based on environment (see [Node Config](https://github.com/lorenwest/node-config)).
+- Custom routing supports locale, and redirection for obsolete pages.
+- Gzip compression always enabled in production.
+- CLI provided for easy setup.
+
 ## Quick Start Guide
 This is a quick start to help you bootstrap **soya-next** project in no time. It should cover everything in the getting started section.
 
