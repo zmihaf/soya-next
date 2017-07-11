@@ -26,7 +26,7 @@ And optionally:
 
 ## Differences from vanilla Next.js
 
-- CSS modules already configured. You just need to import CSS with `.mod.css` or `.module.css` suffix from your react component's JS file. You can also use SCSS in CSS module files with `.mod.scss` or `.module.scss`.
+- CSS modules already configured. You just need to import CSS with `.mod.css` or `.module.css` suffix from your react component's JS file. You can also use SCSS in CSS module files with `.mod.scss` or `.module.scss` suffix.
 - Asset as modules already configured. You can import any images, svg and fonts from your JS and CSS files and it will automatically be resolved to a hashed asset URL.
 - Easy application configuration based on environment (see [Node Config](https://github.com/lorenwest/node-config)).
 - Universal cookie access already configured using [React Cookie](https://github.com/reactivestack/cookies/tree/master/packages/react-cookie).
