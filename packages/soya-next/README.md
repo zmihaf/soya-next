@@ -11,14 +11,7 @@ Soya Next is a set of utility functions for React applications built on top of N
     - [Configuration](#configuration)
     - [Build your app](#build-your-app)
     - [Start your app](#start-your-app)
-  - [API](./API.md#api)
-    - [`applyReducers([reducers])`](./API.md#applyreducersreducers)
-    - [`createDocument()`](./API.md#createdocument)
-    - [`createNextConfig([nextConfig])`](./API.md#createnextconfignextconfig)
-    - [`createPage([...connectArgs])(Page, [reducers])`](./API.md#createpageconnectargspage-reducers)
-    - [`createRouter(app, [options])`](./API.md#createrouterapp-options)
-    - [`withLocale()`](./API.md#withlocale)
-    - [`<LocaleLink />`](./API.md#localelink-)
+  - [API](#api)
 - [Examples](#examples)
 
 ## Prerequisites
@@ -149,6 +142,16 @@ To use `npm start` or `yarn start` instead, add the following to your `package.j
 ```
 
 Open http://localhost:3000 in your browser.
+
+### API
+You can read the API documentation [here](./API.md#api).
+- [`applyReducers([reducers])`](./API.md#applyreducersreducers)
+- [`createDocument()`](./API.md#createdocument)
+- [`createNextConfig([nextConfig])`](./API.md#createnextconfignextconfig)
+- [`createPage([...connectArgs])(Page, [reducers])`](./API.md#createpageconnectargspage-reducers)
+- [`createRouter(app, [options])`](./API.md#createrouterapp-options)
+- [`withLocale()`](./API.md#withlocale)
+- [`<LocaleLink />`](./API.md#localelink-)
 
 ## Examples
 - Authentication ([source](/examples/auth))
