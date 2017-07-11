@@ -10,6 +10,7 @@ Soya Next is a set of utility functions for React applications built on top of N
     - [Installation](#installation)
     - [Configuration](#configuration)
     - [Build your app](#build-your-app)
+    - [Start your app](#start-your-app)
   - [API](./API.md#api)
     - [`applyReducers([reducers])`](./API.md#applyreducersreducers)
     - [`createDocument()`](./API.md#createdocument)
@@ -128,6 +129,9 @@ export default createPage()(IndexPage);
 ```
 
 That's it!
+
+#### Start your app
+
 To start your app run the following:
 
 ```
