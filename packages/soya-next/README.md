@@ -17,9 +17,12 @@ Soya Next is a set of utility functions for React applications built on top of N
 ## Prerequisites
 To start using Soya Next, you need to be familiar with the following:
 
-- [Express.js](https://expressjs.com) - Fast, unopinionated, minimalist web framework for Node.js
 - [React](https://facebook.github.io/react) - A javascript library for building user interfaces
 - [Next.js](https://github.com/zeit/next.js) - A minimalistic framework for server-rendered React applications
+
+A little bit of the following:
+- [CSS Modules](https://github.com/css-modules/css-modules)
+- [Express.js Routing](https://expressjs.com/en/guide/routing.html)
 
 And optionally:
 
