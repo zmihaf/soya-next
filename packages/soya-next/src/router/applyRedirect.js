@@ -6,20 +6,28 @@ import getDisplayName from '../utils/getDisplayName';
 import decodeParam from '../utils/decodeParam';
 import ensureRedirect from '../utils/ensureRedirect';
 import parseRedirectionPath from '../utils/parseRedirectionPath';
+import { toPath, trimPath } from '../utils/locale';
 
 export default Page => class extends React.Component {
   static displayName = getDisplayName('ApplyRedirect', Page);
 
   static async getInitialProps(ctx) {
-    const { method, redirects } = ctx.req || window.__NEXT_DATA__.props;
+    const {
+      defaultLocale,
+      locale,
+      method,
+      redirects,
+      siteLocales,
+    } = ctx.req || window.__NEXT_DATA__.props;
     if (!ctx.req) {
       for (const from of Object.keys(redirects)) {
         const { method: redirectMethod, page, to } = ensureRedirect(redirects[from]);
         if (redirectMethod.toLowerCase() === method.toLowerCase()) {
           const keys = [];
           const regexp = pathToRegexp(from, keys);
-          const match = regexp.exec(ctx.asPath);
+          const match = regexp.exec(trimPath(ctx.asPath, defaultLocale, siteLocales));
           if (match !== null) {
+            const localeSegment = toPath(locale, defaultLocale);
             const params = keys.reduce((params, key, index) => {
               const param = match[index + 1];
               if (param) {
@@ -27,7 +35,7 @@ export default Page => class extends React.Component {
               }
               return params;
             }, {});
-            const redirectionPath = parseRedirectionPath(to, params);
+            const redirectionPath = localeSegment + parseRedirectionPath(to, params);
             Router.push(`${page}?${stringifyQs(ctx.query)}`, redirectionPath);
             return {};
           }

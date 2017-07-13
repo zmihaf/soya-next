@@ -4,6 +4,7 @@ import cookieMiddleware from 'universal-cookie-express';
 import createLocaleMiddleware from './createLocaleMiddleware';
 import ensureRedirect from '../utils/ensureRedirect';
 import parseRedirectionPath from '../utils/parseRedirectionPath';
+import { toPath } from '../utils/locale';
 
 const defaultOptions = {
   routes: {},
@@ -46,7 +47,8 @@ export default (app, {
   Object.keys(newRedirects).forEach(from => {
     const { method, status, to } = ensureRedirect(newRedirects[from]);
     router[method.toLowerCase()](from, (req, res) => {
-      const redirectionPath = parseRedirectionPath(to, req.params);
+      const localeSegment = toPath(req.locale, defaultLocale);
+      const redirectionPath = parseRedirectionPath(localeSegment + to, req.params);
       res.redirect(status, redirectionPath);
     });
   });
