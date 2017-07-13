@@ -43,7 +43,7 @@ server.use(createRouter(app));
 // ...
 ```
 
-### Server Side Rending
+### Server Side Rendering
 To avoid [FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content), you can do server side rendering by creating a file at `pages/_document.js` with the following:
 ```js
 import { createDocument } from 'soya-next/server/document';
