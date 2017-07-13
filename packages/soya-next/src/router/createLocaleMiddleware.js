@@ -1,3 +1,5 @@
+import { parse as parseUrl } from 'url';
+
 export default ({
   defaultLocale,
   siteLocales,
@@ -10,14 +12,14 @@ export default ({
   }
   return (req, res, next) => {
     let [language, country] = defaultLocale.split('-');
-    const [url] = req.url.substr(1).split('?');
-    const [localeSegment] = url.split('/');
+    const { pathname } = parseUrl(req.url);
+    const [localeSegment] = pathname.substr(1).split('/');
     if (localeSegment) {
       const [languageSegment, countrySegment = country] = localeSegment.split('-');
       if (siteLocales.indexOf(`${languageSegment}-${countrySegment}`) !== -1) {
         country = countrySegment;
         language = languageSegment;
-        req.url = `/${url.substr(localeSegment.length + 1)}`;
+        req.url = req.url.substr(localeSegment.length + 1) || '/';
       }
     }
     req.defaultLocale = defaultLocale;
