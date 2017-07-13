@@ -24,8 +24,9 @@ export default (app, {
   }
   const newRedirects = Object.keys(redirects).reduce((newRedirects, from) => {
     const redirect = redirects[from];
+    const newRoute = routes[redirect.to];
     newRedirects[from] = {
-      page: routes[redirect.to].page,
+      page: (newRoute && newRoute.page) || redirect.to,
       ...redirect,
     };
     return newRedirects;
