@@ -6,6 +6,7 @@ import { format, resolve } from 'url';
 import withLocale from '../i18n/withLocaleComponent';
 import withUrl from '../router/withUrl';
 import { localeShape, urlShape } from '../constants/PropTypes';
+import { toPath } from '../utils/locale';
 
 class LocaleLink extends React.Component {
   static propTypes = {
@@ -26,20 +27,8 @@ class LocaleLink extends React.Component {
     let { as, href } = props;
     delete props.siteLocales;
 
-    const [defaultLanguage, defaultCountry] = defaultLocale.split('-');
     const { language, country } = locale;
-
-    let localeSegment = '';
-    const localeArr = [];
-    if (language !== defaultLanguage) {
-      localeArr.push(language);
-    }
-    if (country !== defaultCountry) {
-      localeArr.push(country);
-    }
-    if (localeArr.length !== 0) {
-      localeSegment += `/${localeArr.join('-')}`;
-    }
+    const localeSegment = toPath(locale, defaultLocale);
 
     href = href ? format(href) : '';
     as = as ? format(as) : '';

@@ -48,9 +48,9 @@ export default configureStore => (...connectArgs) => (Page, reducers) => {
   }
 
   return compose(
+    withLocale,
     applyRedirect,
     withCookies,
-    withLocale,
     withStore(configureStore),
   )(SoyaPage);
 };
