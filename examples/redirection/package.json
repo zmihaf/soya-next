@@ -1,0 +1,21 @@
+{
+  "name": "redirection",
+  "version": "1.0.0",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "build": "next build",
+    "start": "node ."
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "next": "^2.4.7",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-cookie": "^2.0.8",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.1",
+    "soya-next": "latest"
+  }
+}
