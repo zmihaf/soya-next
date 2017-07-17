@@ -61,7 +61,7 @@ You are done! Open http://localhost:3000 in your browser to see your app running
 Soya Next requires **Express.js**, **Next.js**, **React**, **React-Cookie**, **React-Redux**, and **Redux** to be installed, run the following to install them:
 
 ```
-npm install --save express next.js react react-cookie react-dom react-redux redux
+npm install --save express next react react-cookie react-dom react-redux redux
 ```
 
 To install Soya Next, run the following:
