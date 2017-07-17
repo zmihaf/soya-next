@@ -27,6 +27,7 @@
     "config": "^1.26.1",
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.1",
+    "hoist-non-react-statics": "^2.2.0",
     "node-sass": "^4.5.3",
     "path-to-regexp": "^1.7.0",
     "prop-types": "^15.5.10",

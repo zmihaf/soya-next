@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import hoistStatics from 'hoist-non-react-statics';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { storeShape } from 'react-redux/lib/utils/PropTypes';
@@ -28,8 +29,6 @@ export default configureStore => (...connectArgs) => (Page, reducers) => {
       url: urlShape.isRequired,
     };
 
-    static getInitialProps = EnhancedPage.getInitialProps;
-
     render() {
       const { store, ...props } = this.props;
       return (
@@ -52,5 +51,5 @@ export default configureStore => (...connectArgs) => (Page, reducers) => {
     applyRedirect,
     withCookies,
     withStore(configureStore),
-  )(SoyaPage);
+  )(hoistStatics(SoyaPage, EnhancedPage));
 };
