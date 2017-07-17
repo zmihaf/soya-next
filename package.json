@@ -5,7 +5,7 @@
     "build": "lerna exec -- babel src -d lib --ignore __tests__",
     "clean": "rimraf packages/*/lib",
     "clean-all": "yarn run clean && lerna clean",
-    "coverage": "jest --coverage",
+    "coverage": "yarn test -- --coverage",
     "coveralls": "yarn run coverage && cat ./coverage/lcov.info | coveralls",
     "lint": "marlint",
     "lint:fix": "yarn run lint -- --fix",
@@ -13,7 +13,7 @@
     "precommit": "lint-staged",
     "prepublish": "yarn run clean && yarn run build",
     "publish": "lerna publish",
-    "test": "jest",
+    "test": "NODE_CONFIG_DIR=./packages/soya-next/config jest",
     "watch": "yarn run build -- -w"
   },
   "devDependencies": {
@@ -21,12 +21,20 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "coveralls": "^2.13.1",
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
     "husky": "^0.14.0",
     "jest": "^20.0.4",
     "lerna": "^2.0.0-rc.5",
     "lint-staged": "^4.0.0",
     "marlint": "^5.0.2",
     "next": "^2.4.5",
+    "react": "^15.6.1",
+    "react-cookie": "^2.0.8",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-test-renderer": "^15.6.1",
+    "redux": "^3.7.2",
     "rimraf": "^2.6.1"
   },
   "lint-staged": {
@@ -61,6 +69,9 @@
     }
   },
   "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "testPathIgnorePatterns": [
       "/examples/"
     ]

@@ -14,11 +14,18 @@ export default Component => {
     };
 
     static propTypes = {
-      locale: localeShape,
+      locale: PropTypes.oneOfType([
+        localeShape,
+        PropTypes.string,
+      ]),
     };
 
     render() {
-      const locale = this.props.locale || this.context.locale;
+      let locale = this.props.locale || this.context.locale;
+      if (typeof locale === 'string') {
+        const [language, country] = locale.split('-');
+        locale = { country, language };
+      }
       return (
         <Component
           {...this.props}

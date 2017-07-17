@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SoyaProvider /> should add cookies, defaultLocale, locale, siteLocales, and store to child context 1`] = `
+Object {
+  "cookies": Cookies {},
+  "defaultLocale": "id-id",
+  "locale": Object {
+    "country": "id",
+    "language": "en",
+  },
+  "siteLocales": Array [
+    "id-id",
+    "en-id",
+  ],
+  "store": Object {
+    "dispatch": [Function],
+    "getState": [Function],
+    "subscribe": [Function],
+  },
+}
+`;
