@@ -2,7 +2,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "lerna exec -- babel src -d lib",
+    "build": "lerna exec -- babel src -d lib --ignore __tests__",
     "clean": "rimraf packages/*/lib",
     "clean-all": "yarn run clean && lerna clean",
     "coverage": "jest --coverage",

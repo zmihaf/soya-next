@@ -1,11 +1,4 @@
 {
-  "env": {
-    "development": {
-      "ignore": [
-        "**/*.test.js"
-      ]
-    }
-  },
   "presets": [
     "next/babel",
     "stage-2"
