@@ -1,5 +1,4 @@
 import React from 'react';
-import { Cookies } from 'react-cookie';
 import PropTypes from 'prop-types';
 import { storeShape } from 'react-redux/lib/utils/PropTypes';
 import getDisplayName from '../utils/getDisplayName';
@@ -19,7 +18,6 @@ export default configureStore => Page => {
     static displayName = getDisplayName('WithStore', Page);
 
     static propTypes = {
-      cookies: PropTypes.instanceOf(Cookies).isRequired,
       preloadedState: PropTypes.object.isRequired,
       store: PropTypes.oneOfType([
         PropTypes.object,

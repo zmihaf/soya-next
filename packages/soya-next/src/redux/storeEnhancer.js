@@ -9,7 +9,7 @@ export default globalReducers => createStore => (reducer, preloadedState, enhanc
     ...store,
     addReducer: nextReducers => {
       if (!nextReducers) {
-        return;
+        throw new Error('Missing nextReducers argument.');
       }
 
       let nextReducer = nextReducers;
@@ -27,7 +27,7 @@ export default globalReducers => createStore => (reducer, preloadedState, enhanc
     },
     replaceReducer: nextReducers => {
       if (!nextReducers) {
-        return;
+        throw new Error('Missing nextReducers argument.');
       }
 
       let nextReducer = nextReducers;

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Store Enhancer should add new todos to store state 1`] = `
+Object {
+  "todos": Array [],
+}
+`;
+
+exports[`Store Enhancer should replace store state with given reducers 1`] = `
+Object {
+  "auth": Object {},
+  "todos": Array [],
+}
+`;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withCookiesPage browser should add cookie to page props 1`] = `
+Object {
+  "cookies": Cookies {},
+  "init": true,
+}
+`;
+
+exports[`withCookiesPage server should add cookie to page props 1`] = `
+Object {
+  "cookies": Cookies {
+    "cookies": Object {
+      "key": "value",
+    },
+    "hooks": undefined,
+  },
+  "init": true,
+}
+`;
