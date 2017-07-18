@@ -22,7 +22,12 @@ export default ({ assetPrefix = '', webpack, ...config } = {}) => ({
       rule.test && rule.test.toString() === '/\\.js(\\?[^?]*)?$/'
     ));
     if (rule && !rule.options.babelrc) {
-      rule.options.presets.push(require.resolve('../babel/preset'));
+      // istanbul ignore else
+      if (process.env.NODE_ENV === 'test') {
+        rule.options.presets.push('../babel/preset');
+      } else {
+        rule.options.presets.push(require.resolve('../babel/preset'));
+      }
     }
     webpackConfig.module.rules.push(
       {

@@ -114,7 +114,7 @@ Object {
         "options": Object {
           "babelrc": false,
           "presets": Array [
-            "/home/sayuti/frontend/soya-next/packages/soya-next/src/babel/preset.js",
+            "../babel/preset",
           ],
         },
         "test": /\\\\\\.js\\(\\\\\\?\\[\\^\\?\\]\\*\\)\\?\\$/,
@@ -223,7 +223,7 @@ Object {
         "options": Object {
           "babelrc": false,
           "presets": Array [
-            "/home/sayuti/frontend/soya-next/packages/soya-next/src/babel/preset.js",
+            "../babel/preset",
           ],
         },
         "test": /\\\\\\.js\\(\\\\\\?\\[\\^\\?\\]\\*\\)\\?\\$/,
@@ -330,7 +330,7 @@ Object {
         "options": Object {
           "babelrc": false,
           "presets": Array [
-            "/home/sayuti/frontend/soya-next/packages/soya-next/src/babel/preset.js",
+            "../babel/preset",
           ],
         },
         "test": /\\\\\\.js\\(\\\\\\?\\[\\^\\?\\]\\*\\)\\?\\$/,
