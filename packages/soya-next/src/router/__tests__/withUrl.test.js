@@ -13,6 +13,6 @@ describe('withUrl', () => {
     const Component = () => <div />;
     const ComponentWithUrl = withUrl(Component);
     const wrapper = shallow(<ComponentWithUrl />, { context });
-    expect(wrapper.find(Component).props()).toMatchSnapshot();;
+    expect(wrapper.find(Component).props()).toMatchSnapshot();
   });
 });
