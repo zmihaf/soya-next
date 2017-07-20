@@ -1,15 +1,23 @@
 {
   "name": "soya-next-scripts",
   "version": "0.1.6",
-  "description": "Configuration and scripts for soya-next.",
+  "description": "A CLI which contains configuration and scripts used by soya-next-cli.",
   "main": "lib/index.js",
   "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
   "repository": "https://github.com/traveloka/soya-next/tree/master/packages/soya-next-scripts",
+  "bugs": {
+    "url": "https://github.com/traveloka/soya-next/issues"
+  },
   "keywords": [
+    "next",
     "next.js",
     "react",
     "soya",
-    "soya-next"
+    "soya-next",
+    "soya-next-scripts"
   ],
   "files": [
     "bin",
