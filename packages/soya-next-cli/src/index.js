@@ -20,7 +20,6 @@ const argv = yargs
 const projectDirectory = argv._[0];
 
 const dependencies = [
-  'express',
   'next',
   'prop-types',
   'react',
@@ -29,6 +28,7 @@ const dependencies = [
   'react-redux',
   'redux',
   'soya-next',
+  'soya-next-scripts',
 ];
 
 if (projectDirectory) {
