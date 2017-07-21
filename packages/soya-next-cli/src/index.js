@@ -61,6 +61,12 @@ if (projectDirectory) {
       start: 'soya-next-scripts start',
       test: 'soya-next-scripts test',
     },
+    jest: {
+      testMatch: [
+        '**/__tests__/**/*.js?(x)',
+        '**/?(*).(spec|test).js?(x)',
+      ],
+    },
   }, { spaces: 2 });
 
   process.chdir(root);
