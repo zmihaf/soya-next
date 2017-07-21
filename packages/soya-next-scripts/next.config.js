@@ -34,16 +34,10 @@ module.exports = {
       ));
       if (name) {
         entries[name] = [`${require.resolve('./pages/_document')}?entry`];
-        config.plugins.push(new webpack.LoaderOptionsPlugin({
-          test: /_document\.js$/,
-          include: pagesDir,
-          options: {
-            context: __dirname,
-          },
-        }));
       }
       return entries;
     });
+
     if (dev) {
       const hotSelfAcceptRule = config.module.rules.find(rule => rule.loader === 'hot-self-accept-loader');
       if (hotSelfAcceptRule) {
@@ -53,7 +47,17 @@ module.exports = {
     const emitFileRule = config.module.rules.find(rule => rule.loader === 'emit-file-loader');
     if (emitFileRule) {
       emitFileRule.include.push(pagesDir);
+      const exclude = emitFileRule.exclude;
+      emitFileRule.exclude = str => exclude(str) && pagesDir.indexOf(str) !== 0;
     }
+
+    config.plugins.push(new webpack.LoaderOptionsPlugin({
+      test: /_document\.js$/,
+      include: pagesDir,
+      options: {
+        context: __dirname,
+      },
+    }));
     // @remove-on-eject-end
     const babelRule = config.module.rules.find(rule => (
       rule.loader === 'babel-loader' &&
@@ -61,6 +65,13 @@ module.exports = {
     ));
     if (babelRule && !babelRule.options.babelrc) {
       babelRule.options.presets.push(require.resolve('soya-next/babel'));
+      babelRule.options.plugins = babelRule.options.plugins || [];
+      babelRule.options.plugins.push([
+        require.resolve('styled-modules/babel'),
+        {
+          pattern: /\.(mod)?ule\.(css|s(a|c)ss)$/,
+        },
+      ]);
     }
 
     config.module.rules.push(
