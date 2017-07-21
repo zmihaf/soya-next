@@ -55,10 +55,11 @@ if (projectDirectory) {
   fs.writeJsonSync(path.join(root, 'package.json'), {
     name,
     version: '1.0.0',
-    main: 'server.js',
     scripts: {
-      build: 'next build',
-      start: 'node .',
+      build: 'soya-next-scripts build',
+      eject: 'soya-next-scripts eject',
+      start: 'soya-next-scripts start',
+      test: 'soya-next-scripts test',
     },
   }, { spaces: 2 });
 
