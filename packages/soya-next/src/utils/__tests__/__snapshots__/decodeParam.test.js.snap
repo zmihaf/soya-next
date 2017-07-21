@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DecodeParam Utils should return as is if it's not a string or is an empty string 1`] = `
+Object {
+  "a": 1,
+}
+`;
+
+exports[`DecodeParam Utils should throw an URIError exception when used wrongly 1`] = `"Failed to decode param \\"/error/%A0\\""`;

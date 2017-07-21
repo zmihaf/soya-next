@@ -24,33 +24,31 @@ describe('Create Locale Middleware', () => {
   });
 
   it('should fallback to default locale', () => {
-    const req = {
-      url: '/',
-    };
+    const req = { url: '/' };
     createLocaleMiddleware(options)(req, res, next);
     expect(req).toMatchSnapshot();
   });
 
   it('should fallback country to its default and remove locale segment from url', () => {
-    const req = {
-      url: '/en/',
-    };
+    const req = { url: '/en/' };
+    createLocaleMiddleware(options)(req, res, next);
+    expect(req).toMatchSnapshot();
+  });
+
+  it('should match even without trailing slash', () => {
+    const req = { url: '/en-sg' };
     createLocaleMiddleware(options)(req, res, next);
     expect(req).toMatchSnapshot();
   });
 
   it('should match available site locales and remove locale segment from url', () => {
-    const req = {
-      url: '/en-sg/',
-    };
+    const req = { url: '/en-sg/' };
     createLocaleMiddleware(options)(req, res, next);
     expect(req).toMatchSnapshot();
   });
 
   it('should fallback to default locale if none match', () => {
-    const req = {
-      url: '/ms-my/',
-    };
+    const req = { url: '/ms-my/' };
     createLocaleMiddleware(options)(req, res, next);
     expect(req).toMatchSnapshot();
   });

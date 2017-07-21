@@ -67,3 +67,19 @@ Object {
   "url": "/",
 }
 `;
+
+exports[`Create Locale Middleware should match even without trailing slash 1`] = `
+Object {
+  "defaultLocale": "id-id",
+  "locale": Object {
+    "country": "sg",
+    "language": "en",
+  },
+  "siteLocales": Array [
+    "id-id",
+    "en-id",
+    "en-sg",
+  ],
+  "url": "/",
+}
+`;
