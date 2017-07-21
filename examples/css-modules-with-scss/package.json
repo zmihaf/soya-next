@@ -2,18 +2,22 @@
   "name": "css-modules-with-scss",
   "version": "1.0.0",
   "private": true,
-  "main": "server.js",
   "scripts": {
-    "start": "node ."
+    "build": "soya-next-scripts build",
+    "eject": "soya-next-scripts eject",
+    "start": "soya-next-scripts start",
+    "test": "soya-next-scripts test"
   },
   "dependencies": {
     "express": "^4.15.3",
     "next": "^2.4.6",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-cookie": "^2.0.7",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "redux": "^3.7.1",
-    "soya-next": "latest"
+    "soya-next": "latest",
+    "soya-next-scripts": "latest"
   }
 }
