@@ -24,3 +24,9 @@ To run unit tests, run the following:
 ```
 soya-next-scripts test
 ```
+
+To eject configuration and scripts, run the following:
+```
+soya-next-scripts eject
+```
+> Warning: Eject is permanent, so once it's ejected there's no going back.
