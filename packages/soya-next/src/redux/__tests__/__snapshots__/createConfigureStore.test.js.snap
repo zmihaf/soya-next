@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createConfigureStore should create basic configureStore 1`] = `
+Object {
+  "local": Array [],
+}
+`;
+
+exports[`createConfigureStore should create configureStore with global reducers 1`] = `
+Object {
+  "global": Object {},
+  "local": Array [],
+}
+`;

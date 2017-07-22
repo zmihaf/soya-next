@@ -22,7 +22,16 @@ describe('Store Enhancer', () => {
     expect(store.getState()).toMatchSnapshot();
   });
 
-  it('should replace store state with given reducers', () => {
+  it('should replace store start with given reducer function', () => {
+    const auth = (state = {}) => state;
+    store.addReducer({ auth });
+    store.addReducer({ todos });
+    store.addReducer(todos);
+    store.replaceReducer(auth);
+    expect(store.getState()).toMatchSnapshot();
+  });
+
+  it('should replace store state with given reducers object', () => {
     const auth = (state = {}) => state;
     store.addReducer({ auth });
     store.addReducer({ todos });

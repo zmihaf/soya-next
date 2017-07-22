@@ -1,3 +1,4 @@
+/* eslint-disable no-console, no-sync */
 import fs from 'fs-extra';
 import path from 'path';
 import spawn from 'cross-spawn';
