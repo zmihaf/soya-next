@@ -4,7 +4,7 @@ const { join, resolve } = require('path');
 const pagesDir = join(__dirname, 'pages');
 const { realpathSync } = require('fs');
 const appDir = resolve(realpathSync(process.cwd()));
-const appPackage = join(appDir, 'package.json');
+const appPackage = require(join(appDir, 'package.json'));
 const createEslintConfig = require('./lib/utils/createEslintConfig').default;
 // @remove-on-eject-end
 const { soya } = require('soya-next/server/config');
@@ -52,7 +52,7 @@ module.exports = {
     if (emitFileRule) {
       emitFileRule.include.push(pagesDir);
       const exclude = emitFileRule.exclude;
-      emitFileRule.exclude = str => exclude(str) && pagesDir.indexOf(str) !== 0;
+      emitFileRule.exclude = str => exclude(str) && str.indexOf(pagesDir) !== 0;
     }
 
     config.plugins.push(new webpack.LoaderOptionsPlugin({
@@ -81,10 +81,6 @@ module.exports = {
     if (dev) {
       config.module.rules.push({
         test: /\.js(x)?$/,
-        exclude: [
-          /clones/,
-          /soya-next/,
-        ],
         enforce: 'pre',
         loader: require.resolve('eslint-loader'),
         options: {

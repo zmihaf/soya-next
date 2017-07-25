@@ -17,6 +17,7 @@ const ownDependencies = [
   'webpack',
 ];
 const devDependencies = [
+  'babel-eslint',
   'eslint',
   'eslint-config-marlint',
   'eslint-loader',
