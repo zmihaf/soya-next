@@ -1,7 +1,11 @@
 // @remove-on-eject-begin
 const webpack = require('webpack');
-const { join } = require('path');
+const { join, resolve } = require('path');
 const pagesDir = join(__dirname, 'pages');
+const { realpathSync } = require('fs');
+const appDir = resolve(realpathSync(process.cwd()));
+const appPackage = join(appDir, 'package.json');
+const createEslintConfig = require('./lib/utils/createEslintConfig').default;
 // @remove-on-eject-end
 const { soya } = require('soya-next/server/config');
 const assetPrefix = soya.config.assetPrefix || '';
@@ -72,6 +76,27 @@ module.exports = {
           pattern: /\.(mod)?ule\.(css|s(a|c)ss)$/,
         },
       ]);
+    }
+
+    if (dev) {
+      config.module.rules.push({
+        test: /\.js(x)?$/,
+        exclude: [
+          /clones/,
+          /soya-next/,
+        ],
+        enforce: 'pre',
+        loader: require.resolve('eslint-loader'),
+        options: {
+          failOnError: true,
+          formatter: require('eslint/lib/formatters/codeframe'),
+          // @remove-on-eject-begin
+          baseConfig: createEslintConfig(appPackage.eslintConfig),
+          ignore: !!appPackage.eslintIgnore,
+          useEslintrc: false,
+          // @remove-on-eject-end
+        },
+      });
     }
 
     config.module.rules.push(

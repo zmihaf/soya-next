@@ -3,6 +3,8 @@ import fs from 'fs';
 import inquirer from 'inquirer';
 import path from 'path';
 import spawn from 'cross-spawn';
+import createEslintConfig from './utils/createEslintConfig';
+import createJestConfig from './utils/createJestConfig';
 
 process.on('unhandledRejection', err => {
   throw err;
@@ -13,6 +15,15 @@ const ownDependencies = [
   'cross-spawn',
   'inquirer',
   'webpack',
+];
+const devDependencies = [
+  'eslint',
+  'eslint-config-marlint',
+  'eslint-loader',
+  'eslint-plugin-babel',
+  'eslint-plugin-flowtype',
+  'eslint-plugin-jsx-a11y',
+  'eslint-plugin-react',
 ];
 const ownDir = path.resolve(__dirname, '..');
 const appDir = path.resolve(fs.realpathSync(process.cwd()));
@@ -51,12 +62,12 @@ const copyFiles = (dirs, files) => {
 
   files.forEach(file => {
     let content = fs.readFileSync(path.join(ownDir, file), 'utf8');
-    content = content
+    content = `${content
       .replace(
         /([\n\r])?\s*\/\/ @remove-on-eject-begin([\s\S]*?)\/\/ @remove-on-eject-end\s?/gm,
         '$1'
       )
-      .trim();
+      .trim()}\n`;
     console.log(chalk.green(`+ ${file}`));
     fs.writeFileSync(path.join(appDir, file), content, 'utf8');
   });
@@ -69,27 +80,49 @@ const shouldUseYarn = () => {
   return status === 0;
 };
 
+const sortDependencies = unsortedDependencies => (
+  Object
+    .keys(unsortedDependencies)
+    .sort()
+    .reduce((sortedDependencies, dependency) => {
+      sortedDependencies[dependency] = unsortedDependencies[dependency];
+      return sortedDependencies;
+    }, {})
+);
+
 const updateDependencies = (appPackage, ownPackage) => {
   console.log('Updating dependencies.');
 
   Object
     .keys(ownPackage.dependencies)
+    .filter(dependency => (
+      devDependencies.indexOf(dependency) === -1 &&
+      !appPackage.dependencies[dependency]
+    ))
     .forEach(dependency => {
-      if (dependency !== ownPackage.name && ownDependencies.indexOf(dependency) === -1) {
+      if (
+        dependency !== ownPackage.name &&
+        ownDependencies.indexOf(dependency) === -1
+      ) {
         console.log(chalk.green(`+ ${dependency}`));
       }
       appPackage.dependencies[dependency] = ownPackage.dependencies[dependency];
     });
+  console.log();
 
-  appPackage.dependencies = (
-    Object
-      .keys(appPackage.dependencies)
-      .sort()
-      .reduce((dependencies, dependency) => {
-        dependencies[dependency] = appPackage.dependencies[dependency];
-        return dependencies;
-      }, {})
-  );
+  console.log('Updating dev dependencies.');
+  appPackage.devDependencies = appPackage.devDependencies || {};
+  devDependencies
+    .filter(devDependency => !appPackage.devDependencies[devDependency])
+    .forEach(devDependency => {
+      if (ownDependencies.indexOf(devDependency) === -1) {
+        console.log(chalk.green(`+ ${devDependency}`));
+      }
+      appPackage.devDependencies[devDependency] = ownPackage.dependencies[devDependency];
+    });
+
+  appPackage.dependencies = sortDependencies(appPackage.dependencies);
+  appPackage.devDependencies = sortDependencies(appPackage.devDependencies);
 
   console.log();
 };
@@ -130,6 +163,18 @@ const updateScripts = (appPackage, ownPackage) => {
   console.log();
 };
 
+const addEslintConfig = appPackage => {
+  console.log('Adding Eslint configuration.');
+  appPackage.eslintConfig = createEslintConfig(appPackage.eslintConfig);
+  console.log();
+};
+
+const addJestConfig = appPackage => {
+  console.log('Adding Jest configuration.');
+  appPackage.jest = createJestConfig(appPackage.jest);
+  console.log();
+};
+
 inquirer.prompt({
   type: 'confirm',
   name: 'shouldEject',
@@ -161,6 +206,8 @@ inquirer.prompt({
 
     updateDependencies(appPackage, ownPackage);
     updateScripts(appPackage, ownPackage);
+    addEslintConfig(appPackage);
+    addJestConfig(appPackage);
 
     fs.writeFileSync(
       path.join(appDir, 'package.json'),
