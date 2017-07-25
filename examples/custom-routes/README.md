@@ -18,23 +18,13 @@ Open http://localhost:3000 in your browser.
 ## How It Works
 This example uses [express router](http://expressjs.com/en/api.html#express.router) to enable custom routing.
 
-To use it, create a file at `routes.js` with the following:
-```js
-module.exports = {
-  '/path/:param1/:param2': {
-    page: '/path/to/custom-page',
-  },
-};
-```
-
-Then, add the following to `server.js`:
-```js
-const { createRouter } = require('soya-next/server/router');
-const routes = require('./routes');
-
-// ...
-
-server.use(createRouter(app, { routes }));
-
-// ...
+To use it, create a configuration file at `config/default.json` with the following:
+```json
+{
+  "routes": {
+    "/path/:param1/:param2": {
+      "page": "/path/to/custom-page"
+    }
+  }
+}
 ```

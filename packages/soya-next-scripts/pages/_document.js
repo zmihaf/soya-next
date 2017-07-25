@@ -1,7 +1,7 @@
 import Document from 'next/document';
 import flush from 'styled-modules/server';
 
-export default () => class extends Document {
+export default class extends Document {
   static displayName = 'SoyaDocument';
 
   static getInitialProps({ renderPage }) {
@@ -10,4 +10,4 @@ export default () => class extends Document {
       styles: flush(),
     };
   }
-};
+}

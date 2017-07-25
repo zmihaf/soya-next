@@ -1,0 +1,28 @@
+const spawn = require('cross-spawn');
+const script = process.argv[2];
+const args = process.argv.slice(3);
+
+const run = script => {
+  const { status } = spawn.sync(
+    'node',
+    [require.resolve(script)].concat(args),
+    { stdio: 'inherit' }
+  );
+  process.exit(status);
+};
+
+switch (script) {
+  case 'build':
+  case 'start':
+  case 'test': {
+    run(`../scripts/${script}`);
+    break;
+  }
+  case 'eject': {
+    run(`./${script}`);
+    break;
+  }
+  default:
+    console.log(`Unknown script "${script}".`);
+    break;
+}
