@@ -30,12 +30,8 @@ describe('Locale Utils', () => {
   });
 
   describe('toPath', () => {
-    it('should throw an error if no arguments are specified', () => {
-      expect(
-        () => {
-          toPath();
-        }
-      ).toThrow('Missing locale and default locale arguments.');
+    it('should return an empty string if no arguments are specified', () => {
+      expect(toPath()).toBe('');
     });
 
     it('should throw an error if locale is not an object', () => {
@@ -74,12 +70,8 @@ describe('Locale Utils', () => {
   });
 
   describe('trimPath', () => {
-    it('should throw an error if no arguments are specified', () => {
-      expect(
-        () => {
-          trimPath();
-        }
-      ).toThrow('Missing default locale and site locales arguments.');
+    it('should return url as is if defaultLocale and siteLocales arguments are not specified', () => {
+      expect(trimPath('/en/')).toBe('/en/');
     });
 
     it('should remove locale segment from non-default locale url', () => {

@@ -1,7 +1,12 @@
+/* eslint-disable no-console, no-sync */
 import fs from 'fs-extra';
 import path from 'path';
 import spawn from 'cross-spawn';
 import yargs from 'yargs';
+
+process.on('unhandledRejection', err => {
+  throw err;
+});
 
 const argv = yargs
   .version()
@@ -82,7 +87,10 @@ if (projectDirectory) {
   if (argv.verbose) {
     args.push('--verbose');
   }
-  spawn.sync(cmd, args, { stdio: 'inherit' });
+  const install = spawn.sync(cmd, args, { stdio: 'inherit' });
+  if (install.status !== 0) {
+    process.exit(status);
+  }
 
   console.log();
   console.log(`Successfully created ${name} in ${root}.`);

@@ -4,12 +4,33 @@
   "description": "A set of utility functions for React applications built on top of Next.js.",
   "main": "lib/index.js",
   "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
   "repository": "https://github.com/traveloka/soya-next/tree/master/packages/soya-next",
+  "bugs": {
+    "url": "https://github.com/traveloka/soya-next/issues"
+  },
   "keywords": [
+    "config",
+    "configuration",
+    "cookie",
+    "css-modules",
+    "env",
+    "environment",
+    "i18n",
+    "internationalization",
+    "intl",
+    "next",
     "next.js",
     "react",
+    "redux",
+    "router",
+    "sass",
+    "scss",
     "soya",
-    "soya-next"
+    "soya-next",
+    "universal"
   ],
   "files": [
     "lib",

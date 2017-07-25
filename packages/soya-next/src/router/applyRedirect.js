@@ -30,6 +30,7 @@ export default Page => class extends React.Component {
             const localeSegment = toPath(locale, defaultLocale);
             const params = keys.reduce((params, key, index) => {
               const param = match[index + 1];
+              // istanbul ignore else
               if (param) {
                 params[key.name] = decodeParam(param);
               }

@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`requires default locale 1`] = `"Expected defaultLocale to be a locale string."`;
+exports[`Create Locale Middleware requires default locale 1`] = `"Expected defaultLocale to be a locale string."`;
 
-exports[`requires site locales 1`] = `"Expected siteLocales to be an array of locale string."`;
+exports[`Create Locale Middleware requires site locales 1`] = `"Expected siteLocales to be an array of locale string."`;
 
-exports[`should fallback country to its default and remove locale segment from url 1`] = `
+exports[`Create Locale Middleware should fallback country to its default and remove locale segment from url 1`] = `
 Object {
   "defaultLocale": "id-id",
   "locale": Object {
@@ -20,7 +20,7 @@ Object {
 }
 `;
 
-exports[`should fallback to default locale 1`] = `
+exports[`Create Locale Middleware should fallback to default locale 1`] = `
 Object {
   "defaultLocale": "id-id",
   "locale": Object {
@@ -36,7 +36,7 @@ Object {
 }
 `;
 
-exports[`should fallback to default locale if none match 1`] = `
+exports[`Create Locale Middleware should fallback to default locale if none match 1`] = `
 Object {
   "defaultLocale": "id-id",
   "locale": Object {
@@ -52,7 +52,23 @@ Object {
 }
 `;
 
-exports[`should match available site locales and remove locale segment from url 1`] = `
+exports[`Create Locale Middleware should match available site locales and remove locale segment from url 1`] = `
+Object {
+  "defaultLocale": "id-id",
+  "locale": Object {
+    "country": "sg",
+    "language": "en",
+  },
+  "siteLocales": Array [
+    "id-id",
+    "en-id",
+    "en-sg",
+  ],
+  "url": "/",
+}
+`;
+
+exports[`Create Locale Middleware should match even without trailing slash 1`] = `
 Object {
   "defaultLocale": "id-id",
   "locale": Object {

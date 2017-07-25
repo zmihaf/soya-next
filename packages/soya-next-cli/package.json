@@ -1,11 +1,20 @@
 {
   "name": "soya-next-cli",
   "version": "0.1.6",
-  "description": "A CLI to help bootstrap your soya-next projects quickly.",
+  "description": "A CLI to help bootstrap soya-next projects quickly.",
   "main": "lib/index.js",
   "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
   "repository": "https://github.com/traveloka/soya-next/tree/master/packages/soya-next-cli",
+  "bugs": {
+    "url": "https://github.com/traveloka/soya-next/issues"
+  },
   "keywords": [
+    "create-next-app",
+    "create-react-app",
+    "next",
     "next.js",
     "react",
     "soya",

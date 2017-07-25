@@ -6,6 +6,7 @@ export default param => {
   try {
     return decodeURIComponent(param);
   } catch (err) {
+    // istanbul ignore else
     if (err instanceof URIError) {
       err.message = `Failed to decode param "${param}"`;
       err.status = err.statusCode = 400;

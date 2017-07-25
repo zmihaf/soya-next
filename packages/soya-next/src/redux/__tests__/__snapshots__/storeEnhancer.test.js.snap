@@ -6,7 +6,14 @@ Object {
 }
 `;
 
-exports[`Store Enhancer should replace store state with given reducers 1`] = `
+exports[`Store Enhancer should replace store start with given reducer function 1`] = `
+Object {
+  "auth": Object {},
+  "todos": Array [],
+}
+`;
+
+exports[`Store Enhancer should replace store state with given reducers object 1`] = `
 Object {
   "auth": Object {},
   "todos": Array [],

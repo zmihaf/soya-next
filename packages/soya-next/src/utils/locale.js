@@ -2,7 +2,7 @@ import { parse as parseUrl } from 'url';
 
 export const toPath = (locale, defaultLocale) => {
   if (!locale || !defaultLocale) {
-    throw new Error('Missing locale and default locale arguments.');
+    return '';
   }
   if (
     typeof locale !== 'object' ||
@@ -52,7 +52,7 @@ export const ensurePath = (url, locale, defaultLocale) => {
 
 export const trimPath = (url, defaultLocale, siteLocales) => {
   if (!defaultLocale || !siteLocales) {
-    throw new Error('Missing default locale and site locales arguments.');
+    return url;
   }
   const { pathname } = parseUrl(url);
   const [localeSegment] = pathname.substr(1).split('/');

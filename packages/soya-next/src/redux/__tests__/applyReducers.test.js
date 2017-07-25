@@ -38,6 +38,10 @@ describe('applyReducers', () => {
       .toThrow('applyReducers must be used with Soya\'s redux enhancer');
   });
 
+  it('should return as is if no arguments is specified', () => {
+    expect(applyReducers()(Component)).toEqual(Component);
+  });
+
   it('should apply reducers in getInitialProps lifecycle', async () => {
     const addReducerMock = context.store.addReducer.mock;
     const props = await ReducersAppliedComponent.getInitialProps(context);

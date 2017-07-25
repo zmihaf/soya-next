@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createRouter non-production should create router with custom routes 1`] = `
+Array [
+  Object {
+    "params": Object {
+      "id": 1,
+    },
+    "query": Object {
+      "locale": "en-id",
+    },
+  },
+  Object {},
+  "/post",
+  Object {
+    "id": 1,
+    "locale": "en-id",
+  },
+]
+`;
+
+exports[`createRouter non-production should create router with redirection 1`] = `
+Array [
+  301,
+  "/about",
+]
+`;
+
+exports[`createRouter non-production should create router with redirection 2`] = `
+Array [
+  301,
+  "/en/p/1",
+]
+`;
