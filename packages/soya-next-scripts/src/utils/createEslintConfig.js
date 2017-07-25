@@ -2,12 +2,12 @@ export default ({
   rules,
   ...eslintConfig
 } = {
-  extends: 'marlint',
   rules: {},
 }) => ({
-  ...eslintConfig,
+  extends: 'marlint',
   rules: {
     'react/react-in-jsx-scope': 'off',
     ...rules,
   },
+  ...eslintConfig,
 });
