@@ -2,8 +2,8 @@ process.on('unhandledRejection', err => {
   throw err;
 });
 
-process.env.BABEL_ENV = 'production';
-process.env.NODE_ENV = 'production';
+process.env.BABEL_ENV = process.env.BABEL_ENV || 'production';
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
 const { realpathSync } = require('fs');
 const { resolve } = require('path');
