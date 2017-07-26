@@ -12,7 +12,7 @@ const conf = require('../next.config');
 
 const host = soya.config.host || '0.0.0.0';
 const port = soya.config.port || 3000;
-const dev = soya.config.dev ? soya.config.dev : process.env.NODE_ENV !== 'production';
+const dev = typeof soya.config.dev !== 'undefined' ? soya.config.dev : process.env.NODE_ENV !== 'production';
 const app = next({
   dev,
   // @remove-on-eject-begin
