@@ -30,6 +30,7 @@ const devDependencies = [
   'node-sass',
   'sass-loader',
   'url-loader',
+  'webpack-bundle-analyzer',
 ];
 const ownDir = path.resolve(__dirname, '..');
 

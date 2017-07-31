@@ -6,6 +6,7 @@ const { appDir } = require('./config/_default');
 const appPackage = require(join(appDir, 'package.json'));
 const createEslintConfig = require('./lib/utils/createEslintConfig').default;
 // @remove-on-eject-end
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { soya } = require('soya-next/server/config');
 const assetPrefix = soya.config.assetPrefix || '';
 
@@ -182,6 +183,10 @@ module.exports = {
         },
       }
     );
+
+    if (process.env.ANALYZE) {
+      config.plugins.push(new BundleAnalyzerPlugin());
+    }
 
     return config;
   },
