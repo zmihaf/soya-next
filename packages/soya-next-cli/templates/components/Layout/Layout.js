@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import logo from './logo.jpeg';
+import logo from './logo.svg';
 import styles from './Layout.module.css';
 import '../../styles/global.css';
 
