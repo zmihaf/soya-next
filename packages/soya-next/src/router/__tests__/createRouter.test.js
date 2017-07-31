@@ -69,17 +69,12 @@ describe('createRouter', () => {
       expect(req).toHaveProperty('universalCookies');
       expect(next.mock.calls.length).toBe(2);
 
-      // static route
-      await router.routes[0].handler(req, res);
-      expect(app.serveStatic).toBeCalled();
-      expect(app.serveStatic.mock.calls[0][2]).toBe('.next/dist/static/react.png');
-
       // next handler
-      await router.routes[1].handler(req, res);
+      await router.routes[0].handler(req, res);
       expect(app.handle).toBeCalled();
 
       expect(router.use.mock.calls.length).toBe(2);
-      expect(router.get.mock.calls.length).toBe(2);
+      expect(router.get.mock.calls.length).toBe(1);
       expect(app.getRequestHandler).toBeCalled();
     });
 
@@ -90,13 +85,13 @@ describe('createRouter', () => {
         },
       };
       const router = createRouter(app, { routes });
-      await router.routes[1].handler({
+      await router.routes[0].handler({
         query: { locale: 'en-id' },
         params: { id: 1 },
       }, {});
       expect(app.render).toBeCalled();
       expect(app.render.mock.calls[0]).toMatchSnapshot();
-      expect(router.get.mock.calls.length).toBe(3);
+      expect(router.get.mock.calls.length).toBe(2);
     });
 
     it('should create router with redirection', () => {
@@ -118,10 +113,10 @@ describe('createRouter', () => {
       const res = {
         redirect: jest.fn(),
       };
-      router.routes[1].handler({}, res);
+      router.routes[0].handler({}, res);
       expect(res.redirect).toBeCalled();
       expect(res.redirect.mock.calls[0]).toMatchSnapshot();
-      router.routes[2].handler({
+      router.routes[1].handler({
         locale: {
           language: 'en',
           country: 'id',
@@ -129,7 +124,7 @@ describe('createRouter', () => {
         params: { id: 1 },
       }, res);
       expect(res.redirect.mock.calls[1]).toMatchSnapshot();
-      expect(router.get.mock.calls.length).toBe(5);
+      expect(router.get.mock.calls.length).toBe(4);
     });
 
     it('should create locale aware router', () => {
