@@ -1,5 +1,5 @@
 process.on('unhandledRejection', err => {
-  throw err;
+  console.error(err);
 });
 
 const express = require('express');
