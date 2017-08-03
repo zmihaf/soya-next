@@ -73,7 +73,7 @@ module.exports = {
       babelRule.options.plugins.push([
         require.resolve('styled-modules/babel'),
         {
-          pattern: /\.(mod)?ule\.(css|s(a|c)ss)$/,
+          pattern: /\.(css|s(a|c)ss)$/,
         },
       ]);
     }
