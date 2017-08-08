@@ -23,6 +23,7 @@ const buildSoya = require('./utils/build-soya');
 
 app.prepare()
   .then(() => dev ? buildSoya() : null)
+  .then(() => require.resolve('soya'))
   .then(
     stats => stats ? require(join(appDir, 'build/server', 'index.js')).default : null,
     err => {
@@ -31,7 +32,7 @@ app.prepare()
       }
     }
   )
-  .then(soyaMiddleware => {
+  .then((soyaMiddleware = null) => {
     const server = express();
     if (soyaMiddleware !== null) {
       server.use(soyaMiddleware);
