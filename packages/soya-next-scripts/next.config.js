@@ -112,7 +112,7 @@ module.exports = {
       {
         test: [
           /\.(css|s(a|c)ss)$/,
-          /\.(bmp|gif|jpe?g|png)$/,
+          /\.(bmp|gif|jpe?g|png|svg)$/,
         ],
         loader: 'emit-file-loader',
         options: {
