@@ -51,7 +51,8 @@
     "sass-loader": "^6.0.6",
     "styled-modules": "^0.2.0",
     "url-loader": "^0.5.9",
-    "webpack": "^3.3.0"
+    "webpack": "^3.3.0",
+    "webpack-bundle-analyzer": "^2.9.0"
   },
   "peerDependencies": {
     "soya-next": "^0.2.0"
