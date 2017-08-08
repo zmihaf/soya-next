@@ -42,50 +42,6 @@ export default compose(
 )(Component);
 ```
 
-## `createDocument()`
-Collects and hydrates all CSS Modules which have already been injected into pages by [`styled-modules`](https://github.com/traveloka/styled-modules).
-
-### Returns
-*(Document)*: [Custom \<Document /\>](https://github.com/zeit/next.js#custom-document) which performs server side rendering.
-
-### Examples
-```js
-import { createDocument } from 'soya-next/server/document';
-
-export default createDocument();
-```
-
-## `createNextConfig([nextConfig])`
-Configures your app to support CSS Modules, SASS, image import, and global app configuration. To customize your own configuration, please read [here](https://github.com/zeit/next.js#custom-configuration).
-
-### Arguments
-- [`nextConfig`] *(Object)*: An object of next configuration with the following properties:
-  - [`assetPrefix`] *(String)*: Asset prefix for CDN usage. See [here](https://github.com/zeit/next.js#cdn-support-with-asset-prefix) for details.
-  - [`distDir`] *(String)*: Build directory, default is `.next`. See [here](https://github.com/zeit/next.js#setting-a-custom-build-directory) for details.
-  - [`webpack`] *(Function(config, { dev }))*: Webpack config. See [here](https://github.com/zeit/next.js#customizing-webpack-config) for details.
-  - [`webpackDevMiddleware`] *(Function(config))*: Webpack dev middleware. See [here](https://github.com/zeit/next.js#customizing-webpack-config) for details.
-
-### Returns
-*(Object)*: An enhanced object of next configuration.
-
-### Examples
-```js
-const { createNextConfig } = require('soya-next/server/next-config');
-
-module.exports = createWebpackConfig(/*
-  {
-    assetPrefix: '', // replace it with your CDN host if you use one
-    distDir: '.next', // replace it to use other build directory name
-    webpack: (config, { dev }) => {
-      // customize your webpack config here
-    },
-    webpackDevMiddleware: (config) => {
-      // customize your webpack dev middleware config here
-    },
-  }
-*/);
-```
-
 ## `createPage([...connectArgs])(Page, [reducers])`
 Configures and connects to Redux store, loads reducers dynamically, handles client side URL redirection, and makes cookie, default locale, locale, site locales, and url available as `Page` props and in the `getInitialProps` lifecycle method.
 

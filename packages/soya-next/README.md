@@ -39,11 +39,12 @@ And optionally:
 - Custom routing supports locale, and redirection for obsolete pages.
 - Gzip compression always enabled in production.
 - CLI provided for easy setup.
+- On-the-fly linter based on [Traveloka style guide](https://github.com/traveloka/javascript).
 
 ## Quick Start Guide
 This is a quick start to help you bootstrap **soya-next** project in no time. It should cover everything in the getting started section.
 
-```
+```bash
 npm install -g soya-next-cli
 
 soya-next-cli app-name
@@ -58,57 +59,37 @@ You are done! Open http://localhost:3000 in your browser to see your app running
 ### Getting Started
 
 #### Installation
-Soya Next requires **Express.js**, **Next.js**, **React**, **React-Cookie**, **React-Redux**, and **Redux** to be installed, run the following to install them:
+Soya Next requires **Next.js**, **React**, **React Cookie**, **React Redux**, **Redux**, and **Soya Next Scripts** to be installed, run the following to install them:
 
-```
-npm install --save express next react react-cookie react-dom react-redux redux
+```bash
+npm install --save next react react-cookie react-dom react-redux redux soya-next-scripts
 ```
 
 To install Soya Next, run the following:
 
-```
+```bash
 npm install --save soya-next
 ```
 
 #### Configuration
-In your project root directory, create `next.config.js` with the following:
+You don't need to configure anything because everything is already configured in [soya-next-scripts](../soya-next-scripts).
+It will configure your app to support CSS modules, SASS, image import, global app configuration, and on-the-fly linting.
 
-```js
-const { createNextConfig } = require('soya-next');
+In your project root directory, simply add the following to `package.json`:
 
-module.exports = createNextConfig();
+```json
+{
+  "scripts": {
+    "build": "soya-next-scripts build",
+    "eject": "soya-next-scripts eject",
+    "start": "soya-next-scripts start",
+    "test": "soya-next-scripts test"
+  }
+}
 ```
-
-This will configure your app to support CSS modules, SASS, image import, and global app configuration. 
 
 #### Build your app
-In your project root directory, create `server.js` with the following:
-
-```js
-const express = require('express');
-const next = require('next');
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
-const { createRouter } = require('soya-next/server/router');
-
-app.prepare()
-  .then(() => {
-    const server = express();
-    server.use(createRouter(app));
-    server.listen(3000, err => {
-      if (err) {
-        throw err;
-      }
-      console.log('> Ready on http://localhost:3000');
-    });
-  })
-  .catch(ex => {
-    console.error(ex.stack);
-    process.exit(1);
-  });
-```
-
-Then, create a directory called `pages` and add `index.js` as a sample page into it with the following:
+In your project root directory, create `pages/index.js` as a sample page into it with the following:
 
 ```js
 import Head from 'next/head';
@@ -130,18 +111,10 @@ That's it!
 
 To start your app run the following:
 
-```
-node server.js
-```
-
-To use `npm start` or `yarn start` instead, add the following to your `package.json`:
-
-```json
-{
-  "scripts": {
-     "start": "node server.js"
-  }
-}
+```bash
+npm start
+# or
+yarn start
 ```
 
 Open http://localhost:3000 in your browser.
@@ -149,8 +122,6 @@ Open http://localhost:3000 in your browser.
 ### API
 You can read the API documentation [here](./API.md#api).
 - [`applyReducers([reducers])`](./API.md#applyreducersreducers)
-- [`createDocument()`](./API.md#createdocument)
-- [`createNextConfig([nextConfig])`](./API.md#createnextconfignextconfig)
 - [`createPage([...connectArgs])(Page, [reducers])`](./API.md#createpageconnectargspage-reducers)
 - [`createRouter(app, [options])`](./API.md#createrouterapp-options)
 - [`withLocale()`](./API.md#withlocale)
