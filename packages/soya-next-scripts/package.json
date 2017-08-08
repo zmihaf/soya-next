@@ -21,6 +21,7 @@
   ],
   "files": [
     "bin",
+    "config",
     "lib",
     "pages",
     "scripts",
@@ -54,5 +55,8 @@
   },
   "peerDependencies": {
     "soya-next": "^0.2.0"
+  },
+  "optionalDependencies": {
+    "soya": "^0.2.0"
   }
 }

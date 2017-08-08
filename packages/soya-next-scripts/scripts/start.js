@@ -4,14 +4,14 @@ process.on('unhandledRejection', err => {
 
 const express = require('express');
 const next = require('next');
+const { join } = require('path');
 const { createRouter } = require('soya-next/server/router');
 const { soya } = require('soya-next/server/config');
 // @remove-on-eject-begin
 const conf = require('../next.config');
 // @remove-on-eject-end
 
-const host = soya.config.host || '0.0.0.0';
-const port = soya.config.port || 3000;
+const { appDir, host, port } = require('../config/_default');
 const dev = typeof soya.config.dev !== 'undefined' ? soya.config.dev : process.env.NODE_ENV !== 'production';
 const app = next({
   dev,
@@ -19,10 +19,23 @@ const app = next({
   conf,
   // @remove-on-eject-end
 });
+const buildSoya = require('./utils/build-soya');
 
 app.prepare()
-  .then(() => {
+  .then(() => dev ? buildSoya() : null)
+  .then(
+    stats => stats ? require(join(appDir, 'build/server', 'index.js')).default : null,
+    err => {
+      if (err.code !== 'MODULE_NOT_FOUND') {
+        throw err;
+      }
+    }
+  )
+  .then(soyaMiddleware => {
     const server = express();
+    if (soyaMiddleware !== null) {
+      server.use(soyaMiddleware);
+    }
     server.use(createRouter(app, soya.config));
     server.listen(port, host, err => {
       if (err) {

@@ -3,7 +3,8 @@ A CLI which contains configuration and scripts used by [soya-next-cli](../soya-n
 
 ## Installation
 To install it, run the following:
-```
+
+```bash
 npm install --save soya-next-scripts
 ```
 
@@ -11,22 +12,27 @@ npm install --save soya-next-scripts
 
 ## Usage
 To start your server, run the following:
-```
+
+```bash
 soya-next-scripts start
 ```
 
 To build for production, run the following:
-```
+
+```bash
 soya-next-scripts build
 ```
 
 To run unit tests, run the following:
-```
+
+```bash
 soya-next-scripts test
 ```
 
 To eject configuration and scripts, run the following:
-```
+
+```bash
 soya-next-scripts eject
 ```
+
 > Warning: Eject is permanent, so once it's ejected there's no going back.

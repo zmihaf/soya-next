@@ -9,9 +9,8 @@ const jest = require('jest');
 const argv = process.argv.slice(2);
 // @remove-on-eject-begin
 const createJestConfig = require('../lib/utils/createJestConfig').default;
-const { join, resolve } = require('path');
-const { realpathSync } = require('fs');
-const appDir = resolve(realpathSync(process.cwd()));
+const { join } = require('path');
+const { appDir } = require('../config/_default');
 const appPackage = require(join(appDir, 'package.json'));
 argv.push(
   '--config',

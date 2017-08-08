@@ -1,9 +1,8 @@
 // @remove-on-eject-begin
 const webpack = require('webpack');
-const { join, resolve } = require('path');
+const { join } = require('path');
 const pagesDir = join(__dirname, 'pages');
-const { realpathSync } = require('fs');
-const appDir = resolve(realpathSync(process.cwd()));
+const { appDir } = require('./config/_default');
 const appPackage = require(join(appDir, 'package.json'));
 const createEslintConfig = require('./lib/utils/createEslintConfig').default;
 // @remove-on-eject-end

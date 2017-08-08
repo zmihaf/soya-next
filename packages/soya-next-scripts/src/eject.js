@@ -5,6 +5,7 @@ import path from 'path';
 import spawn from 'cross-spawn';
 import createEslintConfig from './utils/createEslintConfig';
 import createJestConfig from './utils/createJestConfig';
+import { appDir } from '../config/_default';
 
 process.on('unhandledRejection', err => {
   throw err;
@@ -14,7 +15,6 @@ const ownDependencies = [
   'chalk',
   'cross-spawn',
   'inquirer',
-  'webpack',
 ];
 const devDependencies = [
   'babel-eslint',
@@ -25,9 +25,13 @@ const devDependencies = [
   'eslint-plugin-flowtype',
   'eslint-plugin-jsx-a11y',
   'eslint-plugin-react',
+  'file-loader',
+  'jest',
+  'node-sass',
+  'sass-loader',
+  'url-loader',
 ];
 const ownDir = path.resolve(__dirname, '..');
-const appDir = path.resolve(fs.realpathSync(process.cwd()));
 
 const checkFiles = files => {
   const exists = files.reduce((exists, file) => {
@@ -190,7 +194,7 @@ inquirer.prompt({
 
     console.log('Ejecting.');
 
-    const dirs = ['pages', 'scripts'];
+    const dirs = ['config', 'pages', 'scripts', 'scripts/utils'];
     const files = ['next.config.js'].concat(dirs.reduce((files, dir) => (
       files.concat(
         fs.readdirSync(path.join(ownDir, dir))
