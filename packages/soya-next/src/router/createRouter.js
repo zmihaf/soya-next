@@ -1,4 +1,3 @@
-import { join } from 'path';
 import Router from 'express/lib/router';
 import cookieMiddleware from 'universal-cookie-express';
 import createLocaleMiddleware from './createLocaleMiddleware';
@@ -40,10 +39,6 @@ export default (app, {
   if (defaultLocale && siteLocales) {
     router.use(createLocaleMiddleware({ defaultLocale, siteLocales }));
   }
-  router.get('/_soya/:path(*)', async (req, res) => {
-    const p = join(app.dir, app.dist, 'dist', 'static', req.params.path);
-    await app.serveStatic(req, res, p);
-  });
   Object.keys(newRedirects).forEach(from => {
     const { method, status, to } = ensureRedirect(newRedirects[from]);
     router[method.toLowerCase()](from, (req, res) => {

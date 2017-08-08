@@ -73,7 +73,7 @@ export default createPage()(Page);
 ```
 
 ## `createRouter(app, [options])`
-Creates locale aware express router with universal cookie and gzip enabled (production only), also serves static assets which are generated from importing assets directly inside modules.
+Creates locale aware express router with universal cookie and gzip enabled (production only).
 
 ### Arguments
 - `app` *([Next Server](https://github.com/zeit/next.js#custom-server-and-routing))*

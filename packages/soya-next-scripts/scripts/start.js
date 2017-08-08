@@ -37,6 +37,10 @@ app.prepare()
     if (soyaMiddleware !== null) {
       server.use(soyaMiddleware);
     }
+    server.use('/_soya/:path(*)', (req, res) => {
+      const p = join(app.dir, app.dist, 'dist', 'static', req.params.path);
+      app.serveStatic(req, res, p);
+    });
     server.use(createRouter(app, soya.config));
     server.listen(port, host, err => {
       if (err) {
