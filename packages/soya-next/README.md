@@ -80,6 +80,7 @@ In your project root directory, simply add the following to `package.json`:
 ```json
 {
   "scripts": {
+    "analyze": "ANALYZE=1 soya-next-scripts build",
     "build": "soya-next-scripts build",
     "eject": "soya-next-scripts eject",
     "start": "soya-next-scripts start",
