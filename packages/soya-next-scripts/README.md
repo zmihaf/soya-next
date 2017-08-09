@@ -23,6 +23,12 @@ To build for production, run the following:
 soya-next-scripts build
 ```
 
+To analyze output bundles, run the following:
+
+```bash
+ANALYZE=1 soya-next-scripts build
+```
+
 To run unit tests, run the following:
 
 ```bash
