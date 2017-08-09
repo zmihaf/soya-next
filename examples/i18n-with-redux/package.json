@@ -18,7 +18,7 @@
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "redux": "^3.7.1",
-    "soya-next": "latest",
-    "soya-next-scripts": "latest"
+    "soya-next": "^0.2.8",
+    "soya-next-scripts": "^0.2.8"
   }
 }

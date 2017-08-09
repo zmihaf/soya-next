@@ -2,8 +2,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "lerna exec -- babel src -d lib --ignore __tests__",
-    "clean": "rimraf packages/*/lib",
+    "build": "lerna exec --scope soya-next* -- babel src -d lib --ignore __tests__",
+    "clean": "rimraf examples/*/.next packages/*/lib",
     "clean-all": "yarn run clean && lerna clean",
     "coverage": "yarn test -- --coverage",
     "coveralls": "yarn run coverage && cat ./coverage/lcov.info | coveralls",
