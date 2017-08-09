@@ -25,7 +25,7 @@ const argv = yargs
 const projectDirectory = argv._[0];
 
 const dependencies = [
-  'next@beta',
+  'next',
   'prop-types',
   'react',
   'react-cookie',
