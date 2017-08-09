@@ -22,7 +22,7 @@ const app = next({
 const buildSoya = require('./utils/build-soya');
 
 app.prepare()
-  .then(() => dev ? buildSoya() : null)
+  .then(() => dev ? buildSoya({ dev }) : null)
   .then(() => require.resolve('soya'))
   .then(
     stats => stats ? require(join(appDir, 'build/server', 'index.js')).default : null,
