@@ -5394,9 +5394,9 @@ sourcemapped-stacktrace@^1.1.6:
   dependencies:
     source-map "0.5.6"
 
-soya-next-scripts@^0.2.9:
-  version "0.2.9"
-  resolved "https://registry.yarnpkg.com/soya-next-scripts/-/soya-next-scripts-0.2.9.tgz#597a1e2dc030d75cb2c529ff1962916550fd7a00"
+soya-next-scripts@^0.2.10:
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/soya-next-scripts/-/soya-next-scripts-0.2.10.tgz#c469affe1b259b4b927214f6e4f936066d3bc55e"
   dependencies:
     babel-eslint "^7.2.3"
     chalk "^2.0.1"
