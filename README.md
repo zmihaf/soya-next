@@ -1,4 +1,6 @@
 # Soya Next
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/traveloka/soya-next.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/traveloka/soya-next.svg?branch=master)](https://travis-ci.org/traveloka/soya-next)
 [![Coverage Status](https://coveralls.io/repos/github/traveloka/soya-next/badge.svg?branch=master)](https://coveralls.io/github/traveloka/soya-next?branch=master)
 
