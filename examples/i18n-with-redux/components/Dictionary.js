@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IntlMessageFormat from 'intl-messageformat';
-import { createComponent } from 'soya-next';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { applyReducers } from 'soya-next/redux';
+import { withLocale } from 'soya-next/i18n';
 import { localeShape } from 'soya-next/prop-types';
 import dictionary from '../reducers/DictionaryReducer';
 import { generateId } from '../utils/DictionaryUtil';
@@ -81,4 +84,8 @@ const mapDispatchToProps = (dispatch, props) => ({
   },
 });
 
-export default createComponent(mapStateToProps, mapDispatchToProps)(Dictionary, { dictionary });
+export default compose(
+  withLocale,
+  applyReducers({ dictionary }),
+  connect(mapStateToProps, mapDispatchToProps)
+)(Dictionary);

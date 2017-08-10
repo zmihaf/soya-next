@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { createComponent } from 'soya-next';
+import { withLocale } from 'soya-next/i18n';
 import LocaleLink from 'soya-next/link';
 import { localeShape } from 'soya-next/prop-types';
 import data from '../data/i18n.json';
@@ -30,4 +30,4 @@ LanguagePicker.propTypes = {
   siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 };
 
-export default createComponent()(LanguagePicker);
+export default withLocale(LanguagePicker);
