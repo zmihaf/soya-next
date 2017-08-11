@@ -1,6 +1,6 @@
 {
   "name": "todomvc",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "private": true,
   "scripts": {
     "build": "soya-next-scripts build",
@@ -19,7 +19,7 @@
     "react-redux": "^5.0.5",
     "redux": "^3.7.1",
     "soya-next": "^0.2.9",
-    "soya-next-scripts": "^0.2.10",
+    "soya-next-scripts": "^0.2.11",
     "todomvc-app-css": "^2.1.0"
   },
   "devDependencies": {
