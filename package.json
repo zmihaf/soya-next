@@ -7,6 +7,9 @@
     "clean-all": "yarn run clean && lerna clean",
     "coverage": "yarn test -- --coverage",
     "coveralls": "yarn run coverage && cat ./coverage/lcov.info | coveralls",
+    "docs:build": "gitbook build",
+    "docs:prepare": "gitbook install",
+    "docs:watch": "gitbook serve",
     "lint": "marlint --fix",
     "postinstall": "lerna bootstrap",
     "precommit": "lint-staged",
@@ -23,6 +26,7 @@
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.5.1",
     "express": "^4.15.3",
+    "gitbook-cli": "^2.3.2",
     "husky": "^0.14.0",
     "jest": "^21.0.0",
     "lerna": "^2.0.0",
@@ -45,10 +49,10 @@
   },
   "marlint": {
     "ignores": [
+      "**/_book/**",
+      "**/.idea/**",
       "**/.next/**",
-      "**/coverage/**",
       "**/examples/**",
-      "**/node_modules/**",
       "**/lib/**"
     ],
     "rules": {

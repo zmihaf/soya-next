@@ -1,16 +1,21 @@
 # Soya Next Scripts
-A CLI which contains configuration and scripts used by [soya-next-cli](../soya-next-cli).
+
+[![NPM Version](https://img.shields.io/npm/v/soya-next-scripts.svg?style=flat-square)](https://www.npmjs.com/package/soya-next-scripts)
+
+> A CLI which contains configuration and scripts used by [soya-next-cli](../soya-next-cli).
 
 ## Installation
+
 To install it, run the following:
 
 ```bash
 npm install --save soya-next-scripts
 ```
 
-> Note: We recommend to use [soya-next-cli](../soya-next-cli) instead for installation.
+> Note: If you're starting a new project, consider using [soya-next-cli](../soya-next-cli) instead for easier setup.
 
 ## Usage
+
 To start your server, run the following:
 
 ```bash
@@ -41,4 +46,4 @@ To eject configuration and scripts, run the following:
 soya-next-scripts eject
 ```
 
-> Warning: Eject is permanent, so once it's ejected there's no going back.
+> Warning: Eject is permanent, so once it's ejected there's no going back. Use it carefully.

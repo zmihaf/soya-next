@@ -1,14 +1,17 @@
 # Redux TodoMVC Example
 
 ## Usage
+
 Clone this repository:
-```
+
+```bash
 git clone https://github.com/traveloka/soya-next.git
 cd soya-next/examples/todomvc
 ```
 
 Install and run it:
-```
+
+```bash
 npm install
 npm start
 ```
@@ -16,15 +19,18 @@ npm start
 Open http://localhost:3000 in your browser.
 
 ## How It Works
+
 This example is exactly the same as [Redux TodoMVC](https://github.com/reactjs/redux/tree/master/examples/todomvc).
 The only difference is that you need not to worry about unregistered reducers anymore and they're automatically code-splitted.
 
-To make it works, wrap every pages with `createPage()` as follows:
+To make it works, wrap every page with `createPage()` as follows:
+
 ```js
 import { createPage } from 'soya-next';
 
 const reducers = {
   uniqueName(state, action) {
+    return state;
   },
 };
 
@@ -42,6 +48,7 @@ export default createPage(mapStateToProps, mapDispatchToProps)(Page, reducers);
 ```
 
 To use it in your component, you can do the following:
+
 ```js
 import { compose } from 'redux';
 import { applyReducers } from 'soya-next/redux';

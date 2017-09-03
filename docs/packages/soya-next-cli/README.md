@@ -1,0 +1,1 @@
+../../../packages/soya-next-cli/README.md
