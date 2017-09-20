@@ -9,6 +9,7 @@ const createEslintConfig = require('./lib/utils/createEslintConfig').default;
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { soya } = require('soya-next/server/config');
 const assetPrefix = soya.config.assetPrefix || '';
+const soyaNextNodeModulesDir = join(__dirname, 'node_modules');
 
 module.exports = {
   assetPrefix,
@@ -82,7 +83,7 @@ module.exports = {
       config.module.rules.push({
         test: /\.js(x)?$/,
         enforce: 'pre',
-        loader: require.resolve('eslint-loader'),
+        loader: 'eslint-loader',
         options: {
           failOnError: true,
           formatter: require('eslint/lib/formatters/codeframe'),
@@ -187,6 +188,9 @@ module.exports = {
     if (process.env.ANALYZE) {
       config.plugins.push(new BundleAnalyzerPlugin());
     }
+
+    config.resolve.modules.unshift(soyaNextNodeModulesDir);
+    config.resolveLoader.modules.unshift(soyaNextNodeModulesDir);
 
     return config;
   },
