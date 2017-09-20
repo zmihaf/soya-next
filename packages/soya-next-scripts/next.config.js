@@ -3,6 +3,7 @@ const { join } = require('path');
 const config = require('config');
 const assetPrefix = config.assetPrefix || '';
 const browserConfigJs = join(__dirname, 'config', 'browser.js');
+const soyaNextNodeModulesDir = join(__dirname, 'node_modules');
 // @remove-on-eject-begin
 const webpack = require('webpack');
 const pagesDir = join(__dirname, 'pages');
@@ -82,7 +83,7 @@ module.exports = {
       test: /\.js(x)?$/,
       exclude: /node_modules/,
       enforce: 'pre',
-      loader: require.resolve('eslint-loader'),
+      loader: 'eslint-loader',
       options: {
         failOnError: true,
         formatter: require('eslint/lib/formatters/codeframe'),
@@ -198,6 +199,8 @@ module.exports = {
     config.resolve = config.resolve || {};
     config.resolve.alias = config.resolve.alias || {};
     config.resolve.alias.config = browserConfigJs;
+    config.resolve.modules.unshift(soyaNextNodeModulesDir);
+    config.resolveLoader.modules.unshift(soyaNextNodeModulesDir);
 
     if (process.env.ANALYZE) {
       config.plugins.push(new BundleAnalyzerPlugin());
