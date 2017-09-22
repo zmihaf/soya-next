@@ -1,6 +1,6 @@
 {
   "name": "soya-next-cli",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "description": "A CLI to help bootstrap soya-next projects quickly.",
   "main": "lib/index.js",
   "license": "MIT",
