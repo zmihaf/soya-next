@@ -25,6 +25,7 @@ const argv = yargs
 const projectDirectory = argv._[0];
 
 const dependencies = [
+  'config',
   'next',
   'prop-types',
   'react',
