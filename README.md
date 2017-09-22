@@ -43,20 +43,30 @@ npm start
 That's all!
 Open http://localhost:3000 in your browser to see your app running.
 
+## User Guide
+
+- [Analyzing Dependencies](/docs/user-guide/analyzing-dependencies.md)
+- [Configure Redux Store](/docs/user-guide/configure-redux-store.md)
+- [Custom Babel Configuration](/docs/user-guide/custom-babel-configuration.md)
+- [Custom Document](/docs/user-guide/custom-document.md)
+- [Custom Marlint Configuration](/docs/user-guide/custom-marlint-configuration.md)
+- [Custom Routing](/docs/user-guide/custom-routing.md)
+- [Universal Environment Configuration](/docs/user-guide/universal-environment-configuration.md)
+
 ## API Reference
 
 Read the full API documentation [here](/docs/API.md).
 
 ## Examples
 
-- [Authentication](/docs/examples/auth/README.md) ([source](/examples/auth))
-- [CSS Modules](/docs/examples/css-modules/README.md) ([source](/examples/css-modules))
-- [CSS Modules with SCSS](/docs/examples/css-modules-with-scss/README.md) ([source](/examples/css-modules-with-scss))
-- [Custom Routes](/docs/examples/custom-routes/README.md) ([source](/examples/custom-routes))
-- [Internationalization](/docs/examples/i18n/README.md) ([source](/examples/i18n))
-- [Internationalization with Redux](/docs/examples/i18n-with-redux/README.md) ([source](/examples/i18n-with-redux))
-- [Redirection](/docs/examples/redirection/README.md) ([source](/examples/redirection))
-- [TodoMVC](/docs/examples/todomvc/README.md) ([source](/examples/todomvc))
+- [Authentication](/examples/auth)
+- [CSS Modules](/examples/css-modules)
+- [CSS Modules with SCSS](/examples/css-modules-with-scss)
+- [Custom Routes](/examples/custom-routes)
+- [Internationalization](/examples/i18n)
+- [Internationalization with Redux](/examples/i18n-with-redux)
+- [Redirection](/examples/redirection)
+- [TodoMVC](/examples/todomvc)
 
 ## Contributing
 Please see the [Contributing Guide](/CONTRIBUTING.md).

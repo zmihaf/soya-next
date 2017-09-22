@@ -37,9 +37,9 @@ import LocaleLink from 'soya-next/link';
 
 const PostLink = () => (
   <li>
-    <Link as={`/p/${props.id}`} href={`/post?title=${props.title}`}>
+    <LocaleLink as={`/p/${props.id}`} href={`/post?title=${props.title}`}>
       <a>{props.title}</a>
-    </Link>
+    </LocaleLink>
   </li>
 );
 
@@ -94,7 +94,7 @@ export default withLocale(({
 import LocaleLink from 'soya-next/link';
 
 export default () => (
-  <Link
+  <LocaleLink
     href="/"
 +   passHref
   >
@@ -103,6 +103,6 @@ export default () => (
     >
       Home
     </a>
-  </Link>
+  </LocaleLink>
 );
 ```
