@@ -64,6 +64,7 @@
       "enzyme-to-json/serializer"
     ],
     "testPathIgnorePatterns": [
+      "/_book/",
       "/examples/"
     ],
     "testMatch": [
