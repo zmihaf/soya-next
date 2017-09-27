@@ -55,7 +55,7 @@ Open http://localhost:3000 in your browser to see your app running.
 
 ## API Reference
 
-Read the full API documentation [here](/docs/API.md).
+Read the full API documentation [here](/docs/api/README.md).
 
 ## Examples
 

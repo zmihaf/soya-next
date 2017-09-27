@@ -9,7 +9,9 @@ Do not forget to add `next/babel` preset and `styled-modules/babel` plugin into 
     "next/babel"
   ],
   "plugins": [
-    "styled-modules/babel"
+    ["styled-modules/babel", {
+      "pattern": "\\.(s(a|c)ss|css)$"
+    }]
   ]
 }
 ```
