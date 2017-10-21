@@ -1709,7 +1709,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-class@^15.5.3, create-react-class@^15.6.0:
+create-react-class@^15.5.3:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.0.tgz#ab448497c26566e1e29413e883207d57cfe7bed4"
   dependencies:
@@ -5435,14 +5435,13 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-cookie@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-2.0.8.tgz#2b551c8d80f8c1973ac9347aab61b152c6313398"
+react-cookie@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-2.1.1.tgz#3fd55cdcfe72350858b46e2709dba1dd60475e10"
   dependencies:
     hoist-non-react-statics "^1.2.0"
     prop-types "^15.0.0"
-    react "^15.0.0"
-    universal-cookie "^2.0.1"
+    universal-cookie "^2.1.0"
 
 react-deep-force-update@^2.1.1:
   version "2.1.1"
@@ -5483,16 +5482,6 @@ react-redux@^5.0.5:
     lodash "^4.2.0"
     lodash-es "^4.2.0"
     loose-envify "^1.1.0"
-    prop-types "^15.5.10"
-
-react@^15.0.0:
-  version "15.6.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
-  dependencies:
-    create-react-class "^15.6.0"
-    fbjs "^0.8.9"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.0"
     prop-types "^15.5.10"
 
 react@^16.0.0:
@@ -6716,13 +6705,6 @@ universal-cookie-express@^2.0.5:
   resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-2.1.0.tgz#e29a34047b5dfb4b7ca66fceb22bdd41cf7a80f8"
   dependencies:
     universal-cookie "^2.1.0"
-
-universal-cookie@^2.0.1:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-2.0.8.tgz#e9ab9a2a665bcd847917caee5b1a4c17598eabb9"
-  dependencies:
-    cookie "^0.3.1"
-    object-assign "^4.1.0"
 
 universal-cookie@^2.1.0:
   version "2.1.0"
