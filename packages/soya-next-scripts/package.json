@@ -58,6 +58,6 @@
   "peerDependencies": {
     "config": "^1.26.2",
     "next": "^3.2.1",
-    "soya-next": "^0.2.9"
+    "soya-next": "^0.3.0"
   }
 }
