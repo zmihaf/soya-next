@@ -1,6 +1,6 @@
 {
   "name": "custom-routes",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "scripts": {
     "build": "soya-next-scripts build",
@@ -17,8 +17,8 @@
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.5",
     "redux": "^3.7.1",
-    "soya-next": "^0.3.0",
-    "soya-next-scripts": "^0.3.0",
+    "soya-next": "^0.3.1",
+    "soya-next-scripts": "^0.3.1",
     "styled-modules": "^0.2.4"
   }
 }
