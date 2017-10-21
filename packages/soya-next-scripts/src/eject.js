@@ -20,6 +20,7 @@ const devDependencies = [
   'babel-eslint',
   'eslint',
   'eslint-config-marlint',
+  'eslint-config-prettier',
   'eslint-loader',
   'eslint-plugin-babel',
   'eslint-plugin-flowtype',
