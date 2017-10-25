@@ -1,6 +1,6 @@
 {
   "name": "i18n-with-redux",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": true,
   "scripts": {
     "build": "soya-next-scripts build",
@@ -18,8 +18,8 @@
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.5",
     "redux": "^3.7.1",
-    "soya-next": "^0.3.1",
-    "soya-next-scripts": "^0.3.1",
+    "soya-next": "^0.3.2",
+    "soya-next-scripts": "^0.3.2",
     "styled-modules": "^0.2.4"
   }
 }
