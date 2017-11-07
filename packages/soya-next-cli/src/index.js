@@ -35,6 +35,7 @@ const dependencies = [
   'redux',
   'soya-next',
   'soya-next-scripts',
+  'styled-modules',
 ];
 
 if (projectDirectory) {
