@@ -69,6 +69,10 @@ describe('createRouter', () => {
       expect(req).toHaveProperty('universalCookies');
       expect(next.mock.calls.length).toBe(2);
 
+      // whoami
+      router.routes[0].handler(req, res);
+      expect(res.json).toBeCalled();
+
       // next handler
       await router.routes[1].handler(req, res);
       expect(app.handle).toBeCalled();
