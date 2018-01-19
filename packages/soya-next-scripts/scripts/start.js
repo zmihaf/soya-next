@@ -62,6 +62,7 @@ app.prepare()
       defaultLocale: config.defaultLocale,
       siteLocales: config.siteLocales,
       compression: config.server.compression,
+      whoami: config.whoami,
     }));
     server.listen(config.server.port, config.server.host, err => {
       if (err) {

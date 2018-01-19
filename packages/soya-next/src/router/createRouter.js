@@ -16,6 +16,7 @@ export default (app, {
   defaultLocale,
   siteLocales,
   compression,
+  whoami = {},
 } = defaultOptions) => {
   const router = Router();
   const handle = app.getRequestHandler();
@@ -51,6 +52,14 @@ export default (app, {
     const { method = 'GET', page } = routes[path];
     router[method.toLowerCase()](path, (req, res) => {
       app.render(req, res, page, Object.assign({}, req.query, req.params));
+    });
+  });
+  router.get('/whoami', (req, res) => {
+    const uptime = process.uptime();
+    res.json({
+      nodeId: process.env.NODE_GROUP,
+      uptime: `${Math.floor(uptime / 86400)}d, ${Math.floor((uptime % 86400) / 3600)}h, ${Math.floor((uptime % 3600) / 60)}m, ${Math.floor(uptime % 60)}s`,
+      ...whoami,
     });
   });
   router.get('*', (req, res) => handle(req, res));

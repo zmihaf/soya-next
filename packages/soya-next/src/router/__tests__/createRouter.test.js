@@ -56,7 +56,7 @@ describe('createRouter', () => {
           path: '/react.png',
         },
       };
-      const res = {};
+      const res = { json: jest.fn() };
       const next = jest.fn();
 
       // redirects middleware
@@ -69,12 +69,16 @@ describe('createRouter', () => {
       expect(req).toHaveProperty('universalCookies');
       expect(next.mock.calls.length).toBe(2);
 
+      // whoami
+      router.routes[0].handler(req, res);
+      expect(res.json).toBeCalled();
+
       // next handler
-      await router.routes[0].handler(req, res);
+      await router.routes[1].handler(req, res);
       expect(app.handle).toBeCalled();
 
       expect(router.use.mock.calls.length).toBe(2);
-      expect(router.get.mock.calls.length).toBe(1);
+      expect(router.get.mock.calls.length).toBe(2);
       expect(app.getRequestHandler).toBeCalled();
     });
 
@@ -91,7 +95,7 @@ describe('createRouter', () => {
       }, {});
       expect(app.render).toBeCalled();
       expect(app.render.mock.calls[0]).toMatchSnapshot();
-      expect(router.get.mock.calls.length).toBe(2);
+      expect(router.get.mock.calls.length).toBe(3);
     });
 
     it('should create router with redirection', () => {
@@ -124,7 +128,7 @@ describe('createRouter', () => {
         params: { id: 1 },
       }, res);
       expect(res.redirect.mock.calls[1]).toMatchSnapshot();
-      expect(router.get.mock.calls.length).toBe(4);
+      expect(router.get.mock.calls.length).toBe(5);
     });
 
     it('should create locale aware router', () => {
