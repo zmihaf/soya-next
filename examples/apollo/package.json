@@ -1,6 +1,6 @@
 {
   "name": "apollo",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": true,
   "dependencies": {
     "apollo-cache-inmemory": "^1.0.0",
@@ -16,8 +16,8 @@
     "react-cookie": "^2.1.2",
     "react-dom": "^16.0.0",
     "react-modal": "^3.1.0",
-    "soya-next": "^0.4.0",
-    "soya-next-scripts": "^0.4.0",
+    "soya-next": "^0.4.1",
+    "soya-next-scripts": "^0.4.1",
     "styled-modules": "^0.2.4",
     "tachyons": "^4.9.0"
   },
