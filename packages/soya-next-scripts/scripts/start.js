@@ -36,6 +36,9 @@ app.prepare()
   )
   .then((soyaMiddleware = null) => {
     const server = express();
+    if (soyaMiddleware !== null) {
+      server.use(soyaMiddleware);
+    }
     if (config.basePath) {
       server.use((req, res, next) => {
         if (req.url.startsWith(config.basePath)) {
@@ -48,9 +51,6 @@ app.prepare()
         }
         next();
       });
-    }
-    if (soyaMiddleware !== null) {
-      server.use(soyaMiddleware);
     }
     server.use('/_soya/:path(*)', (req, res) => {
       const p = join(app.dir, app.dist, 'dist', 'static', req.params.path);
