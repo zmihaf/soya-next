@@ -29,6 +29,7 @@ const dependencies = [
   'next',
   'prop-types',
   'react',
+  'react-apollo',
   'react-cookie',
   'react-dom',
   'react-redux',
