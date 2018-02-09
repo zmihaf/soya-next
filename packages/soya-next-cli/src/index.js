@@ -25,18 +25,18 @@ const argv = yargs
 const projectDirectory = argv._[0];
 
 const dependencies = [
-  'config',
-  'next',
-  'prop-types',
-  'react',
-  'react-apollo',
-  'react-cookie',
-  'react-dom',
-  'react-redux',
-  'redux',
-  'soya-next',
-  'soya-next-scripts',
-  'styled-modules',
+  'config@^1.29.4',
+  'next@^4.2.3',
+  'prop-types@^15.6.0',
+  'react@^16.2.0',
+  'react-apollo@^2.0.4',
+  'react-cookie@^2.1.2',
+  'react-dom@^16.2.0',
+  'react-redux@^5.0.6',
+  'redux@^3.7.2',
+  'soya-next@^0.4.1',
+  'soya-next-scripts@^0.4.2',
+  'styled-modules@^0.2.4',
 ];
 
 if (projectDirectory) {
