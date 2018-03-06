@@ -13,7 +13,7 @@ const run = script => {
 
 switch (script) {
   case 'build':
-  case 'start':
+  case 'dev':
   case 'test': {
     run(`../scripts/${script}`);
     break;
