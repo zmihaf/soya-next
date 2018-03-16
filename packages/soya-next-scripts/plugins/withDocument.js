@@ -13,15 +13,19 @@ module.exports = (nextConfig = {}) =>
             );
             const [documentPageEntry] = entries[name];
             if (documentPageEntry !== "./pages/_document.js") {
-              entries[name] = [`${require.resolve("../pages/_document")}?entry`];
+              entries[name] = [
+                `${require.resolve("../pages/_document")}?entry`
+              ];
             }
             return entries;
           });
 
+        const pagesDir = join(__dirname, "..", "pages");
         config.module.rules.push({
           test: /\.jsx?$/,
-          include: [join(__dirname, "..", "pages")],
-          exclude: /node_modules/,
+          include: pagesDir,
+          exclude: str =>
+            /node_modules/.test(str) && str.indexOf(pagesDir) !== 0,
           use: options.defaultLoaders.babel
         });
       }
