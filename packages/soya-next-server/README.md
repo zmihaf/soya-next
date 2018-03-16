@@ -23,5 +23,5 @@ soya-next-scripts build
 Then, start your production server with the following:
 
 ```bash
-soya-next-scripts start
+soya-next-server
 ```

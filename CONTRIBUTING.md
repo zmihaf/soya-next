@@ -96,6 +96,7 @@ To manually link the local repositories to any example app, run the following on
 ```bash
 npm link soya-next
 npm link soya-next-scripts
+npm link soya-next-server
 ```
 
 To build and watch for code changes, run the following on each example directory:

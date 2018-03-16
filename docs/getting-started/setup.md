@@ -22,7 +22,11 @@ npm install --save config express next react react-cookie react-dom react-redux 
 Then, to install **soya-next**, **soya-next-scripts**, and **soya-next-server**, run the following:
 
 ```bash
-npm install --save soya-next soya-next-scripts soya-next-server
+npm install --save soya-next soya-next-server
+```
+
+```bash
+npm install --save-dev soya-next-scripts
 ```
 
 ## Configuration

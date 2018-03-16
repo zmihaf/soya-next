@@ -22,8 +22,9 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
-    "soya-next": "^0.4.1",
-    "soya-next-scripts": "^0.4.2",
-    "styled-modules": "^0.2.4"
+    "soya-next": "^0.4.1"
+  },
+  "devDependencies": {
+    "soya-next-scripts": "^0.4.2"
   }
 }
