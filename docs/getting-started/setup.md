@@ -36,9 +36,9 @@ Simply add the following into your `package.json` scripts section:
 
 ```json
 {
-  "analyze": "ANALYZE=both soya-next-scripts build",
-  "analyze:browser": "ANALYZE=browser soya-next-scripts build",
-  "analyze:server": "ANALYZE=server soya-next-scripts build",
+  "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
+  "analyze:browser": "BUNDLE_ANALYZE=browser soya-next-scripts build",
+  "analyze:server": "BUNDLE_ANALYZE=server soya-next-scripts build",
   "build": "soya-next-scripts build",
   "dev": "soya-next-scripts dev",
   "eject": "soya-next-scripts eject",

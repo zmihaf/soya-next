@@ -6,7 +6,7 @@ which modules are bundled into and bloated your app.
 To perform bundle analysis, run the following:
 
 ```bash
-ANALYZE=both soya-next-scripts build
-ANALYZE=browser soya-next-scripts build
-ANALYZE=server soya-next-scripts build
+BUNDLE_ANALYZE=both soya-next-scripts build
+BUNDLE_ANALYZE=browser soya-next-scripts build
+BUNDLE_ANALYZE=server soya-next-scripts build
 ```
