@@ -3,14 +3,18 @@
   "version": "0.4.2",
   "private": true,
   "scripts": {
+    "analyze": "ANALYZE=both soya-next-scripts build",
+    "analyze:browser": "ANALYZE=browser soya-next-scripts build",
+    "analyze:server": "ANALYZE=server soya-next-scripts build",
     "build": "soya-next-scripts build",
-    "eject": "soya-next-scripts eject",
     "dev": "soya-next-scripts dev",
+    "eject": "soya-next-scripts eject",
     "start": "soya-next-server",
     "test": "soya-next-scripts test"
   },
   "dependencies": {
     "config": "^1.30.0",
+    "express": "^4.16.3",
     "next": "^5.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",

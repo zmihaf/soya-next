@@ -26,7 +26,12 @@ const devDependencies = [
   "eslint-plugin-marlint",
   "eslint-plugin-react",
   "jest",
-  "node-sass"
+  "lodash",
+  "next-assets-import",
+  "next-config",
+  "next-eslint",
+  "node-sass",
+  "webpack"
 ];
 const ownDir = path.resolve(__dirname, "..");
 
@@ -191,7 +196,7 @@ inquirer
 
     console.log("Ejecting.");
 
-    const dirs = ["config", "pages", "scripts", "scripts/utils"];
+    const dirs = ["config", "pages", "plugins", "scripts", "scripts/utils"];
     const files = ["next.config.js"].concat(
       dirs.reduce(
         (files, dir) =>

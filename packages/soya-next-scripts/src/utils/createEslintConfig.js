@@ -1,16 +1,12 @@
-export default ({
-  rules,
-  ...eslintConfig
-} = {
-  rules: {},
-}) => ({
-  extends: 'marlint',
-  globals: {
-    soya: true,
-  },
+export default (
+  { rules, ...eslintConfig } = {
+    rules: {}
+  }
+) => ({
+  extends: "marlint",
   rules: {
-    'react/react-in-jsx-scope': 'off',
-    ...rules,
+    "react/react-in-jsx-scope": "off",
+    ...rules
   },
-  ...eslintConfig,
+  ...eslintConfig
 });

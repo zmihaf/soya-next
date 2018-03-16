@@ -8,6 +8,7 @@
     "apollo-link": "^1.0.0",
     "apollo-link-http": "^1.1.0",
     "config": "^1.30.0",
+    "express": "^4.16.3",
     "graphql": "^0.11.7",
     "graphql-tag": "^2.5.0",
     "isomorphic-unfetch": "^2.0.0",
@@ -26,6 +27,9 @@
     "tachyons": "^4.9.0"
   },
   "scripts": {
+    "analyze": "ANALYZE=both soya-next-scripts build",
+    "analyze:browser": "ANALYZE=browser soya-next-scripts build",
+    "analyze:server": "ANALYZE=server soya-next-scripts build",
     "build": "soya-next-scripts build",
     "dev": "soya-next-scripts dev",
     "eject": "soya-next-scripts eject",
