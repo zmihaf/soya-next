@@ -1,6 +1,6 @@
 {
   "name": "i18n",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": true,
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
@@ -26,6 +26,6 @@
     "soya-next-server": "^0.5.0"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.5.0"
+    "soya-next-scripts": "^0.5.1"
   }
 }
