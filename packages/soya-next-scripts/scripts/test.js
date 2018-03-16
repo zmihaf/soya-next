@@ -1,4 +1,4 @@
-require('../config/setDefault');
+require("soya-next/config/default");
 
 process.on('unhandledRejection', err => {
   throw err;

@@ -20,7 +20,7 @@ Open http://localhost:3000 in your browser.
 
 ## How It Works
 
-This example uses [styled-modules](https://github.com/traveloka/styled-modules) to support CSS Modules.
+This example uses [@zeit/next-css](https://github.com/zeit/next-plugins/tree/master/packages/next-css) to support CSS Modules.
 
 By default all of your CSS files are scoped globally.
 To make them scoped locally (CSS Modules), you need to suffix them with `.mod.css` or `.module.css`.

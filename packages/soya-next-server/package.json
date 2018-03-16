@@ -1,0 +1,36 @@
+{
+  "name": "soya-next-server",
+  "version": "0.4.2",
+  "description": "Production server for Soya Next.",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
+  "repository": "https://github.com/traveloka/soya-next/tree/master/packages/soya-next-server",
+  "bugs": {
+    "url": "https://github.com/traveloka/soya-next/issues"
+  },
+  "homepage": "https://traveloka.gitbooks.io/soya-next/",
+  "keywords": [
+    "next",
+    "next.js",
+    "react",
+    "soya",
+    "soya-next",
+    "soya-next-server"
+  ],
+  "files": [
+    "index.js",
+    "server.js"
+  ],
+  "bin": {
+    "soya-next-server": "./index.js"
+  },
+  "peerDependencies": {
+    "config": "^1.30.0",
+    "express": "^4.16.0",
+    "next": "^5.0.0",
+    "soya-next": "^0.5.0"
+  }
+}

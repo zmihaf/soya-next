@@ -1,26 +1,32 @@
 [soya-next]: https://github.com/traveloka/soya-next/tree/master/packages/soya-next
 [soya-next-cli]: https://github.com/traveloka/soya-next/tree/master/packages/soya-next-cli
 [soya-next-scripts]: https://github.com/traveloka/soya-next/tree/master/packages/soya-next-scripts
+[soya-next-server]: https://github.com/traveloka/soya-next/tree/master/packages/soya-next-server
 
 # Setup
 
 ## Installation
 
-There are two packages that you need to install:
+There are 3 packages that you need to install:
 
-- [soya-next][soya-next] - A set of utility functions for React applications built on top of Next.js
-- [soya-next-scripts][soya-next-scripts] - A CLI which contains configuration and scripts used by [soya-next-cli][soya-next-cli]
+* [soya-next][soya-next] - A set of utility functions for React applications built on top of Next.js
+* [soya-next-scripts][soya-next-scripts] - A CLI which contains configuration and scripts used by [soya-next-cli][soya-next-cli]
+* [soya-next-server][soya-next-server] - Production server for Soya Next
 
 Both packages have their own dependencies that need to be installed, run the following to install them:
 
 ```bash
-npm install --save config next react react-cookie react-dom react-redux redux
+npm install --save config express next react react-cookie react-dom react-redux redux
 ```
 
-Then, to install **soya-next** and **soya-next-scripts**, run the following:
+Then, to install **soya-next**, **soya-next-scripts**, and **soya-next-server**, run the following:
 
 ```bash
-npm install --save soya-next soya-next-scripts
+npm install --save soya-next soya-next-server
+```
+
+```bash
+npm install --save-dev soya-next-scripts
 ```
 
 ## Configuration
@@ -30,10 +36,13 @@ Simply add the following into your `package.json` scripts section:
 
 ```json
 {
-  "analyze": "ANALYZE=1 soya-next-scripts build",
+  "analyze": "ANALYZE=both soya-next-scripts build",
+  "analyze:browser": "ANALYZE=browser soya-next-scripts build",
+  "analyze:server": "ANALYZE=server soya-next-scripts build",
   "build": "soya-next-scripts build",
+  "dev": "soya-next-scripts dev",
   "eject": "soya-next-scripts eject",
-  "start": "soya-next-scripts start",
+  "start": "soya-next-server",
   "test": "soya-next-scripts test"
 }
 ```
