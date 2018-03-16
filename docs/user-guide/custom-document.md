@@ -5,37 +5,32 @@ Please refer to [this](https://github.com/zeit/next.js#custom-document) document
 The document in Soya Next is customized like the following:
 
 ```js
-import Document, { Head, Main, NextScript } from 'next/document';
-import flush from 'styled-modules/server';
-import htmlescape from 'htmlescape';
+import Document, { Head, Main, NextScript } from "next/document";
+import config from "config";
+import htmlescape from "htmlescape";
 
-const __SOYA_CONFIG__ = { ...require('config') };
+const __NEXT_CONFIG__ = { ...config };
 // exclude legacy and server config
-delete __SOYA_CONFIG__.legacy;
-delete __SOYA_CONFIG__.server;
+delete __NEXT_CONFIG__.legacy;
+delete __NEXT_CONFIG__.server;
 
 export default class extends Document {
-  static displayName = 'SoyaDocument';
-
-  static getInitialProps({ renderPage }) {
-    return {
-      ...renderPage(),
-      styles: flush(),
-    };
-  }
-
   render() {
+    const { __NEXT_DATA__ } = this.props;
     return (
       <html>
-        <Head />
+        <Head>
+          <link
+            rel="stylesheet"
+            href={`${__NEXT_DATA__.assetPrefix}/_next/static/style.css`}
+          />
+        </Head>
         <body>
           <Main />
           <script
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
-              __html: `
-                __SOYA_CONFIG__ = ${htmlescape(__SOYA_CONFIG__)}
-              `,
+              __html: `__NEXT_CONFIG__ = ${htmlescape(__NEXT_CONFIG__)}`
             }}
           />
           <NextScript />

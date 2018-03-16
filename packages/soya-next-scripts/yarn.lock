@@ -3624,9 +3624,9 @@ next-config@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/next-config/-/next-config-0.0.2.tgz#fa6ab407738aaefca42acd8c9c7cdad432e4fbd7"
 
-next-eslint@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/next-eslint/-/next-eslint-0.0.2.tgz#6c3e7a254414ff2d62fb48705afb50a8799bae34"
+next-eslint@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/next-eslint/-/next-eslint-0.0.4.tgz#924da92e87e7d81657da58d77422f62f7475e55d"
   dependencies:
     eslint-loader "^2.0.0"
 

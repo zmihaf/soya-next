@@ -15,9 +15,9 @@ const build = require("next/dist/server/build").default;
 const { appDir } = require("../config/paths");
 const buildSoya = require("./utils/build-soya");
 build(
-  appDir,
+  appDir
   // @remove-on-eject-begin
-  conf
+  , conf
   // @remove-on-eject-end
 )
   .then(

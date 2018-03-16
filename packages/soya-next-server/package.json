@@ -1,7 +1,7 @@
 {
   "name": "soya-next-server",
   "version": "0.4.2",
-  "description": "Server used for soya-next.",
+  "description": "Production server for Soya Next.",
   "main": "index.js",
   "license": "MIT",
   "engines": {

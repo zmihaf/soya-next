@@ -15,7 +15,7 @@ const { join, resolve } = require("path");
 const { createRouter } = require("soya-next/server/router");
 
 const appDir = resolve(realpathSync(process.cwd()));
-const app = next({ dev: false });
+const app = next({ dev: false, conf: {} });
 
 app
   .prepare()

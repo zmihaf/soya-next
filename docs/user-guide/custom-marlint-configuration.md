@@ -22,13 +22,13 @@ To override the default configuration, add `eslintConfig` key to `package.json` 
 }
 ```
 
-## Use eslintignore
+## Ignore files and directories
 
-To use `.eslintignore`, add `eslintIgnore` key and set it to `true` in `package.json` like the following:
+Create `.eslintignore` file or add `eslintIgnore` key in `package.json` like the following:
 
 ```json
 {
-  "eslintIgnore": true
+  "eslintIgnore": ["customIgnoreFile"]
 }
 ```
 

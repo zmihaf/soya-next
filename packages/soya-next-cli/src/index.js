@@ -56,8 +56,8 @@ const install = (cmd, dependencies, { dev = false, exact = true } = {}) => {
   if (argv.verbose) {
     args.push("--verbose");
   }
-  const install = spawn.sync(cmd, args, { stdio: "inherit" });
-  if (install.status !== 0) {
+  const { status } = spawn.sync(cmd, args, { stdio: "inherit" });
+  if (status !== 0) {
     process.exit(status);
   }
 };
@@ -136,7 +136,7 @@ if (projectDirectory) {
   if (target !== "") {
     console.log(`  cd ${target}`);
   }
-  console.log(`  ${cmd} start`);
+  console.log(`  ${cmd} dev`);
   console.log();
 } else {
   yargs.showHelp();

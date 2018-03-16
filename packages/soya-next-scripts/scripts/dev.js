@@ -15,9 +15,9 @@ const conf = require("../next.config");
 
 const { appDir } = require("../config/paths");
 const app = next({
-  dev: true,
+  dev: true
   // @remove-on-eject-begin
-  conf
+  , conf
   // @remove-on-eject-end
 });
 const buildSoya = require("./utils/build-soya");

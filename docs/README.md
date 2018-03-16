@@ -5,6 +5,7 @@
   - [soya-next](/docs/packages/soya-next/README.md)
   - [soya-next-cli](/docs/packages/soya-next-cli/README.md)
   - [soya-next-scripts](/docs/packages/soya-next-scripts/README.md)
+  - [soya-next-server](/docs/packages/soya-next-server/README.md)
 - [Getting Started](/docs/getting-started/README.md)
   - [Setup](/docs/getting-started/setup.md)
   - [Directory Structure](/docs/getting-started/directory-structure.md)
