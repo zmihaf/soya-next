@@ -1,11 +1,11 @@
+process.env.BABEL_ENV = process.env.BABEL_ENV || "production";
+process.env.NODE_ENV = process.env.NODE_ENV || "production";
+
 require("soya-next/config/default");
 
 process.on("unhandledRejection", err => {
   console.error(err);
 });
-
-process.env.BABEL_ENV = process.env.BABEL_ENV || "production";
-process.env.NODE_ENV = process.env.NODE_ENV || "production";
 
 const config = require("config");
 const express = require("express");
