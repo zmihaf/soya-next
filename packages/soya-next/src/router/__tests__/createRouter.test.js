@@ -28,6 +28,7 @@ describe('createRouter', () => {
       getRequestHandler: jest.fn(() => handle),
       handle,
       render: jest.fn(),
+      send404: jest.fn(),
       serveStatic: jest.fn(),
     };
   };
@@ -40,6 +41,21 @@ describe('createRouter', () => {
     it('should create gzip enabled router', () => {
       const router = createRouter(app);
       expect(router.use.mock.calls.length).toBe(3);
+    });
+
+    it('should create router with base path and exclude a path', () => {
+      const router = createRouter(app, {
+        basePath: {
+          test: '/base',
+          exclude: '/healthcheck',
+        }
+      });
+      const req = { url: '/healthcheck' }
+      const res = { json: jest.fn() };
+      const next = jest.fn();
+
+      router.middlewares[1](req, res, next);
+      expect(req.url).toBe('/healthcheck');
     });
   });
 
@@ -140,6 +156,36 @@ describe('createRouter', () => {
         ],
       });
       expect(router.use.mock.calls.length).toBe(3);
+    });
+
+    it('should create router with base path', () => {
+      const router = createRouter(app, {
+        basePath: '/base'
+      });
+      const req = { url: '/base' }
+      const res = { json: jest.fn() };
+      const next = jest.fn();
+
+      router.middlewares[0](req, res, next);
+      expect(req.url).toBe('/');
+
+      router.middlewares[0]({ url: '/' }, res, next);
+      expect(app.send404).toBeCalled();
+    });
+
+    it('should create router with base path and exclude some paths', () => {
+      const router = createRouter(app, {
+        basePath: {
+          test: '/base',
+          exclude: ['/healthcheck', '/whoami'],
+        }
+      });
+      const req = { url: '/whoami' }
+      const res = { json: jest.fn() };
+      const next = jest.fn();
+
+      router.middlewares[1](req, res, next);
+      expect(req.url).toBe('/whoami');
     });
   });
 });

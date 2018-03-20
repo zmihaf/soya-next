@@ -16,7 +16,15 @@ const { join, resolve } = require("path");
 const { createRouter } = require("soya-next/server/router");
 
 const appDir = resolve(realpathSync(process.cwd()));
-const app = next({ dev: false, conf: {} });
+const app = next({
+  dev: false,
+  conf: {
+    assetPrefix: config.assetPrefix,
+    distDir: config.distDir,
+    configOrigin: config.configOrigin,
+    useFileSystemPublicRoutes: config.useFileSystemPublicRoutes
+  }
+});
 
 app
   .prepare()
@@ -35,16 +43,9 @@ app
     if (soyaMiddleware !== null) {
       server.use(soyaMiddleware);
     }
-    if (config.basePath) {
-      server.use((req, res, next) => {
-        if (req.url.startsWith(config.basePath)) {
-          req.url = req.url.replace(new RegExp(`^${config.basePath}/*`), "/");
-        }
-        next();
-      });
-    }
     server.use(
       createRouter(app, {
+        basePath: config.basePath,
         routes: config.routes,
         redirects: config.redirects,
         defaultLocale: config.defaultLocale,

@@ -41,22 +41,9 @@ app
     if (soyaMiddleware !== null) {
       server.use(soyaMiddleware);
     }
-    if (config.basePath) {
-      server.use((req, res, next) => {
-        if (req.url.startsWith(config.basePath)) {
-          req.url = req.url.replace(new RegExp(`^${config.basePath}/*`), "/");
-        } else if (
-          !["/_next/webpack-hmr", "/_next/on-demand-entries-ping"].some(
-            prefix => req.url.startsWith(prefix)
-          )
-        ) {
-          return app.send404(res);
-        }
-        next();
-      });
-    }
     server.use(
       createRouter(app, {
+        basePath: config.basePath,
         routes: config.routes,
         redirects: config.redirects,
         defaultLocale: config.defaultLocale,
