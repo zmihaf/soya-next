@@ -1,0 +1,6 @@
+{
+  "basePath": "/base",
+  "server": {
+    "port": 3000
+  }
+}
