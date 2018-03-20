@@ -23,6 +23,7 @@ switch (script) {
     break;
   }
   default:
+    // eslint-disable-next-line no-console
     console.log(`Unknown script "${script}".`);
     break;
 }

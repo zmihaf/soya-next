@@ -1,3 +1,4 @@
+/* eslint-disable no-console, no-sync */
 import chalk from "chalk";
 import fs from "fs";
 import inquirer from "inquirer";

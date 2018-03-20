@@ -37,7 +37,7 @@ export default configureStore => Page => {
 
     constructor(props) {
       super(props);
-      this.store = !process.browser ? props.store : configureStoreIfNeeded(props.reduxState, { cookies: props.cookies });
+      this.store = process.browser ? configureStoreIfNeeded(props.reduxState, { cookies: props.cookies }) : props.store;
     }
 
     render() {

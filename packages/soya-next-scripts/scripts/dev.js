@@ -1,6 +1,7 @@
 require("soya-next/config/default");
 
 process.on("unhandledRejection", err => {
+  // eslint-disable-next-line no-console
   console.error(err);
 });
 

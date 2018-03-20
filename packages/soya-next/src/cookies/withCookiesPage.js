@@ -27,7 +27,7 @@ export default Page => {
 
     constructor(props) {
       super(props);
-      this.cookies = !process.browser ? props.cookies : new Cookies();
+      this.cookies = process.browser ? new Cookies() : props.cookies;
     }
 
     render() {
