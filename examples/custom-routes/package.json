@@ -1,6 +1,6 @@
 {
   "name": "custom-routes",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "private": true,
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
@@ -22,7 +22,7 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
-    "soya-next": "^0.5.4",
+    "soya-next": "^0.5.5",
     "soya-next-server": "^0.5.4"
   },
   "devDependencies": {
