@@ -2,11 +2,10 @@ const config = require("config");
 let basePath;
 if (config.basePath) {
   if (typeof config.basePath === "string") {
-    basePath = {
-      test: config.basePath
-    };
+    basePath = config.basePath;
+  } else {
+    basePath = config.basePath && config.basePath.test;
   }
-  basePath = config.basePath;
 }
 config.assetPrefix = config.assetPrefix || basePath || "";
 config.configOrigin = config.configOrigin || "default";
