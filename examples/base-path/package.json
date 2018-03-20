@@ -1,6 +1,7 @@
 {
   "name": "base-path",
   "version": "0.5.4",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
