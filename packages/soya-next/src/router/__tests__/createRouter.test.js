@@ -50,7 +50,7 @@ describe('createRouter', () => {
           exclude: '/healthcheck',
         }
       });
-      const req = { url: '/healthcheck' }
+      const req = { url: '/healthcheck' };
       const res = { json: jest.fn() };
       const next = jest.fn();
 
@@ -162,7 +162,7 @@ describe('createRouter', () => {
       const router = createRouter(app, {
         basePath: '/base'
       });
-      const req = { url: '/base' }
+      const req = { url: '/base' };
       const res = { json: jest.fn() };
       const next = jest.fn();
 
@@ -180,7 +180,7 @@ describe('createRouter', () => {
           exclude: ['/healthcheck', '/whoami'],
         }
       });
-      const req = { url: '/whoami' }
+      const req = { url: '/whoami' };
       const res = { json: jest.fn() };
       const next = jest.fn();
 

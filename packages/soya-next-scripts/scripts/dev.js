@@ -18,6 +18,7 @@ const { appDir } = require("../config/paths");
 const app = next({
   dev: true
   // @remove-on-eject-begin
+  // eslint-disable-next-line comma-style
   , conf
   // @remove-on-eject-end
 });

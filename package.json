@@ -10,7 +10,7 @@
     "docs:build": "gitbook build",
     "docs:prepare": "gitbook install",
     "docs:watch": "gitbook serve",
-    "lint": "marlint --fix",
+    "lint": "marlint",
     "postinstall": "lerna bootstrap",
     "precommit": "lint-staged",
     "prepublish": "yarn run clean && yarn run build",

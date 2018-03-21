@@ -50,8 +50,8 @@ const install = (cmd, dependencies, { dev = false, exact = true } = {}) => {
   } else {
     args.push("install");
   }
-  if (dev) args.push("-D");
-  if (exact) args.push("-E");
+  if (dev) args.push("-D"); // eslint-disable-line curly
+  if (exact) args.push("-E"); // eslint-disable-line curly
   args.push(...dependencies);
   if (argv.verbose) {
     args.push("--verbose");
