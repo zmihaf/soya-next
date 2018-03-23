@@ -28,6 +28,23 @@ export default (
     router.use(require("compression")(compression));
   }
 
+  const newRedirects = Object.keys(redirects).reduce((newRedirects, from) => {
+    const redirect = redirects[from];
+    const newRoute = routes[redirect.to];
+    newRedirects[from] = {
+      page: (newRoute && newRoute.page) || redirect.to,
+      ...redirect
+    };
+    return newRedirects;
+  }, {});
+  router.use((req, res, next) => {
+    req.redirects = newRedirects;
+    next();
+  });
+  router.use(cookieMiddleware());
+  if (defaultLocale && siteLocales) {
+    router.use(createLocaleMiddleware({ defaultLocale, siteLocales }));
+  }
   if (basePath) {
     router.use((req, res, next) => {
       let test;
@@ -50,23 +67,6 @@ export default (
       }
       app.send404(res);
     });
-  }
-  const newRedirects = Object.keys(redirects).reduce((newRedirects, from) => {
-    const redirect = redirects[from];
-    const newRoute = routes[redirect.to];
-    newRedirects[from] = {
-      page: (newRoute && newRoute.page) || redirect.to,
-      ...redirect
-    };
-    return newRedirects;
-  }, {});
-  router.use((req, res, next) => {
-    req.redirects = newRedirects;
-    next();
-  });
-  router.use(cookieMiddleware());
-  if (defaultLocale && siteLocales) {
-    router.use(createLocaleMiddleware({ defaultLocale, siteLocales }));
   }
   Object.keys(newRedirects).forEach(from => {
     const { method, status, to } = ensureRedirect(newRedirects[from]);

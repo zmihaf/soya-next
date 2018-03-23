@@ -54,8 +54,9 @@ describe('createRouter', () => {
       const res = { json: jest.fn() };
       const next = jest.fn();
 
-      router.middlewares[1](req, res, next);
+      router.middlewares[3](req, res, next);
       expect(req.url).toBe('/healthcheck');
+      expect(next).toBeCalled();
     });
   });
 
@@ -166,10 +167,11 @@ describe('createRouter', () => {
       const res = { json: jest.fn() };
       const next = jest.fn();
 
-      router.middlewares[0](req, res, next);
+      router.middlewares[2](req, res, next);
       expect(req.url).toBe('/');
+      expect(next).toBeCalled();
 
-      router.middlewares[0]({ url: '/' }, res, next);
+      router.middlewares[2]({ url: '/' }, res, next);
       expect(app.send404).toBeCalled();
     });
 
@@ -184,8 +186,9 @@ describe('createRouter', () => {
       const res = { json: jest.fn() };
       const next = jest.fn();
 
-      router.middlewares[1](req, res, next);
+      router.middlewares[2](req, res, next);
       expect(req.url).toBe('/whoami');
+      expect(next).toBeCalled();
     });
   });
 });
