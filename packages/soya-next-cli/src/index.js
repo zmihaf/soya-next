@@ -29,7 +29,7 @@ const projectDirectory = argv._[0];
 const dependencies = [
   "config@^1.30.0",
   "express@^4.16.2",
-  "next@^5.0.0",
+  "next@^5.1.0",
   "prop-types@^15.6.1",
   "react@^16.2.0",
   "react-apollo@^2.0.4",
@@ -41,7 +41,7 @@ const dependencies = [
   "soya-next-server@^0.5.0"
 ];
 
-const devDependencies = ["soya-next-scripts@^0.5.0"];
+const devDependencies = ["soya-next-scripts@^0.5.8"];
 
 const install = (cmd, dependencies, { dev = false, exact = true } = {}) => {
   const args = [];
