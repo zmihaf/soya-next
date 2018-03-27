@@ -1,6 +1,10 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-export default globalReducers => createStore => (reducer, preloadedState, enhancer) => {
+export default globalReducers => createStore => (
+  reducer,
+  preloadedState,
+  enhancer
+) => {
   const store = createStore(reducer, preloadedState, enhancer);
   const replaceReducer = store.replaceReducer;
   let soyaReducers = { ...globalReducers };
@@ -9,11 +13,11 @@ export default globalReducers => createStore => (reducer, preloadedState, enhanc
     ...store,
     addReducer: nextReducers => {
       if (!nextReducers) {
-        throw new Error('Missing nextReducers argument.');
+        throw new Error("Missing nextReducers argument.");
       }
 
       let nextReducer = nextReducers;
-      if (typeof nextReducers === 'object') {
+      if (typeof nextReducers === "object") {
         const keys = Object.keys(nextReducers);
         keys.forEach(key => {
           if (soyaReducers[key] && soyaReducers[key] !== nextReducers[key]) {
@@ -27,19 +31,19 @@ export default globalReducers => createStore => (reducer, preloadedState, enhanc
     },
     replaceReducer: nextReducers => {
       if (!nextReducers) {
-        throw new Error('Missing nextReducers argument.');
+        throw new Error("Missing nextReducers argument.");
       }
 
       let nextReducer = nextReducers;
-      if (typeof nextReducers === 'object') {
+      if (typeof nextReducers === "object") {
         soyaReducers = {
           ...globalReducers,
-          ...nextReducers,
+          ...nextReducers
         };
         nextReducer = combineReducers(soyaReducers);
       }
       replaceReducer(nextReducer);
     },
-    soya: true,
+    soya: true
   };
 };

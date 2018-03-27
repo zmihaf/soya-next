@@ -1,1 +1,1 @@
-module.exports = require('./lib/components/LocaleLink');
+module.exports = require("./lib/components/LocaleLink");

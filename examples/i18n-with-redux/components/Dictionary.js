@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import IntlMessageFormat from 'intl-messageformat';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { applyReducers } from 'soya-next/redux';
-import { withLocale } from 'soya-next/i18n';
-import { localeShape } from 'soya-next/prop-types';
-import dictionary from '../reducers/DictionaryReducer';
-import { generateId } from '../utils/DictionaryUtil';
-import { fetchTranslation } from '../actions/DictionaryAction';
+import React from "react";
+import PropTypes from "prop-types";
+import IntlMessageFormat from "intl-messageformat";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { applyReducers } from "soya-next/redux";
+import { withLocale } from "soya-next/i18n";
+import { localeShape } from "soya-next/prop-types";
+import dictionary from "../reducers/DictionaryReducer";
+import { generateId } from "../utils/DictionaryUtil";
+import { fetchTranslation } from "../actions/DictionaryAction";
 
 class Dictionary extends React.Component {
   static propTypes = {
@@ -18,13 +18,13 @@ class Dictionary extends React.Component {
     params: PropTypes.object,
     translation: PropTypes.string,
     locale: localeShape.isRequired,
-    fetchTranslation: PropTypes.func.isRequired,
+    fetchTranslation: PropTypes.func.isRequired
   };
 
   static defaultProps = {
-    component: 'span',
-    renderProp: 'children',
-    params: null,
+    component: "span",
+    renderProp: "children",
+    params: null
   };
 
   componentDidMount() {
@@ -41,12 +41,7 @@ class Dictionary extends React.Component {
   }
 
   render() {
-    const {
-      component: Component,
-      renderProp,
-      params,
-      ...props
-    } = this.props;
+    const { component: Component, renderProp, params, ...props } = this.props;
     let translation = props.translation;
     delete props.entryKey;
     delete props.translation;
@@ -63,25 +58,23 @@ class Dictionary extends React.Component {
         // do nothing
       }
     }
-    if (renderProp === 'dangerouslySetInnerHTML') {
+    if (renderProp === "dangerouslySetInnerHTML") {
       translation = { __html: translation };
     }
     props[renderProp] = translation;
 
-    return (
-      <Component {...props} />
-    );
+    return <Component {...props} />;
   }
 }
 
 const mapStateToProps = (state, props) => ({
-  translation: state.dictionary[generateId(props)],
+  translation: state.dictionary[generateId(props)]
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
   fetchTranslation() {
     dispatch(fetchTranslation(props));
-  },
+  }
 });
 
 export default compose(

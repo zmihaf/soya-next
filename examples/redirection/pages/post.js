@@ -1,5 +1,5 @@
-import { createPage } from 'soya-next';
-import Layout from '../components/Layout/Layout';
+import { createPage } from "soya-next";
+import Layout from "../components/Layout/Layout";
 
 export default createPage()(({ url }) => (
   <Layout>

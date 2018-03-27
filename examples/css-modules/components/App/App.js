@@ -1,6 +1,6 @@
-import Par from '../Par/Par';
-import Title from '../Title/Title';
-import styles from './App.module.css';
+import Par from "../Par/Par";
+import Title from "../Title/Title";
+import styles from "./App.module.css";
 
 const App = () => (
   <div className={styles.root}>

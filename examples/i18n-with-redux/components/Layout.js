@@ -1,22 +1,21 @@
-import PropTypes from 'prop-types';
-import LocaleLink from 'soya-next/link';
-import Dictionary from '../components/Dictionary';
-import LanguagePicker from './LanguagePicker';
+import PropTypes from "prop-types";
+import LocaleLink from "soya-next/link";
+import Dictionary from "../components/Dictionary";
+import LanguagePicker from "./LanguagePicker";
 
 const Layout = ({ children }) => (
   <div>
     <LanguagePicker />
     <hr />
     <div>
-      <LocaleLink href='/'>
+      <LocaleLink href="/">
         <a>
-          <Dictionary entryKey='menuHome' />
+          <Dictionary entryKey="menuHome" />
         </a>
-      </LocaleLink>
-      {' '}
-      <LocaleLink href='/about'>
+      </LocaleLink>{" "}
+      <LocaleLink href="/about">
         <a>
-          <Dictionary entryKey='menuAboutUs' />
+          <Dictionary entryKey="menuAboutUs" />
         </a>
       </LocaleLink>
     </div>
@@ -27,7 +26,7 @@ const Layout = ({ children }) => (
 );
 
 Layout.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 export default Layout;

@@ -1,8 +1,8 @@
-import React from 'react';
-import App from '../containers/App';
-import 'todomvc-app-css/index.css';
+import React from "react";
+import App from "../containers/App";
+import "todomvc-app-css/index.css";
 
-import { createPage } from 'soya-next';
+import { createPage } from "soya-next";
 
 const Index = () => (
   <div>

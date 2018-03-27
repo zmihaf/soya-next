@@ -1,27 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Cookies } from 'react-cookie';
-import getDisplayName from '../utils/getDisplayName';
+import React from "react";
+import PropTypes from "prop-types";
+import { Cookies } from "react-cookie";
+import getDisplayName from "../utils/getDisplayName";
 
 export default Page => {
   class WithCookies extends React.Component {
-    static displayName = getDisplayName('WithCookies', Page);
+    static displayName = getDisplayName("WithCookies", Page);
 
     static propTypes = {
       cookies: PropTypes.oneOfType([
         PropTypes.shape({
-          cookies: PropTypes.objectOf(PropTypes.string),
+          cookies: PropTypes.objectOf(PropTypes.string)
         }),
-        PropTypes.instanceOf(Cookies),
-      ]).isRequired,
+        PropTypes.instanceOf(Cookies)
+      ]).isRequired
     };
 
     static async getInitialProps(ctx) {
       const cookies = ctx.req ? ctx.req.universalCookies : new Cookies();
-      const props = Page.getInitialProps && await Page.getInitialProps({ ...ctx, cookies });
+      const props =
+        Page.getInitialProps &&
+        (await Page.getInitialProps({ ...ctx, cookies }));
       return {
         ...props,
-        cookies,
+        cookies
       };
     }
 

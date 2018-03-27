@@ -1,7 +1,7 @@
-import { createStore } from 'redux';
-import storeEnhancer from '../storeEnhancer';
+import { createStore } from "redux";
+import storeEnhancer from "../storeEnhancer";
 
-describe('Store Enhancer', () => {
+describe("Store Enhancer", () => {
   let store;
   const todos = (state = [], action) => state;
 
@@ -9,20 +9,20 @@ describe('Store Enhancer', () => {
     store = storeEnhancer()(createStore)(state => state);
   });
 
-  it('should expose enhanced API', () => {
+  it("should expose enhanced API", () => {
     const apis = Object.keys(store);
     expect(apis.length).toBe(6);
-    expect(apis).toContain('addReducer');
-    expect(apis).toContain('replaceReducer');
-    expect(apis).toContain('soya');
+    expect(apis).toContain("addReducer");
+    expect(apis).toContain("replaceReducer");
+    expect(apis).toContain("soya");
   });
 
-  it('should add new todos to store state', () => {
+  it("should add new todos to store state", () => {
     store.addReducer({ todos });
     expect(store.getState()).toMatchSnapshot();
   });
 
-  it('should replace store start with given reducer function', () => {
+  it("should replace store start with given reducer function", () => {
     const auth = (state = {}) => state;
     store.addReducer({ auth });
     store.addReducer({ todos });
@@ -31,7 +31,7 @@ describe('Store Enhancer', () => {
     expect(store.getState()).toMatchSnapshot();
   });
 
-  it('should replace store state with given reducers object', () => {
+  it("should replace store state with given reducers object", () => {
     const auth = (state = {}) => state;
     store.addReducer({ auth });
     store.addReducer({ todos });
@@ -39,25 +39,22 @@ describe('Store Enhancer', () => {
     expect(store.getState()).toMatchSnapshot();
   });
 
-  it('should throw if addReducers arguments are not specified', () => {
+  it("should throw if addReducers arguments are not specified", () => {
     expect(() => {
       store.addReducer();
-    })
-      .toThrow('Missing nextReducers argument.');
+    }).toThrow("Missing nextReducers argument.");
   });
 
-  it('should throw if replaceReducers arguments are not specified', () => {
+  it("should throw if replaceReducers arguments are not specified", () => {
     expect(() => {
       store.replaceReducer();
-    })
-      .toThrow('Missing nextReducers argument.');
+    }).toThrow("Missing nextReducers argument.");
   });
 
-  it('should throw if there\'s reducer name conflict', () => {
+  it("should throw if there's reducer name conflict", () => {
     expect(() => {
       store.addReducer({ todos });
       store.addReducer({ todos: state => state });
-    })
-      .toThrow('Duplicate reducer name: todos');
+    }).toThrow("Duplicate reducer name: todos");
   });
 });

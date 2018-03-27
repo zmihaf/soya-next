@@ -1,24 +1,24 @@
-const spawn = require('cross-spawn');
+const spawn = require("cross-spawn");
 const script = process.argv[2];
 const args = process.argv.slice(3);
 
 const run = script => {
   const { status } = spawn.sync(
-    'node',
+    "node",
     [require.resolve(script)].concat(args),
-    { stdio: 'inherit' }
+    { stdio: "inherit" }
   );
   process.exit(status);
 };
 
 switch (script) {
-  case 'build':
-  case 'dev':
-  case 'test': {
+  case "build":
+  case "dev":
+  case "test": {
     run(`../scripts/${script}`);
     break;
   }
-  case 'eject': {
+  case "eject": {
     run(`./${script}`);
     break;
   }
