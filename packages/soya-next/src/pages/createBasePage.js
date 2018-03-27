@@ -1,5 +1,5 @@
 import React from "react";
-import { compose } from "react-apollo";
+import { compose } from "redux";
 import hoistStatics from "hoist-non-react-statics";
 import BaseProvider from "../components/BaseProvider";
 import applyRedirect from "../router/applyRedirect";
