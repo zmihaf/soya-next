@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import hoistStatics from "hoist-non-react-statics";
 import getDisplayName from "../utils/getDisplayName";
 import { localeShape } from "../constants/PropTypes";
 import { ensurePath } from "../utils/locale";
+import { NEXT_STATICS } from "../constants/Statics";
 
 export default Page => {
   class WithLocale extends React.Component {
@@ -51,5 +53,5 @@ export default Page => {
       return <Page {...this.props} />;
     }
   }
-  return WithLocale;
+  return hoistStatics(WithLocale, Page, NEXT_STATICS);
 };

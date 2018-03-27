@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import hoistStatics from "hoist-non-react-statics";
 import { Cookies } from "react-cookie";
 import getDisplayName from "../utils/getDisplayName";
+import { NEXT_STATICS } from "../constants/Statics";
 
 export default Page => {
   class WithCookies extends React.Component {
@@ -40,5 +42,5 @@ export default Page => {
     }
   }
 
-  return WithCookies;
+  return hoistStatics(WithCookies, Page, NEXT_STATICS);
 };

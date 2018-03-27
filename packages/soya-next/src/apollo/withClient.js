@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import hoistStatics from "hoist-non-react-statics";
 import getDisplayName from "../utils/getDisplayName";
+import { NEXT_STATICS } from "../constants/Statics";
 
 export default configureClient => Page => {
   const configureClientIfNeeded = (preloadedState, options) => {
@@ -52,5 +54,5 @@ export default configureClient => Page => {
     }
   }
 
-  return WithClient;
+  return hoistStatics(WithClient, Page, NEXT_STATICS);
 };

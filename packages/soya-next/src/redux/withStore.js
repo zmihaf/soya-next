@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import hoistStatics from "hoist-non-react-statics";
 import { storeShape } from "react-redux/lib/utils/PropTypes";
 import getDisplayName from "../utils/getDisplayName";
+import { NEXT_STATICS } from "../constants/Statics";
 
 export default configureStore => Page => {
   const configureStoreIfNeeded = (preloadedState, extraArgument) => {
@@ -49,5 +51,5 @@ export default configureStore => Page => {
     }
   }
 
-  return WithStore;
+  return hoistStatics(WithStore, Page, NEXT_STATICS);
 };

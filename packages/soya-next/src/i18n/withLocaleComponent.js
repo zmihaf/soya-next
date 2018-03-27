@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import hoistStatics from "hoist-non-react-statics";
 import getDisplayName from "../utils/getDisplayName";
 import { localeShape } from "../constants/PropTypes";
 
@@ -34,5 +35,5 @@ export default Component => {
     }
   }
 
-  return WithLocale;
+  return hoistStatics(WithLocale, Component);
 };

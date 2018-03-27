@@ -1,6 +1,8 @@
 import React from "react";
+import hoistStatics from "hoist-non-react-statics";
 import { storeShape } from "react-redux/lib/utils/PropTypes";
 import getDisplayName from "../utils/getDisplayName";
+import { NEXT_STATICS } from "../constants/Statics";
 
 export default reducers => Component => {
   if (typeof reducers === "undefined") {
@@ -41,5 +43,5 @@ export default reducers => Component => {
       return <Component {...this.props} />;
     }
   }
-  return ApplyReducers;
+  return hoistStatics(ApplyReducers, Component, NEXT_STATICS);
 };

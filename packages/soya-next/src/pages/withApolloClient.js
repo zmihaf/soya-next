@@ -3,6 +3,7 @@ import Head from "next/head";
 import hoistStatics from "hoist-non-react-statics";
 import { ApolloProvider, getDataFromTree } from "react-apollo";
 import withClient from "../apollo/withClient";
+import { NEXT_STATICS } from "../constants/Statics";
 
 export const withApolloClientFactory = (
   enhancer = Page => Page,
@@ -61,7 +62,9 @@ export const withApolloClientFactory = (
     }
   }
 
-  return withClient(configureClient)(WithApolloClient);
+  return withClient(configureClient)(
+    hoistStatics(WithApolloClient, EnhancedPage, NEXT_STATICS)
+  );
 };
 
 export default withApolloClientFactory();
