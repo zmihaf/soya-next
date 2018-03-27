@@ -2,7 +2,11 @@
 
 exports[`<BaseProvider /> should add cookies, defaultLocale, locale, and siteLocales to child context 1`] = `
 Object {
-  "cookies": Cookies {},
+  "cookies": Cookies {
+    "HAS_DOCUMENT_COOKIE": true,
+    "cookies": Object {},
+    "hooks": undefined,
+  },
   "defaultLocale": "id-id",
   "locale": Object {
     "country": "id",
