@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import Link from 'next/link';
+import PropTypes from "prop-types";
+import Link from "next/link";
 
 const PostLink = props => (
   <li>
@@ -11,7 +11,7 @@ const PostLink = props => (
 
 PostLink.propTypes = {
   id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 export default PostLink;

@@ -2,7 +2,11 @@
 
 exports[`withCookiesPage browser should add cookie to page props 1`] = `
 Object {
-  "cookies": Cookies {},
+  "cookies": Cookies {
+    "HAS_DOCUMENT_COOKIE": true,
+    "cookies": Object {},
+    "hooks": undefined,
+  },
   "init": true,
 }
 `;
@@ -10,6 +14,7 @@ Object {
 exports[`withCookiesPage server should add cookie to page props 1`] = `
 Object {
   "cookies": Cookies {
+    "HAS_DOCUMENT_COOKIE": true,
     "cookies": Object {
       "key": "value",
     },

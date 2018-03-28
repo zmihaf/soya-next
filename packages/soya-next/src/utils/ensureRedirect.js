@@ -1,5 +1,5 @@
-export default ({ method = 'GET', status = 301, ...redirect }) => ({
+export default ({ method = "GET", status = 301, ...redirect }) => ({
   method,
   status,
-  ...redirect,
+  ...redirect
 });

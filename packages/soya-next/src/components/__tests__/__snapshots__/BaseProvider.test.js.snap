@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BaseProvider /> should add cookies, defaultLocale, locale, and siteLocales to child context 1`] = `
+Object {
+  "cookies": Cookies {
+    "HAS_DOCUMENT_COOKIE": true,
+    "cookies": Object {},
+    "hooks": undefined,
+  },
+  "defaultLocale": "id-id",
+  "locale": Object {
+    "country": "id",
+    "language": "en",
+  },
+  "siteLocales": Array [
+    "id-id",
+    "en-id",
+  ],
+}
+`;

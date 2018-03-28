@@ -1,32 +1,40 @@
-import React from 'react';
-import { storeShape } from 'react-redux/lib/utils/PropTypes';
-import getDisplayName from '../utils/getDisplayName';
+import React from "react";
+import hoistStatics from "hoist-non-react-statics";
+import { storeShape } from "react-redux/lib/utils/PropTypes";
+import getDisplayName from "../utils/getDisplayName";
+import { NEXT_STATICS } from "../constants/Statics";
 
 export default reducers => Component => {
-  if (typeof reducers === 'undefined') {
+  if (typeof reducers === "undefined") {
     return Component;
   }
 
   class ApplyReducers extends React.Component {
-    static displayName = getDisplayName('ApplyReducers', Component);
+    static displayName = getDisplayName("ApplyReducers", Component);
 
     static async getInitialProps(ctx) {
       if (!ctx.store.soya) {
-        throw new Error('applyReducers must be used with Soya\'s redux enhancer');
+        throw new Error(
+          "applyReducers must be used with Soya's redux enhancer"
+        );
       }
       ctx.store.addReducer(reducers);
-      return Component.getInitialProps && await Component.getInitialProps(ctx);
+      return (
+        Component.getInitialProps && (await Component.getInitialProps(ctx))
+      );
     }
 
     static contextTypes = {
-      store: storeShape.isRequired,
+      store: storeShape.isRequired
     };
 
     constructor(props, context) {
       super(props, context);
       this.store = props.store || context.store;
       if (!this.store.soya) {
-        throw new Error('applyReducers must be used with Soya\'s redux enhancer');
+        throw new Error(
+          "applyReducers must be used with Soya's redux enhancer"
+        );
       }
       this.store.addReducer(reducers);
     }
@@ -35,5 +43,5 @@ export default reducers => Component => {
       return <Component {...this.props} />;
     }
   }
-  return ApplyReducers;
+  return hoistStatics(ApplyReducers, Component, NEXT_STATICS);
 };

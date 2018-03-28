@@ -1,7 +1,7 @@
-import { createPage } from 'soya-next';
-import { localeShape } from 'soya-next/prop-types';
-import Layout from '../components/Layout';
-import data from '../data/i18n.json';
+import { createPage } from "soya-next";
+import { localeShape } from "soya-next/prop-types";
+import Layout from "../components/Layout";
+import data from "../data/i18n.json";
 
 const AboutPage = ({ locale }) => (
   <Layout>
@@ -11,7 +11,7 @@ const AboutPage = ({ locale }) => (
 );
 
 AboutPage.propTypes = {
-  locale: localeShape.isRequired,
+  locale: localeShape.isRequired
 };
 
 export default createPage()(AboutPage);

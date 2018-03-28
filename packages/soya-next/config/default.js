@@ -8,9 +8,10 @@ if (config.basePath) {
   }
 }
 config.assetPrefix = config.assetPrefix || basePath || "";
-config.configOrigin = config.configOrigin || "default";
-config.distDir = config.distDir || ".next";
-config.useFileSystemPublicRoutes = config.useFileSystemPublicRoutes || true;
 config.server = config.server || {};
 config.server.host = config.server.host || "0.0.0.0";
 config.server.port = config.server.port || 3000;
+config.server.distDir = config.server.distDir || ".next";
+config.server.generateEtags = config.server.generateEtags || true;
+config.server.poweredByHeader = config.server.poweredByHeader || true;
+config.server.useFileSystemPublicRoutes = config.server.useFileSystemPublicRoutes || true;

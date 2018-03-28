@@ -36,11 +36,11 @@ class DetailPage extends React.Component {
           isOpen
           contentLabel="Create Post"
           style={detailModalStyle}
-          onRequestClose={() => this.props.router.replace('/')}
+          onRequestClose={() => this.props.router.replace("/")}
         >
           <div
             className="close fixed right-0 top-0 pointer"
-            onClick={() => this.props.router.replace('/')}
+            onClick={() => this.props.router.replace("/")}
           >
             <img src={require("../assets/close.svg")} alt="" />
           </div>

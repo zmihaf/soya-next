@@ -1,29 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import getDisplayName from '../utils/getDisplayName';
-import { localeShape } from '../constants/PropTypes';
+import React from "react";
+import PropTypes from "prop-types";
+import hoistStatics from "hoist-non-react-statics";
+import getDisplayName from "../utils/getDisplayName";
+import { localeShape } from "../constants/PropTypes";
 
 export default Component => {
   class WithLocale extends React.Component {
-    static displayName = getDisplayName('WithLocale', Component);
+    static displayName = getDisplayName("WithLocale", Component);
 
     static contextTypes = {
       defaultLocale: PropTypes.string,
       siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired),
-      locale: localeShape,
+      locale: localeShape
     };
 
     static propTypes = {
-      locale: PropTypes.oneOfType([
-        localeShape,
-        PropTypes.string,
-      ]),
+      locale: PropTypes.oneOfType([localeShape, PropTypes.string])
     };
 
     render() {
       let locale = this.props.locale || this.context.locale;
-      if (typeof locale === 'string') {
-        const [language, country] = locale.split('-');
+      if (typeof locale === "string") {
+        const [language, country] = locale.split("-");
         locale = { country, language };
       }
       return (
@@ -37,5 +35,5 @@ export default Component => {
     }
   }
 
-  return WithLocale;
+  return hoistStatics(WithLocale, Component);
 };

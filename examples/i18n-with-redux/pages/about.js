@@ -1,11 +1,11 @@
-import { createPage } from 'soya-next';
-import Layout from '../components/Layout';
-import Dictionary from '../components/Dictionary';
+import { createPage } from "soya-next";
+import Layout from "../components/Layout";
+import Dictionary from "../components/Dictionary";
 
 const AboutPage = () => (
   <Layout>
-    <Dictionary component='h1' entryKey='titleAboutUs' />
-    <Dictionary component='p' entryKey='contentAboutUs' />
+    <Dictionary component="h1" entryKey="titleAboutUs" />
+    <Dictionary component="p" entryKey="contentAboutUs" />
   </Layout>
 );
 

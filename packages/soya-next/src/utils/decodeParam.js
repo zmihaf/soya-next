@@ -1,5 +1,5 @@
 export default param => {
-  if (typeof param !== 'string' || param.length === 0) {
+  if (typeof param !== "string" || param.length === 0) {
     return param;
   }
 

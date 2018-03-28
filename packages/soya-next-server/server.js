@@ -20,9 +20,10 @@ const app = next({
   dev: false,
   conf: {
     assetPrefix: config.assetPrefix,
-    distDir: config.distDir,
-    configOrigin: config.configOrigin,
-    useFileSystemPublicRoutes: config.useFileSystemPublicRoutes
+    distDir: config.server.distDir,
+    generateEtags: config.server.generateEtags,
+    poweredByHeader: config.server.poweredByHeader,
+    useFileSystemPublicRoutes: config.server.useFileSystemPublicRoutes
   }
 });
 

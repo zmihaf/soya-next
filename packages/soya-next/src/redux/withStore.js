@@ -1,43 +1,45 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { storeShape } from 'react-redux/lib/utils/PropTypes';
-import getDisplayName from '../utils/getDisplayName';
+import React from "react";
+import PropTypes from "prop-types";
+import hoistStatics from "hoist-non-react-statics";
+import { storeShape } from "react-redux/lib/utils/PropTypes";
+import getDisplayName from "../utils/getDisplayName";
+import { NEXT_STATICS } from "../constants/Statics";
 
 export default configureStore => Page => {
   const configureStoreIfNeeded = (preloadedState, extraArgument) => {
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       return configureStore(preloadedState, extraArgument);
     }
-    if (typeof window.store === 'undefined') {
+    if (typeof window.store === "undefined") {
       window.store = configureStore(preloadedState, extraArgument);
     }
     return window.store;
   };
 
   class WithStore extends React.Component {
-    static displayName = getDisplayName('WithStore', Page);
+    static displayName = getDisplayName("WithStore", Page);
 
     static propTypes = {
       reduxState: PropTypes.object.isRequired,
-      store: PropTypes.oneOfType([
-        PropTypes.object,
-        storeShape,
-      ]).isRequired,
+      store: PropTypes.oneOfType([PropTypes.object, storeShape]).isRequired
     };
 
     static async getInitialProps(ctx) {
       const store = configureStoreIfNeeded(undefined, { cookies: ctx.cookies });
-      const props = Page.getInitialProps && await Page.getInitialProps({ ...ctx, store });
+      const props =
+        Page.getInitialProps && (await Page.getInitialProps({ ...ctx, store }));
       return {
         ...props,
         reduxState: store.getState(),
-        store,
+        store
       };
     }
 
     constructor(props) {
       super(props);
-      this.store = process.browser ? configureStoreIfNeeded(props.reduxState, { cookies: props.cookies }) : props.store;
+      this.store = process.browser
+        ? configureStoreIfNeeded(props.reduxState, { cookies: props.cookies })
+        : props.store;
     }
 
     render() {
@@ -45,11 +47,9 @@ export default configureStore => Page => {
       delete props.reduxState;
       delete props.store;
 
-      return (
-        <Page {...props} store={this.store} />
-      );
+      return <Page {...props} store={this.store} />;
     }
   }
 
-  return WithStore;
+  return hoistStatics(WithStore, Page, NEXT_STATICS);
 };

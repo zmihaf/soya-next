@@ -1,35 +1,37 @@
-import PropTypes from 'prop-types';
-import Head from 'next/head';
-import Router from 'next/router';
-import { Cookies } from 'react-cookie';
-import { createPage } from 'soya-next';
-import Layout from '../components/Layout';
+import PropTypes from "prop-types";
+import Head from "next/head";
+import Router from "next/router";
+import { Cookies } from "react-cookie";
+import { createPage } from "soya-next";
+import Layout from "../components/Layout";
 
 const login = ({ cookies }) => () => {
-  cookies.set('token', 123);
-  Router.replace('/');
+  cookies.set("token", 123);
+  Router.replace("/");
 };
 
 const LoginPage = ({ cookies }) => (
   <Layout>
-    <Head><title>Soya Next Project</title></Head>
+    <Head>
+      <title>Soya Next Project</title>
+    </Head>
     <p>Authentication required</p>
     <button onClick={login({ cookies })}>Login</button>
   </Layout>
 );
 
 LoginPage.getInitialProps = ctx => {
-  if (ctx.cookies.get('token')) {
+  if (ctx.cookies.get("token")) {
     if (ctx.res) {
-      ctx.res.redirect('/');
+      ctx.res.redirect("/");
     } else {
-      Router.replace('/');
+      Router.replace("/");
     }
   }
 };
 
 LoginPage.propTypes = {
-  cookies: PropTypes.instanceOf(Cookies),
+  cookies: PropTypes.instanceOf(Cookies)
 };
 
 export default createPage()(LoginPage);
