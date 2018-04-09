@@ -23,7 +23,7 @@ const app = next({
   // @remove-on-eject-end
 });
 const argv = process.argv ? process.argv.slice(2) : [];
-const shouldBuildSoyaLegacy = argv.indexOf("--skip-soya-legacy") === -1;
+const shouldBuildSoyaLegacy = argv.indexOf("--include-soya-legacy") !== -1;
 const buildSoya = shouldBuildSoyaLegacy ? require("./utils/build-soya") : null;
 
 app
@@ -31,7 +31,7 @@ app
   .then(
     () =>
       shouldBuildSoyaLegacy
-        ? buildSoya({ dev }).then(() => require.resolve("soya"))
+        ? buildSoya({ dev: true }).then(() => require.resolve("soya"))
         : null
   )
   .then(
