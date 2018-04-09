@@ -22,12 +22,18 @@ const app = next({
   , conf
   // @remove-on-eject-end
 });
-const buildSoya = require("./utils/build-soya");
+const argv = process.argv ? process.argv.slice(2) : [];
+const shouldBuildSoyaLegacy = argv.indexOf("--skip-soya-legacy") === -1;
+const buildSoya = shouldBuildSoyaLegacy ? require("./utils/build-soya") : null;
 
 app
   .prepare()
-  .then(() => buildSoya({ dev: true }))
-  .then(() => require.resolve("soya"))
+  .then(
+    () =>
+      shouldBuildSoyaLegacy
+        ? buildSoya({ dev }).then(() => require.resolve("soya"))
+        : null
+  )
   .then(
     stats =>
       stats ? require(join(appDir, "build/server", "index.js")).default : null,
