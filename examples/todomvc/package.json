@@ -1,6 +1,6 @@
 {
   "name": "todomvc",
-  "version": "0.5.9-alpha.0",
+  "version": "0.5.9",
   "private": true,
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
@@ -29,6 +29,6 @@
   },
   "devDependencies": {
     "react-test-renderer": "^16.0.0",
-    "soya-next-scripts": "^0.5.9-alpha.0"
+    "soya-next-scripts": "^0.5.9"
   }
 }
