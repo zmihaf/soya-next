@@ -22,6 +22,10 @@ switch (script) {
     run(`./${script}`);
     break;
   }
+  case "export": {
+    run(`../scripts/${script}`);
+    break;
+  }
   default:
     // eslint-disable-next-line no-console
     console.log(`Unknown script "${script}".`);
