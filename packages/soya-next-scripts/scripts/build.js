@@ -7,13 +7,15 @@ process.on("unhandledRejection", err => {
   throw err;
 });
 
-// @remove-on-eject-begin
-const conf = require("../next.config");
-// @remove-on-eject-end
-const build = require("next/dist/server/build").default;
-
 const { appDir } = require("../config/paths");
+const build = require("next/dist/server/build").default;
 const buildSoya = require("./utils/build-soya");
+// @remove-on-eject-begin
+const { PHASE_PRODUCTION_BUILD } = require("next/constants");
+const { loadConfig } = require("next/dist/server/config");
+const conf = require("../next.config")(loadConfig(PHASE_PRODUCTION_BUILD, appDir));
+// @remove-on-eject-end
+
 build(
   appDir
   // @remove-on-eject-begin

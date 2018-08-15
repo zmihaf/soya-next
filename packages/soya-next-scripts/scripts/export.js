@@ -1,36 +1,29 @@
 process.env.BABEL_ENV = process.env.BABEL_ENV || "production";
 process.env.NODE_ENV = process.env.NODE_ENV || "production";
 
+require("soya-next/config/default");
+
 process.on("unhandledRejection", err => {
   throw err;
 });
 
-// @remove-on-eject-begin
-const conf = require("../next.config");
-// @remove-on-eject-end
-const _export = require("next/dist/server/export").default;
-
 const { appDir } = require("../config/paths");
+const { join } = require("path");
+const _export = require("next/dist/server/export").default;
+// @remove-on-eject-begin
+const { PHASE_EXPORT } = require("next/constants");
+const { loadConfig } = require("next/dist/server/config");
+const conf = require("../next.config")(loadConfig(PHASE_EXPORT, appDir));
+// @remove-on-eject-end
 
 _export(
   appDir,
   {
     silent: false,
-    outdir: appDir + '/out',
-  },
-  {
-    webpack: null,
-    webpackDevMiddleware: null,
-    poweredByHeader: true,
-    distDir: '.next',
-    assetPrefix: '',
-    configOrigin: 'next.config.js',
-    useFileSystemPublicRoutes: true,
-    exportPathMap: function () {
-      return {
-        '/planned-routing': { page: '/planned-routing' }
-      }
-    }
+    outdir: join(appDir, "out"),
   }
+  // @remove-on-eject-begin
+  , conf
+  // @remove-on-eject-begin
 );
 

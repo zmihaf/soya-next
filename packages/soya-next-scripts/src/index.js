@@ -14,16 +14,13 @@ const run = script => {
 switch (script) {
   case "build":
   case "dev":
+  case "export":
   case "test": {
     run(`../scripts/${script}`);
     break;
   }
   case "eject": {
     run(`./${script}`);
-    break;
-  }
-  case "export": {
-    run(`../scripts/${script}`);
     break;
   }
   default:
