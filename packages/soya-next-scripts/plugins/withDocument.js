@@ -20,20 +20,11 @@ module.exports = (nextConfig = {}) =>
             const [documentPageEntry] = entries[name];
             if (documentPageEntry !== "./pages/_document.js") {
               entries[name] = [
-                `${require.resolve("../pages/_document")}?entry`
+                require.resolve("../pages/_document")
               ];
             }
             return entries;
           });
-
-        const pagesDir = join(__dirname, "..", "pages");
-        config.module.rules.push({
-          test: /\.jsx?$/,
-          include: pagesDir,
-          exclude: str =>
-            /node_modules/.test(str) && str.indexOf(pagesDir) !== 0,
-          use: options.defaultLoaders.babel
-        });
       }
 
       if (typeof nextConfig.webpack === "function") {
